@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>F7AFCA4C-3D64-4833-B22A-B9DB9E9396FE</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="752" height="550" rx="8"></rect>
+        <filter x="-1.1%" y="-1.8%" width="102.7%" height="103.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.1   0 0 0 0 0.1   0 0 0 0 0.1  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="🟢-New-Prototype-Flow-V2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03-04-Customer-Name" transform="translate(-703.000000, -186.000000)">
+            <rect fill="#EEF2F9" x="0" y="0" width="1366" height="768"></rect>
+            <g id="Create-New-Project" transform="translate(307.000000, 136.000000)">
+                <g id="Card_bg">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="Button/40h/secondary/with-icon" transform="translate(384.000000, 42.000000)">
+                    <rect id="Button-bg" stroke="#0D72FF" fill="#FFFFFF" x="0" y="0" width="135" height="40" rx="4"></rect>
+                    <g id="icon/24w/add" transform="translate(12.000000, 8.000000)">
+                        <path d="M24,0 L24,24 L0,24 L0,0 L24,0 Z" id="Vector" opacity="0"></path>
+                        <path d="M12,5.25 C12.3796958,5.25 12.693491,5.53215388 12.7431534,5.89822944 L12.75,6 L12.75,11.25 L18,11.25 C18.4142136,11.25 18.75,11.5857864 18.75,12 C18.75,12.3796958 18.4678461,12.693491 18.1017706,12.7431534 L18,12.75 L12.75,12.75 L12.75,18 C12.75,18.4142136 12.4142136,18.75 12,18.75 C11.6203042,18.75 11.306509,18.4678461 11.2568466,18.1017706 L11.25,18 L11.25,12.75 L6,12.75 C5.58578644,12.75 5.25,12.4142136 5.25,12 C5.25,11.6203042 5.53215388,11.306509 5.89822944,11.2568466 L6,11.25 L11.25,11.25 L11.25,6 C11.25,5.58578644 11.5857864,5.25 12,5.25 Z" id="Combined-Shape" fill="#0D72FF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

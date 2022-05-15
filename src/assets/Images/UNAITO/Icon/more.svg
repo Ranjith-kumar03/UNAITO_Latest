@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>BFCB9476-8F26-43AA-A366-BDD672036645</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1294" height="68"></rect>
+        <filter x="-0.6%" y="-14.7%" width="101.5%" height="129.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.1   0 0 0 0 0.1   0 0 0 0 0.1  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="🟢-New-Prototype-Flow-V2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="04-00-Project-overview" transform="translate(-1318.000000, -83.000000)">
+            <rect fill="#EEF2F9" x="0" y="0" width="1366" height="858"></rect>
+            <g id="Page-/-project" transform="translate(72.000000, 56.000000)">
+                <g id="bg">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="Icon/24w/more" transform="translate(1246.000000, 27.000000)">
+                    <path d="M24,0 L24,24 L0,24 L0,0 L24,0 Z" id="Vector" opacity="0"></path>
+                    <path d="M4.75,9 C3.23578641,9 2,10.2357864 2,11.75 C2,13.2642136 3.23578641,14.5 4.75,14.5 C6.26421359,14.5 7.5,13.2642136 7.5,11.75 C7.5,10.2357864 6.26421359,9 4.75,9 Z M4.75,10.5 C5.43578646,10.5 6,11.0642135 6,11.75 C6,12.4357865 5.43578646,13 4.75,13 C4.06421354,13 3.5,12.4357865 3.5,11.75 C3.5,11.0642135 4.06421354,10.5 4.75,10.5 Z M18.75,9 C17.2357864,9 16,10.2357864 16,11.75 C16,13.2642136 17.2357864,14.5 18.75,14.5 C20.2642136,14.5 21.5,13.2642136 21.5,11.75 C21.5,10.2357864 20.2642136,9 18.75,9 Z M18.75,10.5 C19.4357865,10.5 20,11.0642135 20,11.75 C20,12.4357865 19.4357865,13 18.75,13 C18.0642135,13 17.5,12.4357865 17.5,11.75 C17.5,11.0642135 18.0642135,10.5 18.75,10.5 Z M11.75,9 C10.2357864,9 9,10.2357864 9,11.75 C9,13.2642136 10.2357864,14.5 11.75,14.5 C13.2642136,14.5 14.5,13.2642136 14.5,11.75 C14.5,10.2357864 13.2642136,9 11.75,9 Z M11.75,10.5 C12.4357865,10.5 13,11.0642135 13,11.75 C13,12.4357865 12.4357865,13 11.75,13 C11.0642135,13 10.5,12.4357865 10.5,11.75 C10.5,11.0642135 11.0642135,10.5 11.75,10.5 Z" id="more" fill="#758CAB" transform="translate(11.750000, 11.750000) rotate(90.000000) translate(-11.750000, -11.750000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>C02D9CF7-EB73-4181-9C6B-BB2B4955F6EA</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="752" height="550" rx="8"></rect>
+        <filter x="-1.1%" y="-1.8%" width="102.7%" height="103.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.1   0 0 0 0 0.1   0 0 0 0 0.1  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="🟢-New-Prototype-Flow-V2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03-02-Create-new" transform="translate(-331.000000, -485.000000)">
+            <rect fill="#EEF2F9" x="0" y="0" width="1366" height="768"></rect>
+            <g id="Create-New-Project" transform="translate(307.000000, 136.000000)">
+                <g id="Card_bg">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="Description" transform="translate(24.000000, 224.000000)">
+                    <g id="Icon/24w/info" transform="translate(0.000000, 125.000000)">
+                        <path d="M12,0 L12,12 L0,12 L0,0 L12,0 Z" id="Vector" opacity="0"></path>
+                        <path d="M6,0.625 C8.95710678,0.625 11.375,3.04289322 11.375,6 C11.375,8.95710678 8.95710678,11.375 6,11.375 C3.04289322,11.375 0.625,8.95710678 0.625,6 C0.625,3.04289322 3.04289322,0.625 6,0.625 Z M6,1.375 C3.45710678,1.375 1.375,3.45710678 1.375,6 C1.375,8.54289322 3.45710678,10.625 6,10.625 C8.54289322,10.625 10.625,8.54289322 10.625,6 C10.625,3.45710678 8.54289322,1.375 6,1.375 Z M6.04725342,7.5 C6.32339579,7.5 6.54725342,7.72385763 6.54725342,8 C6.54725342,8.25641792 6.35423332,8.46775358 6.10556398,8.49663613 L6.04725342,8.5 L5.99725342,8.5 C5.72111104,8.5 5.49725342,8.27614237 5.49725342,8 C5.49725342,7.74358208 5.69027351,7.53224642 5.93894286,7.50336387 L5.99725342,7.5 L6.04725342,7.5 Z M6.125,3.625 C6.37813051,3.625 6.58732731,3.76607694 6.62043559,3.94911472 L6.625,4 L6.625,6.5 C6.625,6.70710678 6.40114237,6.875 6.125,6.875 C5.87186949,6.875 5.66267269,6.73392306 5.62956441,6.55088528 L5.625,6.5 L5.625,4 C5.625,3.79289322 5.84885763,3.625 6.125,3.625 Z" id="Combined-Shape" fill="#0D72FF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

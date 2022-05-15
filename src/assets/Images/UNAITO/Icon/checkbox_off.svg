@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/24w/checkbox</title>
+    <g id="Icon/24w/checkbox" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M24,0 L24,24 L0,24 L0,0 L24,0 Z" id="Vector" opacity="0"></path>
+        <path d="M15,1.25 L9,1.25 C3.58578644,1.25 1.25,3.58578644 1.25,9 L1.25,15 C1.25,20.4142136 3.58578644,22.75 9,22.75 L15,22.75 C20.4142136,22.75 22.75,20.4142136 22.75,15 L22.75,9 C22.75,3.58578644 20.4142136,1.25 15,1.25 Z M15,2.75 C19.5857864,2.75 21.25,4.41421356 21.25,9 L21.25,15 C21.25,19.5857864 19.5857864,21.25 15,21.25 L9,21.25 C4.50413094,21.25 2.81638653,19.6504099 2.75192899,15.2663919 L2.75,9 C2.75,4.50413094 4.34959012,2.81638653 8.73360813,2.75192899 L15,2.75 Z" id="Combined-Shape" fill="#1A1A1A"></path>
+    </g>
+</svg>

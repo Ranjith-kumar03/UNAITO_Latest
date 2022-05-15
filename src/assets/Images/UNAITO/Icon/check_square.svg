@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>AD2987F8-2450-4214-8D3E-A8C0E62CB361</title>
+    <defs>
+        <rect id="path-1" x="307" y="136" width="752" height="538" rx="8"></rect>
+        <filter x="-1.1%" y="-1.9%" width="102.7%" height="103.7%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.1   0 0 0 0 0.1   0 0 0 0 0.1  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="🟢-New-Prototype-Flow-V2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="04-03-Add-drivers" transform="translate(-331.000000, -195.000000)">
+            <rect fill="#EEF2F9" x="0" y="0" width="1366" height="768"></rect>
+            <g id="Card_bg">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <g id="Icon/24w/checkbox" transform="translate(331.000000, 195.000000)">
+                <path d="M20,0 L20,20 L0,20 L0,0 L20,0 Z" id="Vector" opacity="0"></path>
+                <path d="M12.2916667,0.833333333 C16.8035113,0.833333333 18.75,2.77982203 18.75,7.29166667 L18.75,7.29166667 L18.75,12.2916667 C18.75,16.8035113 16.8035113,18.75 12.2916667,18.75 L12.2916667,18.75 L7.29166667,18.75 C2.77982203,18.75 0.833333333,16.8035113 0.833333333,12.2916667 L0.833333333,12.2916667 L0.833333333,7.29166667 C0.833333333,2.77982203 2.77982203,0.833333333 7.29166667,0.833333333 L7.29166667,0.833333333 Z M12.2916667,2.08333333 L7.06967344,2.08494082 C3.4163251,2.13865544 2.08333333,3.54510912 2.08333333,7.29166667 L2.08333333,7.29166667 L2.08494082,12.5136599 C2.13865544,16.1670082 3.54510912,17.5 7.29166667,17.5 L7.29166667,17.5 L12.2916667,17.5 C16.1131554,17.5 17.5,16.1131554 17.5,12.2916667 L17.5,12.2916667 L17.5,7.29166667 C17.5,3.47017797 16.1131554,2.08333333 12.2916667,2.08333333 L12.2916667,2.08333333 Z M13.775665,6.99181846 C13.9973578,7.21390302 14.0172231,7.56114043 13.8354618,7.80565634 L13.7748848,7.87570159 L9.04988476,12.5923681 C8.8279388,12.8139227 8.48096246,12.8339198 8.23644539,12.6524598 L8.16639153,12.5919782 L5.80805826,10.233645 C5.56398058,9.98956728 5.56398058,9.59383917 5.80805826,9.34976149 C6.02994706,9.12787268 6.3771668,9.10770097 6.62184304,9.28924636 L6.69194174,9.34976149 L8.60833333,11.2658333 L12.8917818,6.99103832 C13.1360749,6.74717616 13.5318028,6.74752544 13.775665,6.99181846 Z" id="Combined-Shape" fill="#0D72FF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

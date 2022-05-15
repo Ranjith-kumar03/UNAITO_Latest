@@ -1,0 +1,89 @@
+<div class="signin_wrapper">
+    <div class="col">
+        <div class="form-signin">
+            <div class="form-group lang mb-5 text-center">
+                <label><img class="svg" src="../../../assets/Images/UNAITO/login/login_logo.svg" alt="Logo" /></label>
+            </div>
+            <h1 class="mb-5">Sign In</h1>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <!-- <div class="form-group">
+                    <div class="input-icon">
+                        <input type="text" class="form-control" id="enterUsername" formControlName="username"
+                            aria-describedby="emailHelp" placeholder="Enter username" required  autofocus>
+                       
+
+                        <div *ngIf="(username.invalid && username.errors?.required) && 
+                (username.dirty || username.touched)" class="alert alert-danger">
+
+                            <div *ngIf="username.errors?.required">
+                                Username is required.
+                            </div>
+                        </div>
+
+                    </div>
+                </div> -->
+                <div class="form-group">
+                    <div class="input-icon">
+                        <input type="text" class="form-control" id="enterUsername" formControlName="username"
+                            placeholder="Enter username" required>
+                        <!-- <div *ngIf="isFieldInvalid('password')">
+                                Please inform your password
+                            </div> -->
+                            <div *ngIf="(username.invalid && username.errors?.required )&& 
+                            (username.dirty || username.touched)" class="alert alert-danger">
+            
+                                        <div *ngIf="username.errors?.required">
+                                           Username is required.
+                                        </div>
+                                        
+                                    </div>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="input-icon">
+                        <input type="password" class="form-control" id="enterPassword" formControlName="password"
+                            placeholder="Enter password" required>
+                        <!-- <div *ngIf="isFieldInvalid('password')">
+                                Please inform your password
+                            </div> -->
+                            <div *ngIf="(password.invalid && (password.errors?.required || password.errors?.minlength || password.errors?.pattern ) )&& 
+                            (password.dirty || password.touched)" class="alert alert-danger">
+            
+                                        <div *ngIf="password.errors?.required">
+                                            Password is required.
+                                        </div>
+                                        <div *ngIf="password.errors?.minlength">
+                                            Password Minimum length should be 8.
+                                        </div>
+                                        <div *ngIf="password.errors?.pattern">
+                                            •	At least 1 capital letter
+                                            •	At least 1 digit
+                                            •	At least 1 special character
+
+                                        </div>
+                                    </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="d-flex justify-content-between">
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1"
+                                formControlName="rememberMe">
+                            <label for="customCheck1">Remember Me</label>
+                        </div>
+                        <!-- &quest; -->
+                        <a href="forgot-password.html" class="btn-link">Forgot password</a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="col loginBanner d-flex align-items-center"></div>
+</div>

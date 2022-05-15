@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="46px" viewBox="0 0 45 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>261860C4-AEAD-4C3E-9E6D-993FA7832B44</title>
+    <defs>
+        <rect id="path-1" x="0.5" y="0" width="1033" height="168" rx="4"></rect>
+        <filter x="-0.8%" y="-6.2%" width="102.0%" height="112.5%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="2" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.1   0 0 0 0 0.1   0 0 0 0 0.1  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="🟢-New-Prototype-Flow-V2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="04-00-Project-overview" transform="translate(-720.000000, -544.000000)">
+            <rect fill="#EEF2F9" x="0" y="0" width="1366" height="858"></rect>
+            <g id="Rectangle" transform="translate(306.500000, 458.000000)">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use stroke="#FFFFFF" stroke-width="1" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <g id="Team" transform="translate(720.000000, 539.000000)" opacity="0.5">
+                <g id="Icon/24w/add-member" transform="translate(0.000000, 5.600000)">
+                    <path d="M44.6899263,0 L44.6899263,44.8 L0,44.8 L0,0 L44.6899263,0 Z" id="Vector" opacity="0"></path>
+                    <path d="M21.8794431,1.86666667 C32.8921834,1.86666667 41.8968059,10.893468 41.8968059,21.9333333 C41.8968059,32.9731986 32.8921834,42 21.8794431,42 C10.8667027,42 1.86208026,32.9731986 1.86208026,21.9333333 C1.86208026,10.893468 10.8667027,1.86666667 21.8794431,1.86666667 Z M21.8794431,4.66666667 C12.4093005,4.66666667 4.65520066,12.4398653 4.65520066,21.9333333 C4.65520066,31.4268014 12.4093005,39.2 21.8794431,39.2 C31.3495856,39.2 39.1036855,31.4268014 39.1036855,21.9333333 C39.1036855,12.4398653 31.3495856,4.66666667 21.8794431,4.66666667 Z M21.8794431,13.0666667 C22.5864671,13.0666667 23.1707789,13.5933539 23.2632543,14.276695 L23.2760033,14.4666667 L23.2750803,20.5326667 L29.3277641,20.5333333 C30.099063,20.5333333 30.7243243,21.1601347 30.7243243,21.9333333 C30.7243243,22.6420988 30.1989312,23.2278498 29.5172691,23.320553 L29.3277641,23.3333333 L23.2750803,23.3326667 L23.2760033,29.4 C23.2760033,30.1731986 22.650742,30.8 21.8794431,30.8 C21.1724191,30.8 20.5881072,30.2733128 20.4956318,29.5899717 L20.4828829,29.4 L20.4820803,23.3326667 L14.431122,23.3333333 C13.6598231,23.3333333 13.0345618,22.706532 13.0345618,21.9333333 C13.0345618,21.2245679 13.559955,20.6388169 14.2416171,20.5461137 L14.431122,20.5333333 L20.4820803,20.5326667 L20.4828829,14.4666667 C20.4828829,13.693468 21.1081442,13.0666667 21.8794431,13.0666667 Z" id="Combined-Shape" fill="#0D72FF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

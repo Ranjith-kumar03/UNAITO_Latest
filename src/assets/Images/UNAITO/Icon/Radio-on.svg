@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>71C76D6E-B9AC-4509-91FA-2A8ACA1E713A</title>
+    <defs>
+        <rect id="path-1" x="307" y="136" width="752" height="752" rx="8"></rect>
+        <filter x="-1.1%" y="-1.3%" width="102.7%" height="102.7%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.1   0 0 0 0 0.1   0 0 0 0 0.1  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="🟢-New-Prototype-Flow-V2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="04-08-Scope" transform="translate(-363.000000, -303.000000)">
+            <rect fill="#EEF2F9" x="0" y="0" width="1366" height="928"></rect>
+            <g id="Card_bg">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <g id="Icon/24w/checkbox" transform="translate(363.000000, 303.000000)">
+                <path d="M20,0 L20,20 L0,20 L0,0 L20,0 Z" id="Vector" opacity="0"></path>
+                <path d="M10,1.04166667 C5.0714887,1.04166667 1.04166667,5.0714887 1.04166667,10 C1.04166667,14.9285113 5.0714887,18.9583333 10,18.9583333 C14.9285113,18.9583333 18.9583333,14.9285113 18.9583333,10 C18.9583333,5.0714887 14.9285113,1.04166667 10,1.04166667 Z M10,2.29166667 C14.2381554,2.29166667 17.7083333,5.76184464 17.7083333,10 C17.7083333,14.2381554 14.2381554,17.7083333 10,17.7083333 C5.76184464,17.7083333 2.29166667,14.2381554 2.29166667,10 C2.29166667,5.76184464 5.76184464,2.29166667 10,2.29166667 Z M10,14.7916667 C12.6463644,14.7916667 14.7916667,12.6463644 14.7916667,10 C14.7916667,7.35363557 12.6463644,5.20833333 10,5.20833333 C7.35363557,5.20833333 5.20833333,7.35363557 5.20833333,10 C5.20833333,12.6463644 7.35363557,14.7916667 10,14.7916667 Z" id="close" fill="#0D72FF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
