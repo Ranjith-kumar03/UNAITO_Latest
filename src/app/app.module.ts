@@ -12,6 +12,8 @@ import { LogoutComponent } from './Component/logout/logout.component';
 import { HeaderComponent } from './Component/header/header.component';
 import { SidebarComponent } from './Component/sidebar/sidebar.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,11 +22,13 @@ import { SidebarComponent } from './Component/sidebar/sidebar.component';
     ApplicationComponent,
     LogoutComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,ReactiveFormsModule,HttpClientModule
+    AppRoutingModule,ReactiveFormsModule,HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

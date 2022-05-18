@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewChecked, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -6,12 +6,13 @@ import { Subject } from 'rxjs';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, AfterViewChecked {
   @Input() subMenuState;
   @Input() appListState;
   @Input() notificationState;
   @Input() searchState;
 
+  
   logotStatus = new Subject();
 
 
@@ -20,7 +21,7 @@ export class SidebarComponent implements OnInit {
   showAppList = true;
   showNotification = true;
   showSearch = true;
-  constructor() { }
+  constructor(private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
    
@@ -38,6 +39,11 @@ export class SidebarComponent implements OnInit {
     this.showSearch= this.searchState;
   }
 
+  ngAfterViewChecked(): void {
+    
+     this.cdr.detectChanges();
+     
+  }
   
 
 
