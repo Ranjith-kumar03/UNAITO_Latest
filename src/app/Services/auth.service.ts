@@ -48,43 +48,29 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
-  login(username: string, password: string, isRememberMe: boolean) {
-    // return this.http
-    //   .post<any>(environment.apiUrl + 'users/authenticate', { _id: username, password: password })
-    //   .pipe(
-    //     tap(user => {
-    //       if (user && user.token) {
-    //         if (isRememberMe) {
-    //           this.resetcredentials();
-    //           //your logged  out when you click logout
-    //           localStorage.setItem('currentUser', JSON.stringify(user));
-    //           localStorage.setItem('rememberCurrentUser', 'true');
-    //         } else {
-    //           //your logged  out when page/ browser is closed
-    //           sessionStorage.setItem('currentUser', JSON.stringify(user));
-    //         }
-    //         // login successful if there's a jwt token in the response
-    //         this.isLoggedIn = true;
-    //         this.currentUserSubject.next(user);
-    //         return true;
-    //       } else {
-    //         return false;
-    //       }
-    //     })
-    //   );
-    if (username !== '' && password !== '' ) { 
-      this.loggedIn.next(true);
-      // localStorage.setItem('currentUser', JSON.stringify(username));
-      // localStorage.setItem('rememberCurrentUser', 'true');
-      this.router.navigate(['/application']);
-    }
+  login(username: string, password: string) {
+
+    return this.http.post<any>(environment.API_URL, {
+      username,
+      password
+    })
+    
+    
   }
+  setLoggedIn(value: boolean) {
+    this.loggedIn.next(true);
+    this.isLoggedIn=true
+    this.router.navigate(['/application']);
+      }
+
+
   resetcredentials() {
     //clear all localstorages
     localStorage.removeItem('rememberCurrentUser');
     localStorage.removeItem('currentUser');
     sessionStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+    this.isLoggedIn=false
     this.loggedIn.next(false);
   }
 

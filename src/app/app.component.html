@@ -10,8 +10,12 @@
         </div>
     
 
-    <div class="col-m-4  " id="sidebar">
-        <app-sidebar class="" [subMenuState]="subMenuState" [appListState]="appListState" [notificationState]="notificationState" [searchState]="searchState"></app-sidebar>
+    <div class="col-m-4 "  id="sidebar">
+        <!-- <app-sidebar [@slideInOut]="menuState" clickOutside (clickOutside)="closeMenu()" ></app-sidebar> -->
+   
+        <app-sidebar  
+         [subMenuState]="subMenuState" [appListState]="appListState" [notificationState]="notificationState" [searchState]="searchState"></app-sidebar>
+      
     </div>
 </div>
 

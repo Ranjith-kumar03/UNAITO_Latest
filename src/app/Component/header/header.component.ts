@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AfterContentChecked, AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/Services/auth.service';
 
@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/Services/auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, AfterViewChecked {
+export class HeaderComponent implements OnInit, AfterViewChecked,AfterContentChecked {
   isLoggedIn$: Observable<boolean>;   
   @Output() menuState = new EventEmitter();
   @Output() appListState = new EventEmitter();
@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
   @Output() searchState = new EventEmitter();
   
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,private cdr: ChangeDetectorRef) { }
 
   ////For Closing Sider Bar During Logout
   ngAfterViewChecked(): void {
@@ -23,11 +23,17 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
       this.showMenu = false;
       this.menuState.emit(this.showMenu);
      }
+     this.cdr.detectChanges();
+     
   }
 
   ngOnInit(): void {
     this.isLoggedIn$ = this.authService.isLoggedInAsync; 
   }
+
+  ngAfterContentChecked() {
+    
+}
 
   opened: boolean;
   showMenu = false; /* false by default, since hidden */

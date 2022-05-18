@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/Services/auth.service';
 
 
@@ -31,10 +32,10 @@ export interface User {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit,OnDestroy {
 
   loginForm: FormGroup;                   
-  private formSubmitAttempt: boolean; 
+  private subscription: Subscription = new Subscription();
   submitted = false;
   
   constructor(private fb: FormBuilder,         
@@ -75,24 +76,23 @@ get password(){
   // }
 
   onSubmit() {
-    console.log(this.loginForm.get('password'))
-    console.log(this.loginForm.get('username'))
-    console.log(this.loginForm)
-    
-      if (this.loginForm.valid) {
-      console.log("login value",this.loginForm.value)
-      this.authService.login(this.loginForm.value.email,this.loginForm.value.password,this.loginForm.value.rememberMe); 
-      this.router.navigate(['/application'])
-    }
-    this.formSubmitAttempt = true;             
-console.log("click happens")
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.loginForm.invalid) {
-        return;
-    }
+    this.router.navigate(['application'])
+       this.authService.setLoggedIn(true)
+      console.log("submit clicked")
+    this.subscription.add(this.authService.login(this.loginForm.get('username').value,this.loginForm.get('password').value ).subscribe((data) => {
+      console.log("see the data",data)
+      if(data.responseObject==="Success") {
+        this.authService.setLoggedIn(true)
+      } else {
+        window.alert(data.responseCode)
+      }
+    },(err)=>{console.log("see the error",err)}))
     
   }
+
+  ngOnDestroy() {  
+    // Unsubscribed the subscription  
+   this.subscription.unsubscribe();  
+   }  
 
 }
