@@ -77,7 +77,7 @@ get password(){
 
   onSubmit() {
     this.router.navigate(['application'])
-       this.authService.setLoggedIn(true)
+      this.authService.setLoggedIn(true)
       console.log("submit clicked")
     this.subscription.add(this.authService.login(this.loginForm.get('username').value,this.loginForm.get('password').value ).subscribe((data) => {
       console.log("see the data",data)

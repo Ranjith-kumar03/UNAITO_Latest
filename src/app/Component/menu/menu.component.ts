@@ -1,12 +1,25 @@
-import { AfterViewChecked, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2, HostListener, ChangeDetectorRef, Input } from '@angular/core';
 import { Subject } from 'rxjs';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
 })
-export class SidebarComponent implements OnInit, AfterViewChecked {
+export class MenuComponent implements OnInit {
+
+  constructor(private el:ElementRef, private renderer:Renderer2,private cdr: ChangeDetectorRef,private authService: AuthService) { }
+
+  
+
+  // @HostListener('click', ['$event.target'])
+  // onClick(target){
+  //   let item = this.el.nativeElement.querySelector('li');
+
+  //   alert(item);
+  // }
+
   @Input() subMenuState;
   @Input() appListState;
   @Input() notificationState;
@@ -21,10 +34,10 @@ export class SidebarComponent implements OnInit, AfterViewChecked {
   showAppList = true;
   showNotification = true;
   showSearch = true;
-  constructor(private cdr: ChangeDetectorRef) { }
+  
 
   ngOnInit(): void {
-   
+    this.authService.logout();
   }
 
   ngOnChanges()
@@ -46,5 +59,5 @@ export class SidebarComponent implements OnInit, AfterViewChecked {
   }
   
 
-
+  
 }
