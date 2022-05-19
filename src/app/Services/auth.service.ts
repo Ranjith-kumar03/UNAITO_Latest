@@ -23,7 +23,7 @@ export class AuthService {
     private http: HttpClient
   ) //public ngZone: NgZone // NgZone service to remove outside scope warning
   {
-    //this.rememberMe = localStorage.getItem('rememberCurrentUser') == 'true' ? true : false;
+    this.rememberMe = localStorage.getItem('rememberCurrentUser') == 'true' ? true : false;
 
     if ((this.rememberMe = true)) {
       this.currentUserSubject = new BehaviorSubject<User>(
@@ -35,7 +35,7 @@ export class AuthService {
       // );
     }
 
-    this.currentUser = this.currentUserSubject.asObservable();
+    // this.currentUser = this.currentUserSubject.asObservable();
 
     this.httpOptions = {
       headers: new HttpHeaders({

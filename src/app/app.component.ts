@@ -1,4 +1,6 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectorRef, Component, EventEmitter, Output } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './Services/auth.service';
 
@@ -7,64 +9,143 @@ import { AuthService } from './Services/auth.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  host: {
-    "(window:click)": "onClick()"
-  }
+  animations: [
+    trigger('slideInOut', [
+      state('in', style({
+        transform: 'translate3d(0,0,0)'
+      })),
+      state('out', style({
+        transform: 'translate3d(100%, 0, 0)'
+      })),
+      transition('in => out', animate('400ms ease-in-out')),
+      transition('out => in', animate('400ms ease-in-out'))
+    ]),
+  ]
 })
 export class AppComponent {
-  isLoggedIn$: Observable<boolean>;   
-  subMenuState:boolean = false;
-  appListState:boolean = false;
-  notificationState:boolean = false;
-  searchState:boolean = false;
-  @Output() openSideBar = new EventEmitter();
-  
-  
+  isLoggedIn$: Observable<boolean>;
+  // subMenuState: boolean = false;
+  // appListState: boolean = false;
+  // notificationState: boolean = false;
+  // //searchState: boolean = false;
+  // openSideBarStatus: boolean=false
+
+  menuStatefirstTime: boolean = false;
+  searchStatefirstTime: boolean = false;
+  toggleNotificationStatefirstTime: boolean = false;
+  toggleAppListStatefirstTime: boolean = false
 
 
 
-  menuClicked(evnt){
-    this.subMenuState = evnt;
-    
-    console.log("inside burgerClicked: pls. change showMenu to be:",this.subMenuState);
-  }
-  
-  appListClicked(evnt){
-    this.appListState = evnt;
-    
-    console.log("inside appListClicked: pls. change appListClicked to be:",this.appListState);
-  }
+  menuState: string = 'out';
+  searchState: string = 'out';
+  toggleNotificationState: string = 'out'
+  toggleAppListState: string = 'out'
 
-  notificationClicked(evnt){
-  this.notificationState=evnt;
-  
-  console.log("inside notificationClicked: pls. change notificationClickedto be:",this.notificationState);
+  toggleMenu() {
+    this.menuState = this.menuState === 'out' ? 'in' : 'out';
+    console.log(this.menuState)
+    this.menuStatefirstTime = true;
   }
 
-  searchClicked(evnt){
-    this.searchState=evnt;
-   
-    console.log("inside searchClicked: pls. change searchClicked to be:",this.searchState);
+  closeMenu() {
+    console.log(this.menuState, this.menuStatefirstTime);
+    if (this.menuState === 'in' && !this.menuStatefirstTime) {
+      this.menuState = 'out';
     }
+    this.menuStatefirstTime = false;
+  }
 
-  constructor(private authService: AuthService, private cdr: ChangeDetectorRef) { }
+
+  toggleSearch() {
+    this.searchState = this.searchState === 'out' ? 'in' : 'out';
+    console.log(this.searchState)
+    this.searchStatefirstTime = true;
+  }
+
+  closeSearch() {
+    console.log(this.searchState, this.searchStatefirstTime);
+    if (this.searchState === 'in' && !this.searchStatefirstTime) {
+      this.searchState = 'out';
+    }
+    this.searchStatefirstTime = false;
+  }
+
+  toggleNotification() {
+    this.toggleNotificationState = this.toggleNotificationState === 'out' ? 'in' : 'out';
+    console.log(this.toggleNotificationState)
+    this.toggleNotificationStatefirstTime = true;
+  }
+
+  closeNotification() {
+    console.log(this.toggleNotificationState, this.toggleNotificationStatefirstTime);
+    if (this.toggleNotificationState === 'in' && !this.toggleNotificationStatefirstTime) {
+      this.toggleNotificationState = 'out';
+    }
+    this.toggleNotificationStatefirstTime = false;
+  }
+
+
+  toggleAppList() {
+    this.toggleAppListState = this.toggleAppListState === 'out' ? 'in' : 'out';
+    console.log(this.toggleAppListState)
+    this.toggleAppListStatefirstTime = true;
+  }
+
+  closeAppList() {
+    console.log(this.toggleAppListState, this.toggleAppListStatefirstTime);
+    if (this.toggleAppListState === 'in' && !this.toggleAppListStatefirstTime) {
+      this.toggleAppListState = 'out';
+    }
+    this.toggleAppListStatefirstTime = false;
+  }
+
+
+
+  // menuClicked(evnt) {
+  //   this.subMenuState = evnt;
+  //   this.openSideBarStatus = true;
+  //   console.log("inside burgerClicked: pls. change showMenu to be:", this.subMenuState);
+  // }
+
+  // appListClicked(evnt) {
+  //   this.appListState = evnt;
+  //   this.openSideBarStatus = true;
+  //   console.log("inside appListClicked: pls. change appListClicked to be:", this.appListState);
+  // }
+
+  // notificationClicked(evnt) {
+  //   this.notificationState = evnt;
+  //   this.openSideBarStatus = true;
+  //   console.log("inside notificationClicked: pls. change notificationClickedto be:", this.notificationState);
+  // }
+
+  // searchClicked(evnt) {
+  //   this.searchState = evnt;
+  //   this.openSideBarStatus = true;
+  //   console.log("inside searchClicked: pls. change searchClicked to be:", this.searchState);
+  // }
+
+  constructor(private authService: AuthService, private cdr: ChangeDetectorRef, private router: Router) {
+
+    //console.log("see router url",router.url);
+
+
+
+  }
 
   ngOnInit() {
-    this.isLoggedIn$ = this.authService.isLoggedInAsync; 
+    this.isLoggedIn$ = this.authService.isLoggedInAsync;
   }
 
-  ngAfterViewChecked()
-  {
+  ngAfterViewChecked() {
     this.cdr.detectChanges()
+    if (!this.authService.isLoggedIn) {
+      this.closeMenu()
+    }
   }
 
-  onClick()
-  {
-    this.openSideBar.emit()
-  }
-  
 
-  onLogout(){
-    this.authService.logout();                      
-  }
+
+
 }
