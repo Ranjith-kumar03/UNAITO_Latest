@@ -24,6 +24,7 @@ import { AuthService } from './Services/auth.service';
 })
 export class AppComponent {
   isLoggedIn$: Observable<boolean>;
+  screen_Application:boolean = false;
   // subMenuState: boolean = false;
   // appListState: boolean = false;
   // notificationState: boolean = false;
@@ -126,12 +127,12 @@ export class AppComponent {
   //   console.log("inside searchClicked: pls. change searchClicked to be:", this.searchState);
   // }
 
-  constructor(private authService: AuthService, private cdr: ChangeDetectorRef, private router: Router) {
+  constructor(private authService: AuthService, private cdr: ChangeDetectorRef, private router: Router) {  }
 
-    //console.log("see router url",router.url);
-
-
-
+  isApplicationView() {
+    // return true if the current page is home
+    console.log("see the router url",this.router.url)
+    return this.router.url.match('/application');
   }
 
   ngOnInit() {
