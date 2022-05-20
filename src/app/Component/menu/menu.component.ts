@@ -1,11 +1,13 @@
-import { Component, OnInit, ElementRef, Renderer2, HostListener, ChangeDetectorRef, Input } from '@angular/core';
+
+import { Component, OnInit, ElementRef, Renderer2, HostListener, ChangeDetectorRef, Input, ViewEncapsulation } from '@angular/core';
 import { Subject } from 'rxjs';
 import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.css'],
+  
 })
 export class MenuComponent implements OnInit {
 

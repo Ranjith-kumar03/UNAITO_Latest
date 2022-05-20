@@ -40,28 +40,32 @@
                     </div>
                     <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
 
-                        <li class="nav-item assoc-app-btn1 expose" id="helpTxt">
+                        <!-- <li class="nav-item assoc-app-btn1 expose" id="helpTxt">
                             <a (click)="toggleSearch()" class="nav-link"><img
                                     src="../assets/Images/UNAITO/Header/search.svg"></a>
-                        </li>
-
-                        <li class="nav-item assoc-app-btn1 expose" id="notifyTxt">
-                            <a (click)="toggleNotification()" class="nav-link">
-                                <img src="../assets/Images/UNAITO/Header/notification.svg">
-                                <span class="badge badge-light">9</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item assoc-app-btn1 expose" id="appListTxt">
-                            <a (click)="toggleAppList()" class="nav-link"><img
-                                    src="../assets/Images/UNAITO/Header/applicationlist.svg"></a>
-                        </li>
-                        <li class="nav-item assoc-app-btn1 dropdown usr-prof" id="aboutTxt">
-                            <a (click)="toggleMenu()" class="nav-link dropdown-toggle expose">
-                                <!-- <span>Warren Haynes <br> <small>Zinc Corporation Ltd.,</small>(click)="toggleMenu()"</span> -->
-                                <img src="../assets/Images/UNAITO/Header/profile.svg">
-                            </a>
-                        </li>
+                        </li> -->
+                        <ng-container *ngIf="!isApplicationView()">
+                            <li class="nav-item assoc-app-btn1 expose" id="notifyTxt">
+                                <a (click)="toggleNotification()" class="nav-link">
+                                    <img src="../assets/Images/UNAITO/Header/notification.svg">
+                                    <span class="badge badge-light">9</span>
+                                </a>
+                            </li>
+                        </ng-container>
+                        <ng-container *ngIf="!isApplicationView()">
+                            <li class="nav-item assoc-app-btn1 expose" id="appListTxt">
+                                <a (click)="toggleAppList()" class="nav-link"><img
+                                        src="../assets/Images/UNAITO/Header/applicationlist.svg"></a>
+                            </li>
+                        </ng-container>
+                        <ng-container >
+                            <li class="nav-item assoc-app-btn1 dropdown usr-prof" id="aboutTxt">
+                                <a (click)="toggleMenu()" class="nav-link dropdown-toggle expose">
+                                    <!-- <span>Warren Haynes <br> <small>Zinc Corporation Ltd.,</small>(click)="toggleMenu()"</span> -->
+                                    <img src="../assets/Images/UNAITO/Header/profile.svg">
+                                </a>
+                            </li>
+                        </ng-container>
 
 
                     </ul>
@@ -76,19 +80,25 @@
 <!-- <app-header (menuState)='menuClicked($event)' (appListState)="appListClicked($event)" (notificationState)="notificationClicked($event)" (searchState)="searchClicked($event)">
   
   </app-header> -->
-<!-- <h1>{{name}} Sidebar</h1> --> -->
-<div class="container-fluid">
+<!-- <h1>{{name}} Sidebar</h1> -->
+<!-- <div class="container-fluid">
     <div class="row">
-        <div class="col">
-            <router-outlet></router-outlet>
+        <div class="col"> -->
+<router-outlet></router-outlet>
 
-        </div>
-        <div class="col-m-4 " id="sidebar">
-            <app-menu [@slideInOut]="menuState" clickOutside (clickOutside)="closeMenu()"></app-menu>
-            <app-search [@slideInOut]="searchState" clickOutside (clickOutside)="closeSearch()"></app-search>
-            <app-notification [@slideInOut]="toggleNotificationState" clickOutside (clickOutside)="closeNotification()">
-            </app-notification>
-            <app-list [@slideInOut]="toggleAppListState" clickOutside (clickOutside)="closeAppList()"></app-list>
+<!-- </div>
+        <div class="col-m-4 " id="sidebar" > -->
 
-        </div>
-    </div>
+<app-menu [@slideInOut]="menuState" clickOutside (clickOutside)="closeMenu()"></app-menu>
+
+
+<app-search [@slideInOut]="searchState" clickOutside (clickOutside)="closeSearch()"></app-search>
+
+
+<app-notification [@slideInOut]="toggleNotificationState" clickOutside (clickOutside)="closeNotification()">
+</app-notification>
+
+<app-list [@slideInOut]="toggleAppListState" clickOutside (clickOutside)="closeAppList()"></app-list>
+
+<!-- </div>
+    </div> -->
