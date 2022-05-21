@@ -14,6 +14,8 @@ import { SearchComponent } from './Component/search/search.component';
 import { NotificationComponent } from './Component/notification/notification.component';
 import { AppListComponent } from './Component/app-list/app-list.component';
 import { ClickOutsideDirective } from './Directives/ClickOutsideDirective';
+import { ProjectListComponent } from './Component/project-list/project-list.component';
+import { LeftSideBarComponent } from './Component/left-side-bar/left-side-bar.component';
 
 
 
@@ -26,7 +28,7 @@ import { ClickOutsideDirective } from './Directives/ClickOutsideDirective';
     LogoutComponent,
     SearchComponent,
     NotificationComponent,
-    AppListComponent,MenuComponent,ClickOutsideDirective
+    AppListComponent,MenuComponent,ClickOutsideDirective, ProjectListComponent, LeftSideBarComponent
     
     
   ],
