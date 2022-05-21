@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,8 @@ import { AppListComponent } from './Component/app-list/app-list.component';
 import { ClickOutsideDirective } from './Directives/ClickOutsideDirective';
 import { ProjectListComponent } from './Component/project-list/project-list.component';
 import { LeftSideBarComponent } from './Component/left-side-bar/left-side-bar.component';
+import { CreateNewProjectComponent } from './Component/create-new-project/create-new-project.component';
+
 
 
 
@@ -28,13 +30,13 @@ import { LeftSideBarComponent } from './Component/left-side-bar/left-side-bar.co
     LogoutComponent,
     SearchComponent,
     NotificationComponent,
-    AppListComponent,MenuComponent,ClickOutsideDirective, ProjectListComponent, LeftSideBarComponent
+    AppListComponent,MenuComponent,ClickOutsideDirective, ProjectListComponent, LeftSideBarComponent, CreateNewProjectComponent, 
     
     
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,ReactiveFormsModule,HttpClientModule,BrowserAnimationsModule
+    AppRoutingModule,ReactiveFormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
