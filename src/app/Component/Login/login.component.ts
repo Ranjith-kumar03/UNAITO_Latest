@@ -79,14 +79,14 @@ get password(){
     this.router.navigate(['application'])
       this.authService.setLoggedIn(true)
       console.log("submit clicked")
-    this.subscription.add(this.authService.login(this.loginForm.get('username').value,this.loginForm.get('password').value ).subscribe((data) => {
-      console.log("see the data",data)
-      if(data.responseObject==="Success") {
-        this.authService.setLoggedIn(true)
-      } else {
-        window.alert(data.responseCode)
-      }
-    },(err)=>{console.log("see the error",err)}))
+    // this.subscription.add(this.authService.login(this.loginForm.get('username').value,this.loginForm.get('password').value ).subscribe((data) => {
+    //   console.log("see the data",data)
+    //   if(data.responseObject==="Success") {
+    //     this.authService.setLoggedIn(true)
+    //   } else {
+    //     window.alert(data.responseCode)
+    //   }
+    // },(err)=>{console.log("see the error",err)}))
     
   }
 
