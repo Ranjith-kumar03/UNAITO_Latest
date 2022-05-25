@@ -55,10 +55,11 @@
                             <div *ngIf="password.errors?.required">
                                 Password is required.
                             </div>
-                            <div *ngIf="password.errors?.minlength ">
-                                Password Minimum length should be 8.
-                            </div>
+                            <!-- <div *ngIf="password.errors?.minlength ">
+                                
+                            </div> -->
                             <div *ngIf="password.errors?.pattern ">
+                                • Password Minimum length should be 8.
                                 • At least 1 capital letter
                                 • At least 1 digit
                                 • At least 1 special character
