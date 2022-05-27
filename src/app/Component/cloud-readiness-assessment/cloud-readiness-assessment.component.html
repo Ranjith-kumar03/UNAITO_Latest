@@ -1,0 +1,10 @@
+<div class="container-fluid d-flex">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 colPad" *ngFor="let item of cra">
+        <div class="card subCard" >
+            <h3 class="cardSubTitle">{{item .title}}</h3>
+            <!-- <div class="prjStatus online"> On Track</div> -->
+            <div class="prjPeriod"><img src={{item.image}} />{{item.duration}}</div>
+        </div>
+    </div>
+   
+</div>

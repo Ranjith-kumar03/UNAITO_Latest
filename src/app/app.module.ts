@@ -17,6 +17,7 @@ import { ClickOutsideDirective } from './Directives/ClickOutsideDirective';
 import { ProjectListComponent } from './Component/project-list/project-list.component';
 import { LeftSideBarComponent } from './Component/left-side-bar/left-side-bar.component';
 import { CreateNewProjectComponent } from './Component/create-new-project/create-new-project.component';
+import { CloudReadinessAssessmentComponent } from './Component/cloud-readiness-assessment/cloud-readiness-assessment.component';
 
 
 
@@ -30,7 +31,7 @@ import { CreateNewProjectComponent } from './Component/create-new-project/create
     LogoutComponent,
     SearchComponent,
     NotificationComponent,
-    AppListComponent,MenuComponent,ClickOutsideDirective, ProjectListComponent, LeftSideBarComponent, CreateNewProjectComponent, 
+    AppListComponent,MenuComponent,ClickOutsideDirective, ProjectListComponent, LeftSideBarComponent, CreateNewProjectComponent, CloudReadinessAssessmentComponent, 
     
     
   ],
