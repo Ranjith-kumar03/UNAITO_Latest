@@ -18,6 +18,7 @@ import { ProjectListComponent } from './Component/project-list/project-list.comp
 import { LeftSideBarComponent } from './Component/left-side-bar/left-side-bar.component';
 import { CreateNewProjectComponent } from './Component/create-new-project/create-new-project.component';
 import { CloudReadinessAssessmentComponent } from './Component/cloud-readiness-assessment/cloud-readiness-assessment.component';
+import { ProjectListTableComponent } from './Component/project-list-table/project-list-table.component';
 
 
 
@@ -31,7 +32,7 @@ import { CloudReadinessAssessmentComponent } from './Component/cloud-readiness-a
     LogoutComponent,
     SearchComponent,
     NotificationComponent,
-    AppListComponent,MenuComponent,ClickOutsideDirective, ProjectListComponent, LeftSideBarComponent, CreateNewProjectComponent, CloudReadinessAssessmentComponent, 
+    AppListComponent,MenuComponent,ClickOutsideDirective, ProjectListComponent, LeftSideBarComponent, CreateNewProjectComponent, CloudReadinessAssessmentComponent, ProjectListTableComponent, 
     
     
   ],
