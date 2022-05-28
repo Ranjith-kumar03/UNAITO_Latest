@@ -76,9 +76,22 @@ get password(){
   // }
 
   onSubmit() {
-    this.router.navigate(['application'])
+    // this.router.navigate(['application'])
+    //   this.authService.setLoggedIn(true)
+    //   console.log("submit clicked")
+    // if(this.loginForm.get('username').errors && this.loginForm.get('password').errors)
+    // {
+    //   return;
+    // }
+
+    if(!this.loginForm.valid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+this.router.navigate(['application'])
       this.authService.setLoggedIn(true)
       console.log("submit clicked")
+
     // this.subscription.add(this.authService.login(this.loginForm.get('username').value,this.loginForm.get('password').value ).subscribe((data) => {
     //   console.log("see the data",data)
     //   if(data.responseObject==="Success") {

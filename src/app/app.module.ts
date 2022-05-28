@@ -24,6 +24,12 @@ import { ProjectDetailsLeftMenuComponent } from './Component/project-details-lef
 import { ProjectDetailsDashboardComponent } from './Component/project-details-dashboard/project-details-dashboard.component';
 import { ProjectDetailsDriversComponent } from './Component/project-details-drivers/project-details-drivers.component';
 import { ProjectDetailsScopeComponent } from './Component/project-details-scope/project-details-scope.component';
+import { AdministrationComponent } from './Component/administration/administration.component';
+import { ProjectOverViewComponent } from './Component/project-overview/project-over-view.component';
+import { TeamOnboardingComponent } from './Component/team-onboarding/team-onboarding.component';
+import { AssessmentProjectplanComponent } from './Component/assessment-projectplan/assessment-projectplan.component';
+import { ForgetPasswordComponent } from './Component/forget-password/forget-password.component';
+import { EditDriversComponent } from './Component/edit-drivers/edit-drivers.component';
 
 
 
@@ -37,7 +43,11 @@ import { ProjectDetailsScopeComponent } from './Component/project-details-scope/
     LogoutComponent,
     SearchComponent,
     NotificationComponent,
-    AppListComponent,MenuComponent,ClickOutsideDirective, ProjectListComponent, LeftSideBarComponent, CreateNewProjectComponent, CloudReadinessAssessmentComponent, ProjectListTableComponent, ProjectDetailsComponent, ProjectDetailsLeftMenuComponent, ProjectDetailsDashboardComponent, ProjectDetailsDriversComponent, ProjectDetailsScopeComponent, 
+    AppListComponent,MenuComponent,ClickOutsideDirective, ProjectListComponent, LeftSideBarComponent,
+     CreateNewProjectComponent, CloudReadinessAssessmentComponent, ProjectListTableComponent, 
+     ProjectDetailsComponent, ProjectDetailsLeftMenuComponent, ProjectDetailsDashboardComponent, 
+     ProjectDetailsDriversComponent, ProjectDetailsScopeComponent, AdministrationComponent, ProjectOverViewComponent, 
+     TeamOnboardingComponent, AssessmentProjectplanComponent, ForgetPasswordComponent, EditDriversComponent, 
     
     
   ],
