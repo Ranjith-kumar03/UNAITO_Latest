@@ -19,6 +19,11 @@ import { LeftSideBarComponent } from './Component/left-side-bar/left-side-bar.co
 import { CreateNewProjectComponent } from './Component/create-new-project/create-new-project.component';
 import { CloudReadinessAssessmentComponent } from './Component/cloud-readiness-assessment/cloud-readiness-assessment.component';
 import { ProjectListTableComponent } from './Component/project-list-table/project-list-table.component';
+import { ProjectDetailsComponent } from './Component/project-details/project-details.component';
+import { ProjectDetailsLeftMenuComponent } from './Component/project-details-left-menu/project-details-left-menu.component';
+import { ProjectDetailsDashboardComponent } from './Component/project-details-dashboard/project-details-dashboard.component';
+import { ProjectDetailsDriversComponent } from './Component/project-details-drivers/project-details-drivers.component';
+import { ProjectDetailsScopeComponent } from './Component/project-details-scope/project-details-scope.component';
 
 
 
@@ -32,7 +37,7 @@ import { ProjectListTableComponent } from './Component/project-list-table/projec
     LogoutComponent,
     SearchComponent,
     NotificationComponent,
-    AppListComponent,MenuComponent,ClickOutsideDirective, ProjectListComponent, LeftSideBarComponent, CreateNewProjectComponent, CloudReadinessAssessmentComponent, ProjectListTableComponent, 
+    AppListComponent,MenuComponent,ClickOutsideDirective, ProjectListComponent, LeftSideBarComponent, CreateNewProjectComponent, CloudReadinessAssessmentComponent, ProjectListTableComponent, ProjectDetailsComponent, ProjectDetailsLeftMenuComponent, ProjectDetailsDashboardComponent, ProjectDetailsDriversComponent, ProjectDetailsScopeComponent, 
     
     
   ],

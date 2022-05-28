@@ -5,6 +5,10 @@ import { CreateNewProjectComponent } from './Component/create-new-project/create
 import { DashboardComponent } from './Component/dashboard/dashboard.component';
 import { LoginComponent } from './Component/login/login.component';
 import { LogoutComponent } from './Component/logout/logout.component';
+import { ProjectDetailsDashboardComponent } from './Component/project-details-dashboard/project-details-dashboard.component';
+import { ProjectDetailsDriversComponent } from './Component/project-details-drivers/project-details-drivers.component';
+import { ProjectDetailsScopeComponent } from './Component/project-details-scope/project-details-scope.component';
+import { ProjectDetailsComponent } from './Component/project-details/project-details.component';
 import { ProjectListComponent } from './Component/project-list/project-list.component';
 
 
@@ -15,6 +19,9 @@ const routes: Routes = [
   {path:"dashboard" , component:DashboardComponent},
   {path:"projectlist",component:ProjectListComponent},
   {path:"newproject",component:CreateNewProjectComponent},
+  {path:"projectdetailsDashboard/:id", component:ProjectDetailsDashboardComponent},
+  {path:"addDrivers", component:ProjectDetailsDriversComponent},
+  {path:"addScope", component:ProjectDetailsScopeComponent},
   {path:"logout" , component:LogoutComponent}
 ];
 

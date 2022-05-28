@@ -8,7 +8,7 @@
     </thead>
     <tbody>
 
-        <tr class="clickable" *ngFor="let item of projectListTable" routerLink="/dashboard/item.id">
+        <tr class="clickable" *ngFor="let item of projectListTable" [routerLink]="['/projectdetailsDashboard/', item.id]">
             <!-- https://www.positronx.io/build-dynamic-html-table-in-angular-with-ngfor/ -->
             
                 <td>{{item.projectName}}</td>
