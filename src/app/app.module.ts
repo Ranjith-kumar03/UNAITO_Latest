@@ -18,6 +18,18 @@ import { ProjectListComponent } from './Component/project-list/project-list.comp
 import { LeftSideBarComponent } from './Component/left-side-bar/left-side-bar.component';
 import { CreateNewProjectComponent } from './Component/create-new-project/create-new-project.component';
 import { CloudReadinessAssessmentComponent } from './Component/cloud-readiness-assessment/cloud-readiness-assessment.component';
+import { ProjectListTableComponent } from './Component/project-list-table/project-list-table.component';
+import { ProjectDetailsComponent } from './Component/project-details/project-details.component';
+import { ProjectDetailsLeftMenuComponent } from './Component/project-details-left-menu/project-details-left-menu.component';
+import { ProjectDetailsDashboardComponent } from './Component/project-details-dashboard/project-details-dashboard.component';
+import { ProjectDetailsDriversComponent } from './Component/project-details-drivers/project-details-drivers.component';
+import { ProjectDetailsScopeComponent } from './Component/project-details-scope/project-details-scope.component';
+import { AdministrationComponent } from './Component/administration/administration.component';
+import { ProjectOverViewComponent } from './Component/project-overview/project-over-view.component';
+import { TeamOnboardingComponent } from './Component/team-onboarding/team-onboarding.component';
+import { AssessmentProjectplanComponent } from './Component/assessment-projectplan/assessment-projectplan.component';
+import { ForgetPasswordComponent } from './Component/forget-password/forget-password.component';
+import { EditDriversComponent } from './Component/edit-drivers/edit-drivers.component';
 
 
 
@@ -31,7 +43,11 @@ import { CloudReadinessAssessmentComponent } from './Component/cloud-readiness-a
     LogoutComponent,
     SearchComponent,
     NotificationComponent,
-    AppListComponent,MenuComponent,ClickOutsideDirective, ProjectListComponent, LeftSideBarComponent, CreateNewProjectComponent, CloudReadinessAssessmentComponent, 
+    AppListComponent,MenuComponent,ClickOutsideDirective, ProjectListComponent, LeftSideBarComponent,
+     CreateNewProjectComponent, CloudReadinessAssessmentComponent, ProjectListTableComponent, 
+     ProjectDetailsComponent, ProjectDetailsLeftMenuComponent, ProjectDetailsDashboardComponent, 
+     ProjectDetailsDriversComponent, ProjectDetailsScopeComponent, AdministrationComponent, ProjectOverViewComponent, 
+     TeamOnboardingComponent, AssessmentProjectplanComponent, ForgetPasswordComponent, EditDriversComponent, 
     
     
   ],

@@ -131,7 +131,7 @@ export class AppComponent {
 
   isApplicationView() {
     // return true if the current page is home
-    console.log("see the router url",this.router.url)
+    //console.log("see the router url",this.router.url)
     return this.router.url.match('/application');
   }
 

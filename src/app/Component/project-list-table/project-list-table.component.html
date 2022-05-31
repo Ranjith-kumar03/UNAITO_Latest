@@ -1,0 +1,41 @@
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th>Project name</th>
+            <th>Customer name</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr class="clickable" *ngFor="let item of projectListTable" [routerLink]="['/projectdetailsDashboard/', item.id]">
+            <!-- https://www.positronx.io/build-dynamic-html-table-in-angular-with-ngfor/ -->
+            
+                <td>{{item.projectName}}</td>
+                <td>{{item.customerName}}</td>
+           
+        </tr>
+        <!-- <tr>
+            <td>avantor - cloud readlines Assessment</td>
+            <td>avantor</td>
+
+        </tr>
+        <tr>
+            <td>avantor - cloud readlines Assessment</td>
+            <td>avantor</td>
+
+        </tr> -->
+    </tbody>
+</table>
+
+
+<!-- <table class="table">
+	<span *ngFor="let row of tableMockData; let i = index">
+      <thead>
+         <th class="col">{{row.header}}</th>
+      </thead>
+      <tr *ngFor="let rowdata of row.rows;">
+          <td class="col">{{rowdata}}</td>
+      </tr>
+   </span>
+</table> -->
