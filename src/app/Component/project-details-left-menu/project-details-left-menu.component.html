@@ -6,13 +6,14 @@
         </a>
     </li>
     <li class="">
-        <a href="team-onboarding.html" routerLink ="/teamonboard"class="nav-link " title="Projects">
+        <a href="team-onboarding.html" routerLink="/teamonboard" class="nav-link " title="Projects">
 
             <span class="nav-text text1">Team Onboarding </span>
         </a>
     </li>
     <li class="">
-        <a href="assessment-project-plan.html" routerLink="/assessmentprojectplan" class="nav-link " title="Administration">
+        <a href="assessment-project-plan.html" routerLink="/assessmentprojectplan" class="nav-link "
+            title="Administration">
 
             <span class="nav-text text1">Assessment Project Plan </span>
         </a>
@@ -25,21 +26,49 @@
         </a>
     </li>
     <li class="">
-        <div class="nav-link  dropdown dropdown-toggle" id="dropdownMenuButton"
-            data-toggle="dropdown" aria-expanded="false">
+        <!--  
+                -->
+        <div class="nav-link  dropdown dropdown-toggle " aria-expanded="false" id="dropdownMenuButton"
+            data-toggle="dropdown">
 
             <span class="nav-text text1">Information Gathering
             </span>
 
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#" routerLink="/addAppOverview">General</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
+                <div>
+                    <ul class=" list-unstyled">
+                        <!----Infrstructure to be pasted here--->
+                    </ul>
+                </div>
+
+                <a class="dropdown-item" href="#">Application Layer</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Integrations</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Security & Compliance</a>
+                <div class="dropdown-divider"></div>
+            </div>
+        </div>
+
+    </li>
+    <li>
+        <div class="nav-link  dropdown dropdown-toggle" aria-expanded="false"
+            id="dropdownMenuButton" data-toggle="dropdown">
+
+
+            <span class="nav-text text1">Infrastructure
+            </span>
+
+            <div class="dropdown-menu">
+                <a routerLink ="/server" class="dropdown-item" href="#">Server</a>
+                <div class="dropdown-divider"></div>
+                <a routerLink ="/storage" class="dropdown-item" href="#">Storage</a>
             </div>
         </div>
     </li>
+
     <li class="">
         <a href="" class="nav-link " title="Administration">
 
