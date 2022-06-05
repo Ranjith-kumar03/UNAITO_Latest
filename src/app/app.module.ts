@@ -41,6 +41,8 @@ import { AddWebserverComponent } from './Component/add-webserver/add-webserver.c
 import { ApllicationServerComponent } from './Component/apllication-server/apllication-server.component';
 import { DatabaseServerComponent } from './Component/database-server/database-server.component';
 import { AddStorageComponent } from './Component/add-storage/add-storage.component';
+import { SecurityComplianceComponent } from './Component/security-compliance/security-compliance.component';
+import { AddSecurCompiComponent } from './Component/add-secur-compi/add-secur-compi.component';
 
 
 
@@ -58,7 +60,7 @@ import { AddStorageComponent } from './Component/add-storage/add-storage.compone
      CreateNewProjectComponent, CloudReadinessAssessmentComponent, ProjectListTableComponent, 
      ProjectDetailsComponent, ProjectDetailsLeftMenuComponent, ProjectDetailsDashboardComponent, 
      ProjectDetailsDriversComponent, ProjectDetailsScopeComponent, AdministrationComponent, ProjectOverViewComponent, 
-     TeamOnboardingComponent, AssessmentProjectplanComponent, ForgetPasswordComponent, EditDriversComponent, AddApplicationOverviewComponent, AddApplicationOverviewDetailsComponent, ServersComponent, StorageComponent, ApplicationLayerComponent, AddApplicationLayerComponent, IntegrationsComponent, AddWebserverComponent, ApllicationServerComponent, DatabaseServerComponent, AddStorageComponent, 
+     TeamOnboardingComponent, AssessmentProjectplanComponent, ForgetPasswordComponent, EditDriversComponent, AddApplicationOverviewComponent, AddApplicationOverviewDetailsComponent, ServersComponent, StorageComponent, ApplicationLayerComponent, AddApplicationLayerComponent, IntegrationsComponent, AddWebserverComponent, ApllicationServerComponent, DatabaseServerComponent, AddStorageComponent, SecurityComplianceComponent, AddSecurCompiComponent, 
     
     
   ],

@@ -26,6 +26,8 @@ import { AddWebserverComponent } from './Component/add-webserver/add-webserver.c
 import { ApllicationServerComponent } from './Component/apllication-server/apllication-server.component';
 import { DatabaseServerComponent } from './Component/database-server/database-server.component';
 import { AddStorageComponent } from './Component/add-storage/add-storage.component';
+import { SecurityComplianceComponent } from './Component/security-compliance/security-compliance.component';
+import { AddSecurCompiComponent } from './Component/add-secur-compi/add-secur-compi.component';
 
 
 const routes: Routes = [
@@ -54,7 +56,8 @@ const routes: Routes = [
   {path:"applicationLayer", component:ApplicationLayerComponent},
   {path:"addApplicationLayerDetails", component:AddApplicationLayerComponent},
   {path:"addIntegration", component:IntegrationsComponent},
-  
+  {path:"securityCompliance", component:SecurityComplianceComponent},
+  {path:"addSecurCompi",component:AddSecurCompiComponent},
   {path:"logout" , component:LogoutComponent}
 ];
 
