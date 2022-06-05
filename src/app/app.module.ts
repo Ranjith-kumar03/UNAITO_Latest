@@ -34,6 +34,13 @@ import { AddApplicationOverviewComponent } from './Component/add-application-ove
 import { AddApplicationOverviewDetailsComponent } from './Component/add-application-overview-details/add-application-overview-details.component';
 import { ServersComponent } from './Component/servers/servers.component';
 import { StorageComponent } from './Component/storage/storage.component';
+import { ApplicationLayerComponent } from './Component/application-layer/application-layer.component';
+import { AddApplicationLayerComponent } from './Component/add-application-layer/add-application-layer.component';
+import { IntegrationsComponent } from './Component/integrations/integrations.component';
+import { AddWebserverComponent } from './Component/add-webserver/add-webserver.component';
+import { ApllicationServerComponent } from './Component/apllication-server/apllication-server.component';
+import { DatabaseServerComponent } from './Component/database-server/database-server.component';
+import { AddStorageComponent } from './Component/add-storage/add-storage.component';
 
 
 
@@ -51,7 +58,7 @@ import { StorageComponent } from './Component/storage/storage.component';
      CreateNewProjectComponent, CloudReadinessAssessmentComponent, ProjectListTableComponent, 
      ProjectDetailsComponent, ProjectDetailsLeftMenuComponent, ProjectDetailsDashboardComponent, 
      ProjectDetailsDriversComponent, ProjectDetailsScopeComponent, AdministrationComponent, ProjectOverViewComponent, 
-     TeamOnboardingComponent, AssessmentProjectplanComponent, ForgetPasswordComponent, EditDriversComponent, AddApplicationOverviewComponent, AddApplicationOverviewDetailsComponent, ServersComponent, StorageComponent, 
+     TeamOnboardingComponent, AssessmentProjectplanComponent, ForgetPasswordComponent, EditDriversComponent, AddApplicationOverviewComponent, AddApplicationOverviewDetailsComponent, ServersComponent, StorageComponent, ApplicationLayerComponent, AddApplicationLayerComponent, IntegrationsComponent, AddWebserverComponent, ApllicationServerComponent, DatabaseServerComponent, AddStorageComponent, 
     
     
   ],

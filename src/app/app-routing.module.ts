@@ -19,6 +19,13 @@ import { AddApplicationOverviewComponent } from './Component/add-application-ove
 import { AddApplicationOverviewDetailsComponent } from './Component/add-application-overview-details/add-application-overview-details.component';
 import { ServersComponent } from './Component/servers/servers.component';
 import { StorageComponent } from './Component/storage/storage.component';
+import { ApplicationLayerComponent } from './Component/application-layer/application-layer.component';
+import { AddApplicationLayerComponent } from './Component/add-application-layer/add-application-layer.component';
+import { IntegrationsComponent } from './Component/integrations/integrations.component';
+import { AddWebserverComponent } from './Component/add-webserver/add-webserver.component';
+import { ApllicationServerComponent } from './Component/apllication-server/apllication-server.component';
+import { DatabaseServerComponent } from './Component/database-server/database-server.component';
+import { AddStorageComponent } from './Component/add-storage/add-storage.component';
 
 
 const routes: Routes = [
@@ -39,7 +46,15 @@ const routes: Routes = [
   {path:"addAppOverview", component:AddApplicationOverviewComponent},
   {path:"addAppOverviewdetails", component:AddApplicationOverviewDetailsComponent},
   {path:"server", component:ServersComponent},
+  {path:"addWebServer", component:AddWebserverComponent},
+  {path:"addappServer", component:ApllicationServerComponent},
+  {path:'adddatbaseserver',component:DatabaseServerComponent},
   {path:"storage", component:StorageComponent},
+  {path:"addstorage", component:AddStorageComponent},
+  {path:"applicationLayer", component:ApplicationLayerComponent},
+  {path:"addApplicationLayerDetails", component:AddApplicationLayerComponent},
+  {path:"addIntegration", component:IntegrationsComponent},
+  
   {path:"logout" , component:LogoutComponent}
 ];
 

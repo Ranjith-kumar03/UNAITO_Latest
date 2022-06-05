@@ -59,24 +59,42 @@
                         <div class="mt-4 pt-4">
                             <ul class="nav nav-tabs bg-transparent server-tab ml-4" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link active p-0 pb-2" id="home-tab" data-toggle="tab" href="#home"
-                                        role="tab" aria-controls="home" aria-selected="true">Web Servers</a>
+                                    <a class="nav-link active p-0 pb-2" (click)="webServer()" id="home-tab"
+                                        data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                                        aria-selected="true">Web Servers</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link  p-0 ml-4 pb-2 spl-margin" id="profile-tab" data-toggle="tab"
-                                        href="#profile" role="tab" aria-controls="profile"
+                                        (click)="applicationServer()" href="#profile" role="tab" aria-controls="profile"
                                         aria-selected="false">Application Servers</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link  p-0 ml-4 pb-2 spl-margin" id="contact-tab" data-toggle="tab"
-                                        href="#contact" role="tab" aria-controls="contact"
+                                        (click)="databaseServer()" href="#contact" role="tab" aria-controls="contact"
                                         aria-selected="false">Database Servers</a>
                                 </li>
-                                <li class="nav-item " role="presentation">
-                                    <a class="nav-link  p-0 ml-4 pb-2 spl-margin" id="contact-tab" data-toggle="tab"
-                                        href="#contact" role="tab" aria-controls="contact"
-                                        aria-selected="false">
-                                    <button class=" server-button" id="contact-tab">Add Web Servers</button></a>
+                                <li *ngIf="webserverTab" class="nav-item " role="presentation">
+                                    <a class="nav-link  p-0 ml-4 pb-2 spl-margin" routerLink="/addWebServer"
+                                        id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                                        aria-controls="contact" aria-selected="false">
+                                        <button class=" server-button" id="contact-tab">Add Web Servers</button></a>
+
+                                </li>
+                                <li *ngIf="applicationServerTab" class="nav-item " role="presentation">
+                                    <a class="nav-link  p-0 ml-4 pb-2 spl-margin" routerLink="/addappServer"
+                                        id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                                        aria-controls="contact" aria-selected="false">
+
+                                        <button class=" server-button height" id="contact-tab">Add Application
+                                            Servers</button></a>
+
+                                </li>
+                                <li *ngIf="databaseServerTab" class="nav-item " role="presentation">
+                                    <a class="nav-link  p-0 ml-4 pb-2 spl-margin" routerLink="/adddatbaseserver"
+                                        id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                                        aria-controls="contact" aria-selected="false">
+                                        <button class=" server-button height" id="contact-tab">Add Database
+                                            Servers</button></a>
                                 </li>
 
                             </ul>
