@@ -45,12 +45,12 @@ export class AppComponent {
 
   toggleMenu() {
     this.menuState = this.menuState === 'out' ? 'in' : 'out';
-    console.log(this.menuState)
+    //console.log(this.menuState)
     this.menuStatefirstTime = true;
   }
 
   closeMenu() {
-    console.log(this.menuState, this.menuStatefirstTime);
+    //console.log(this.menuState, this.menuStatefirstTime);
     if (this.menuState === 'in' && !this.menuStatefirstTime) {
       this.menuState = 'out';
     }

@@ -30,6 +30,10 @@ import { TeamOnboardingComponent } from './Component/team-onboarding/team-onboar
 import { AssessmentProjectplanComponent } from './Component/assessment-projectplan/assessment-projectplan.component';
 import { ForgetPasswordComponent } from './Component/forget-password/forget-password.component';
 import { EditDriversComponent } from './Component/edit-drivers/edit-drivers.component';
+import { AddApplicationOverviewComponent } from './Component/add-application-overview/add-application-overview.component';
+import { AddApplicationOverviewDetailsComponent } from './Component/add-application-overview-details/add-application-overview-details.component';
+import { ServersComponent } from './Component/servers/servers.component';
+import { StorageComponent } from './Component/storage/storage.component';
 
 
 
@@ -47,7 +51,7 @@ import { EditDriversComponent } from './Component/edit-drivers/edit-drivers.comp
      CreateNewProjectComponent, CloudReadinessAssessmentComponent, ProjectListTableComponent, 
      ProjectDetailsComponent, ProjectDetailsLeftMenuComponent, ProjectDetailsDashboardComponent, 
      ProjectDetailsDriversComponent, ProjectDetailsScopeComponent, AdministrationComponent, ProjectOverViewComponent, 
-     TeamOnboardingComponent, AssessmentProjectplanComponent, ForgetPasswordComponent, EditDriversComponent, 
+     TeamOnboardingComponent, AssessmentProjectplanComponent, ForgetPasswordComponent, EditDriversComponent, AddApplicationOverviewComponent, AddApplicationOverviewDetailsComponent, ServersComponent, StorageComponent, 
     
     
   ],

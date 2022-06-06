@@ -15,6 +15,10 @@ import { ProjectDetailsComponent } from './Component/project-details/project-det
 import { ProjectListComponent } from './Component/project-list/project-list.component';
 import { TeamOnboardingComponent } from './Component/team-onboarding/team-onboarding.component';
 import { EditDriversComponent } from './Component/edit-drivers/edit-drivers.component';
+import { AddApplicationOverviewComponent } from './Component/add-application-overview/add-application-overview.component';
+import { AddApplicationOverviewDetailsComponent } from './Component/add-application-overview-details/add-application-overview-details.component';
+import { ServersComponent } from './Component/servers/servers.component';
+import { StorageComponent } from './Component/storage/storage.component';
 
 
 const routes: Routes = [
@@ -32,6 +36,10 @@ const routes: Routes = [
   {path:"overview", component:ProjectOverViewComponent},
   {path:"teamonboard", component:TeamOnboardingComponent},
   {path:"assessmentprojectplan", component:AssessmentProjectplanComponent},
+  {path:"addAppOverview", component:AddApplicationOverviewComponent},
+  {path:"addAppOverviewdetails", component:AddApplicationOverviewDetailsComponent},
+  {path:"server", component:ServersComponent},
+  {path:"storage", component:StorageComponent},
   {path:"logout" , component:LogoutComponent}
 ];
 
