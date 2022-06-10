@@ -1,4 +1,4 @@
-<ul class=" list-unstyled">
+<!-- <ul class=" list-unstyled">
     <li class="">
         <a href="" routerLink="/overview" class="nav-link active text" title="Dashboard">
 
@@ -26,8 +26,7 @@
         </a>
     </li>
     <li class="">
-        <!--  
-                -->
+    
         <div class="nav-link  dropdown dropdown-toggle " aria-expanded="false" id="dropdownMenuButton"
             data-toggle="dropdown">
 
@@ -39,7 +38,7 @@
                 <div class="dropdown-divider"></div>
                 <div>
                     <ul class=" list-unstyled">
-                        <!----Infrstructure to be pasted here--->
+                       
                     </ul>
                 </div>
 
@@ -54,8 +53,9 @@
 
     </li>
     <li>
-        <div class="nav-link  dropdown dropdown-toggle" aria-expanded="false"
-            id="dropdownMenuButton" data-toggle="dropdown">
+     
+        <div class="dropdown dropdown-toggle nav-link " aria-expanded="true"
+            id="dropdownMenuButton" data-toggle="dropdown" >
 
 
             <span class="nav-text text1">Infrastructure
@@ -91,4 +91,86 @@
         </a>
     </li>
 
-</ul>
+</ul> -->
+
+<div class="dropdown">
+    <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Dropdown   class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu"
+    </button> -->
+    <ul class=" list-unstyled">
+        <li class="">
+            <a href="" routerLink="/overview" class="nav-link active text" title="Dashboard">
+
+                <span class="nav-text text">Overview</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="team-onboarding.html" routerLink="/teamonboard" class="nav-link " title="Projects">
+
+                <span class="nav-text text1">Team Onboarding </span>
+            </a>
+        </li>
+        <li class="">
+            <a href="assessment-project-plan.html" routerLink="/assessmentprojectplan" class="nav-link "
+                title="Administration">
+
+                <span class="nav-text text1">Assessment Project Plan </span>
+            </a>
+        </li>
+        <!-- <li class="d-none">
+            <a href="" class="nav-link " title="Administration">
+    
+                <span class="nav-text text1">Information Gathering
+                </span>
+            </a>
+        </li> -->
+        <!-- first Part -->
+        <!-- <li class="dropdown-divider" tabindex="-1"></li> -->
+        <li class="dropdown-submenu">
+            <a class="dropdown-item nav-link nav-text text1"   href="#">Information Gathering</a>
+            <ul class="dropdown-menu">
+                <li class="dropdown-item"> <a class="dropdown-item" href="#" routerLink="/addAppOverview">General</a>
+                </li>
+                <li class="dropdown-submenu">
+                    <a class="dropdown-item" href="#">Infrastructure</a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item"><a routerLink="/server" class="dropdown-item" href="#">Server</a></li>
+                        <li class="dropdown-item"><a routerLink="/storage" class="dropdown-item" href="#">Storage</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+                <li class="dropdown-item"> <a class="dropdown-item" routerLink="/applicationLayer" href="#">Application
+                        Layer</a></li>
+                <li class="dropdown-item"> <a class="dropdown-item" routerLink="/addIntegration"
+                        href="#">Integrations</a></li>
+                <li class="dropdown-item"> <a class="dropdown-item" routerLink="/securityCompliance" href="#">Security &
+                        Compliance</a></li>
+
+            </ul>
+        </li>
+        <li class="">
+            <a href="" class="nav-link " title="Administration">
+
+                <span class="nav-text text2">Information Validation
+                </span>
+            </a>
+        </li>
+        <li class="">
+            <a href="" class="nav-link " title="Administration">
+
+                <span class="nav-text text2">Recommendation
+                </span>
+            </a>
+        </li>
+        <li class="">
+            <a href="" class="nav-link " title="Administration">
+
+                <span class="nav-text text2">Migration Plan
+                </span>
+            </a>
+        </li>
+    </ul>
+</div>

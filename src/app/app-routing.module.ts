@@ -29,6 +29,8 @@ import { AddStorageComponent } from './Component/add-storage/add-storage.compone
 import { SecurityComplianceComponent } from './Component/security-compliance/security-compliance.component';
 import { AddSecurCompiComponent } from './Component/add-secur-compi/add-secur-compi.component';
 import { AdministrationComponent } from './Component/administration/administration.component';
+import { UserManagementComponent } from './Component/user-management/user-management.component';
+import { CreateNewUserComponent } from './Component/create-new-user/create-new-user.component';
 
 
 const routes: Routes = [
@@ -60,6 +62,8 @@ const routes: Routes = [
   { path: "securityCompliance", component: SecurityComplianceComponent },
   { path: "addSecurCompi", component: AddSecurCompiComponent },
   { path: "administration", component: AdministrationComponent },
+  {path:"userListTable", component: UserManagementComponent },
+  {path:"newUser",component:CreateNewUserComponent},
   { path: "logout", component: LogoutComponent }
 ];
 

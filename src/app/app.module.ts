@@ -43,6 +43,10 @@ import { DatabaseServerComponent } from './Component/database-server/database-se
 import { AddStorageComponent } from './Component/add-storage/add-storage.component';
 import { SecurityComplianceComponent } from './Component/security-compliance/security-compliance.component';
 import { AddSecurCompiComponent } from './Component/add-secur-compi/add-secur-compi.component';
+import { UserManagementComponent } from './Component/user-management/user-management.component';
+
+import { CreateNewUserComponent } from './Component/create-new-user/create-new-user.component';
+import { UserListComponent } from './Component/user-list/user-list.component';
 
 
 
@@ -60,7 +64,10 @@ import { AddSecurCompiComponent } from './Component/add-secur-compi/add-secur-co
      CreateNewProjectComponent, CloudReadinessAssessmentComponent, ProjectListTableComponent, 
      ProjectDetailsComponent, ProjectDetailsLeftMenuComponent, ProjectDetailsDashboardComponent, 
      ProjectDetailsDriversComponent, ProjectDetailsScopeComponent, AdministrationComponent, ProjectOverViewComponent, 
-     TeamOnboardingComponent, AssessmentProjectplanComponent, ForgetPasswordComponent, EditDriversComponent, AddApplicationOverviewComponent, AddApplicationOverviewDetailsComponent, ServersComponent, StorageComponent, ApplicationLayerComponent, AddApplicationLayerComponent, IntegrationsComponent, AddWebserverComponent, ApllicationServerComponent, DatabaseServerComponent, AddStorageComponent, SecurityComplianceComponent, AddSecurCompiComponent, 
+     TeamOnboardingComponent, AssessmentProjectplanComponent, ForgetPasswordComponent, EditDriversComponent, AddApplicationOverviewComponent, 
+     AddApplicationOverviewDetailsComponent, ServersComponent, StorageComponent, ApplicationLayerComponent, AddApplicationLayerComponent, 
+     IntegrationsComponent, AddWebserverComponent, ApllicationServerComponent, DatabaseServerComponent, 
+     AddStorageComponent, SecurityComplianceComponent, AddSecurCompiComponent, UserManagementComponent, UserListComponent, CreateNewUserComponent, 
     
     
   ],
