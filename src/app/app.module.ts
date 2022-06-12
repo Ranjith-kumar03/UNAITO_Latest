@@ -47,6 +47,10 @@ import { UserManagementComponent } from './Component/user-management/user-manage
 
 import { CreateNewUserComponent } from './Component/create-new-user/create-new-user.component';
 import { UserListComponent } from './Component/user-list/user-list.component';
+import { CustomerManagementComponent } from './Component/customer-management/customer-management.component';
+import { CustomerListComponent } from './Component/customer-list/customer-list.component';
+import { CreateNewCustomerComponent } from './Component/create-new-customer/create-new-customer.component';
+import { InformationValidationComponent } from './Component/information-validation/information-validation.component';
 
 
 
@@ -67,7 +71,7 @@ import { UserListComponent } from './Component/user-list/user-list.component';
      TeamOnboardingComponent, AssessmentProjectplanComponent, ForgetPasswordComponent, EditDriversComponent, AddApplicationOverviewComponent, 
      AddApplicationOverviewDetailsComponent, ServersComponent, StorageComponent, ApplicationLayerComponent, AddApplicationLayerComponent, 
      IntegrationsComponent, AddWebserverComponent, ApllicationServerComponent, DatabaseServerComponent, 
-     AddStorageComponent, SecurityComplianceComponent, AddSecurCompiComponent, UserManagementComponent, UserListComponent, CreateNewUserComponent, 
+     AddStorageComponent, SecurityComplianceComponent, AddSecurCompiComponent, UserManagementComponent, UserListComponent, CreateNewUserComponent, CustomerManagementComponent, CustomerListComponent, CreateNewCustomerComponent, InformationValidationComponent, 
     
     
   ],

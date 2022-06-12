@@ -31,6 +31,9 @@ import { AddSecurCompiComponent } from './Component/add-secur-compi/add-secur-co
 import { AdministrationComponent } from './Component/administration/administration.component';
 import { UserManagementComponent } from './Component/user-management/user-management.component';
 import { CreateNewUserComponent } from './Component/create-new-user/create-new-user.component';
+import { CustomerManagementComponent } from './Component/customer-management/customer-management.component';
+import { CreateNewCustomerComponent } from './Component/create-new-customer/create-new-customer.component';
+import { InformationValidationComponent } from './Component/information-validation/information-validation.component';
 
 
 const routes: Routes = [
@@ -64,7 +67,10 @@ const routes: Routes = [
   { path: "administration", component: AdministrationComponent },
   {path:"userListTable", component: UserManagementComponent },
   {path:"newUser",component:CreateNewUserComponent},
-  { path: "logout", component: LogoutComponent }
+  {path:"customerListTable",component:CustomerManagementComponent},
+  {path:"newCustomer",component:CreateNewCustomerComponent},
+  {path:"informationValidation", component:InformationValidationComponent},
+    { path: "logout", component: LogoutComponent }
 ];
 
 @NgModule({
