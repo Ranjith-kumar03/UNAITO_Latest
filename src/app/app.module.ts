@@ -13,7 +13,7 @@ import { MenuComponent } from './Component/menu/menu.component';
 import { SearchComponent } from './Component/search/search.component';
 import { NotificationComponent } from './Component/notification/notification.component';
 import { AppListComponent } from './Component/app-list/app-list.component';
-import { ClickOutsideDirective } from './Directives/ClickOutsideDirective';
+//import { ClickOutsideDirective } from './Directives/ClickOutsideDirective';
 import { ProjectListComponent } from './Component/project-list/project-list.component';
 import { LeftSideBarComponent } from './Component/left-side-bar/left-side-bar.component';
 import { CreateNewProjectComponent } from './Component/create-new-project/create-new-project.component';
@@ -55,6 +55,7 @@ import { InformationValidationComponent } from './Component/information-validati
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,14 +65,15 @@ import { InformationValidationComponent } from './Component/information-validati
     LogoutComponent,
     SearchComponent,
     NotificationComponent,
-    AppListComponent,MenuComponent,ClickOutsideDirective, ProjectListComponent, LeftSideBarComponent,
+    AppListComponent,MenuComponent, ProjectListComponent, LeftSideBarComponent,
      CreateNewProjectComponent, CloudReadinessAssessmentComponent, ProjectListTableComponent, 
      ProjectDetailsComponent, ProjectDetailsLeftMenuComponent, ProjectDetailsDashboardComponent, 
      ProjectDetailsDriversComponent, ProjectDetailsScopeComponent, AdministrationComponent, ProjectOverViewComponent, 
      TeamOnboardingComponent, AssessmentProjectplanComponent, ForgetPasswordComponent, EditDriversComponent, AddApplicationOverviewComponent, 
      AddApplicationOverviewDetailsComponent, ServersComponent, StorageComponent, ApplicationLayerComponent, AddApplicationLayerComponent, 
      IntegrationsComponent, AddWebserverComponent, ApllicationServerComponent, DatabaseServerComponent, 
-     AddStorageComponent, SecurityComplianceComponent, AddSecurCompiComponent, UserManagementComponent, UserListComponent, CreateNewUserComponent, CustomerManagementComponent, CustomerListComponent, CreateNewCustomerComponent, InformationValidationComponent, 
+     AddStorageComponent, SecurityComplianceComponent, AddSecurCompiComponent, UserManagementComponent, UserListComponent, 
+     CreateNewUserComponent, CustomerManagementComponent, CustomerListComponent, CreateNewCustomerComponent, InformationValidationComponent,  
     
     
   ],

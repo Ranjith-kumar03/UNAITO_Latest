@@ -107,7 +107,7 @@ $(document).ready(function () {
 
     $('.assoc-app-btn').on('click', function () {
         var sideBarCnt = '#' + $(this).attr('id') + 'Cnt';
-        console.log("iam hit ",sideBarCnt)
+        
         if ($(sideBarCnt).hasClass("side-appbar-open")) {
             $('#page_overlay').fadeOut(300, function () {
                 $('.expose').css('z-index', '1');
