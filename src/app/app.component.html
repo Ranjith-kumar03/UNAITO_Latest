@@ -1,5 +1,5 @@
-<div>
-    <header class="header" [hidden]="!loggedIn">
+<div [hidden]="!(isLoggedIn$ | async)">
+    <header class="header" >
         <nav class="top-navbar fixed-top d-flex w-100">
             <div class="container-fluid">
                 <div class="navbar-holder w-100 d-flex align-items-center justify-content-between">
