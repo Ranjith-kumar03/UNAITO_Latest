@@ -64,6 +64,7 @@ export class CreateNewUserComponent implements OnInit {
       location: ['',[Validators.required]],
       roleName: ["",[Validators.required]],
   });
+  //this.registerForm.controls['roleName'].setValue('0');
   console.log(this.registerForm.get('username'))
   console.log(this.registerForm.get('password'))
   }
@@ -107,11 +108,18 @@ onSubmit() {
   this.registerForm.get('email').value,this.registerForm.get('contactNumber').value,this.registerForm.get('location').value,
   this.registerForm.get('roleName').value).subscribe((data) => {
     console.log("see the data",data)
-    // if(data.responseObject==="Success") {
-    //   this.authService.setLoggedIn(true)
-    // } else {
-    //   window.alert(data.responseCode)
-    // }
+    if(data.responseCode === 201) {
+      this.userName.reset('')
+      this.firstName.reset('')
+      this.lastName.reset('')
+      this.email.reset('')
+      this.contactNumber.reset('')
+      this.location.reset('')
+      this.roleName.reset('')
+      //this.registerForm.controls['roleName'].setValue('0');
+    } else {
+      window.alert(data.responseCode)
+    }
   },(err)=>{console.log("see the error",err)}))
   
 }

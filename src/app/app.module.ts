@@ -52,6 +52,8 @@ import { CustomerListComponent } from './Component/customer-list/customer-list.c
 import { CreateNewCustomerComponent } from './Component/create-new-customer/create-new-customer.component';
 import { InformationValidationComponent } from './Component/information-validation/information-validation.component';
 import { APIKEYInterceptor } from './Interceptors/api-key.interceptor';
+import { LoaderBusyComponent } from './Loader/loader-busy/loader-busy.component';
+import { LoaderInterceptor } from './Interceptors/loader.interceptor';
 
 
 
@@ -74,7 +76,7 @@ import { APIKEYInterceptor } from './Interceptors/api-key.interceptor';
      AddApplicationOverviewDetailsComponent, ServersComponent, StorageComponent, ApplicationLayerComponent, AddApplicationLayerComponent, 
      IntegrationsComponent, AddWebserverComponent, ApllicationServerComponent, DatabaseServerComponent, 
      AddStorageComponent, SecurityComplianceComponent, AddSecurCompiComponent, UserManagementComponent, UserListComponent, 
-     CreateNewUserComponent, CustomerManagementComponent, CustomerListComponent, CreateNewCustomerComponent, InformationValidationComponent,  
+     CreateNewUserComponent, CustomerManagementComponent, CustomerListComponent, CreateNewCustomerComponent, InformationValidationComponent, LoaderBusyComponent,  
     
     
   ],
@@ -82,7 +84,7 @@ import { APIKEYInterceptor } from './Interceptors/api-key.interceptor';
     BrowserModule,
     AppRoutingModule,ReactiveFormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule
   ],
-  providers: [{provide:HTTP_INTERCEPTORS, useClass:APIKEYInterceptor,multi:true}],
+  providers: [{provide:HTTP_INTERCEPTORS, useClass:APIKEYInterceptor,multi:true},{provide:HTTP_INTERCEPTORS, useClass:LoaderInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

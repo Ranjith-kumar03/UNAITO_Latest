@@ -86,8 +86,8 @@
                             <div class="dropdown form-group d-flex flex-column">
                                 <label for="">Role
                                 </label>
-                                <select class="form-control spl-width d-flex justify-content-between align-items-center" required formControlName="roleName" >
-                                    <option id="defaultColour" value=""  >Select your Role</option>
+                                <select class="form-control spl-width d-flex justify-content-between align-items-center" required [value]='0' formControlName="roleName" >
+                                    <option   id="defaultColour" value="" disabled="true" selected="true">Select your Role</option>
                                     <option  *ngFor="let role of roles" [value]="role.id" >
                                        {{ role.name }} 
                                     </option>
