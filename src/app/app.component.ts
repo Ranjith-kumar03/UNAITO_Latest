@@ -1,7 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { ChangeDetectorRef, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AuthService } from './Services/auth.service';
 
 
@@ -9,21 +9,11 @@ import { AuthService } from './Services/auth.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [
-    trigger('slideInOut', [
-      state('in', style({
-        transform: 'translate3d(0,0,0)'
-      })),
-      state('out', style({
-        transform: 'translate3d(100%, 0, 0)'
-      })),
-      transition('in => out', animate('400ms ease-in-out')),
-      transition('out => in', animate('400ms ease-in-out'))
-    ]),
-  ]
+ 
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
   isLoggedIn$: Observable<boolean>;
+  //isLoggedIn$: Subscription
   loggedIn:boolean;
   screen_Application:boolean = false;
   // subMenuState: boolean = false;
@@ -106,7 +96,16 @@ export class AppComponent {
 
   
 
-  constructor(public authService: AuthService, private cdr: ChangeDetectorRef, private router: Router) {  }
+  constructor(public authService: AuthService, private cdr: ChangeDetectorRef, private router: Router) { 
+    this.isLoggedIn$ = this.authService.isLoggedInAsync;
+
+    this.isLoggedIn$.subscribe((status)=>{
+      this.loggedIn=status;
+      console.log("Am i logged In",this.loggedIn)
+      })
+    
+   }
+ 
 
   isApplicationView() {
    
@@ -137,12 +136,13 @@ export class AppComponent {
     console.log("Iam clciked in Menu new")
   }
 
+  ngOnChanges()
+  {
+    
+  }
+
   ngOnInit() {
-    this.isLoggedIn$ = this.authService.isLoggedInAsync;
-    this.isLoggedIn$.subscribe((status)=>{
-    this.loggedIn=status;
-    console.log("Am i logged In",this.loggedIn)
-    })
+   
   }
 
   ngAfterViewChecked() {
@@ -152,7 +152,9 @@ export class AppComponent {
     }
   }
 
-
+  ngOnDestroy(): void {
+    //this.isLoggedIn$.unsubscribe()
+  }
 
 
 }

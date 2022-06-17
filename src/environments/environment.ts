@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://localhost:8080/unaito/v1/users/sign-in'
+  API_SIGN_IN_URL: 'http://localhost:8080/unaito/v1/users/sign-in',
+  API_REGISTER_URL: 'http://localhost:8080/unaito/v1/users/register'
 };
 
 /*
