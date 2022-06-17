@@ -26,7 +26,28 @@ export class CreateNewUserComponent implements OnInit {
   registerForm: FormGroup;                   
   private subscription: Subscription = new Subscription();
   submitted = false;
-  
+
+  roles = [
+    // {
+    //   id: '',
+    //   name: 'Select any Role'
+    // },
+    {
+      id: 'project_manager',
+      name: 'Project Manager'
+    },
+    {
+      id: 'acl_staff',
+      name: 'ACL Staff'
+    },
+    {
+      id: 'customer',
+      name: 'Customer'
+    }
+    ,
+    
+  ];
+  role='select'
   constructor(private fb: FormBuilder,         
   private router:Router ,private registerService:  RegisterService) { }
  
@@ -41,7 +62,7 @@ export class CreateNewUserComponent implements OnInit {
       email: ['',[Validators.required]],
       contactNumber: ['',[Validators.required]],
       location: ['',[Validators.required]],
-      roleName: ['project_manager',[Validators.required]],
+      roleName: ["",[Validators.required]],
   });
   console.log(this.registerForm.get('username'))
   console.log(this.registerForm.get('password'))
@@ -71,6 +92,7 @@ get location(){
 get roleName(){
   return this.registerForm.get('roleName')
 }
+
 
 onSubmit() {
   

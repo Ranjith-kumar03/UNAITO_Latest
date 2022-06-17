@@ -1,0 +1,9 @@
+/* select {
+    -webkit-appearance: menulist-button;
+    color: black;
+    https://stackoverflow.com/questions/17608880/how-to-change-the-text-color-of-first-select-option
+  } */
+  
+  select:invalid {
+    color: rgb(180, 176, 176);
+  }

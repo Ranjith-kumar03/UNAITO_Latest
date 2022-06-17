@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './Component/login/login.component';
 import { DashboardComponent } from './Component/dashboard/dashboard.component';
 import { ApplicationComponent } from './Component/application/application.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LogoutComponent } from './Component/logout/logout.component';
 import { MenuComponent } from './Component/menu/menu.component';
 import { SearchComponent } from './Component/search/search.component';
@@ -51,6 +51,7 @@ import { CustomerManagementComponent } from './Component/customer-management/cus
 import { CustomerListComponent } from './Component/customer-list/customer-list.component';
 import { CreateNewCustomerComponent } from './Component/create-new-customer/create-new-customer.component';
 import { InformationValidationComponent } from './Component/information-validation/information-validation.component';
+import { APIKEYInterceptor } from './Interceptors/api-key.interceptor';
 
 
 
@@ -81,7 +82,7 @@ import { InformationValidationComponent } from './Component/information-validati
     BrowserModule,
     AppRoutingModule,ReactiveFormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS, useClass:APIKEYInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

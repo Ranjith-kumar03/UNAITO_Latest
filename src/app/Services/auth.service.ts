@@ -48,14 +48,17 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
-  login(username: string, password: string) {
-
+  login(userName: string, password: string) {
+    console.log("see the LOGIN USERNAME",userName)
+    console.log("see theLOGIN password",password)
     return this.http.post<any>(environment.API_SIGN_IN_URL, {
-      username,
+      userName,
       password
     })
     
-    
+    // ,{headers:new HttpHeaders({
+    //   "API-KEY":"USER-API-KEY"
+    // })}
   }
   setLoggedIn(value: boolean) {
     this.loggedIn.next(true);
