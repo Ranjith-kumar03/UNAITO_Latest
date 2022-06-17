@@ -10,21 +10,7 @@ export interface User {
   password: string;
 }
 
-// export function customValidator(): ValidatorFn {
-//   const regExp =/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
-//   return (control: AbstractControl): { [key: string]: {message: string} } | null => {
 
-//     if (regExp.test(control.value)) {
-//       return {
-//         pattern1Error: {
-//           message: `Error message for pattern 1`
-//         }
-//       };
-//     } 
-
-//   return null;
-//   };
-// }
 
 
 @Component({
@@ -43,39 +29,33 @@ export class LoginComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
     
-    // this.loginForm = this.fb.group({
-    //   email: ['', Validators.required],
-    //   password: ['',  [Validators.required,Validators.pattern('^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$')]],
-    //   rememberMe: new FormControl(false),
-      
-    // });
+   
 
     this.loginForm = this.fb.group({
       
-      username: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
+
+     // username: ['', [Validators.required]],
+    //  password: ['', [Validators.required,Validators.minLength(6), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
+    userName: ['', ],
+      password: ['', ],
       rememberMe: ['']
   });
-  console.log(this.loginForm.get('username'))
+  console.log(this.loginForm.get('userName'))
   console.log(this.loginForm.get('password'))
 }
 
 get username(){
-  return this.loginForm.get('username')
+  return this.loginForm.get('userName')
 }
 
 get password(){
   return this.loginForm.get('password')
 }
-  // isFieldInvalid(field: string) { 
-  //   console.log("see for ",field,!this.loginForm.get(field).valid,this.loginForm.get(field).touched,this.loginForm.get(field).untouched ,this.formSubmitAttempt)
-  //   return (
-  //     (!this.loginForm.get(field).valid && this.loginForm.get(field).touched) ||
-  //     (this.loginForm.get(field).untouched && this.formSubmitAttempt)
-  //   );
-  // }
+  
 
   onSubmit() {
+    console.log("see the username",this.loginForm.get('userName'))
+  console.log("see the password",this.loginForm.get('password'))
     // this.router.navigate(['application'])
     //   this.authService.setLoggedIn(true)
     //   console.log("submit clicked")
@@ -84,22 +64,24 @@ get password(){
     //   return;
     // }
 
-    if(!this.loginForm.valid) {
-      this.loginForm.markAllAsTouched();
-      return;
-    }
-this.router.navigate(['application'])
-      this.authService.setLoggedIn(true)
-      console.log("submit clicked")
+    // if(!this.loginForm.valid) {
+    //   this.loginForm.markAllAsTouched();
+    //   return;
+    // }
+// this.router.navigate(['application'])
+//       this.authService.setLoggedIn(true)
+     
 
-    // this.subscription.add(this.authService.login(this.loginForm.get('username').value,this.loginForm.get('password').value ).subscribe((data) => {
-    //   console.log("see the data",data)
-    //   if(data.responseObject==="Success") {
-    //     this.authService.setLoggedIn(true)
-    //   } else {
-    //     window.alert(data.responseCode)
-    //   }
-    // },(err)=>{console.log("see the error",err)}))
+    this.subscription.add(this.authService.login(this.loginForm.get('userName').value,this.loginForm.get('password').value ).subscribe((data) => {
+      console.log("see the data",data)
+      if(data.responseObject.firstTimeLogin) {
+        this.router.navigate(['forgetpassword'])
+        
+      } else {
+        this.authService.setLoggedIn(true)
+        this.router.navigate(['application'])
+      }
+    },(err)=>{console.log("see the error",err)}))
     
   }
 
