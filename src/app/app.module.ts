@@ -54,6 +54,8 @@ import { InformationValidationComponent } from './Component/information-validati
 import { APIKEYInterceptor } from './Interceptors/api-key.interceptor';
 import { LoaderBusyComponent } from './Loader/loader-busy/loader-busy.component';
 import { LoaderInterceptor } from './Interceptors/loader.interceptor';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 
@@ -76,13 +78,14 @@ import { LoaderInterceptor } from './Interceptors/loader.interceptor';
      AddApplicationOverviewDetailsComponent, ServersComponent, StorageComponent, ApplicationLayerComponent, AddApplicationLayerComponent, 
      IntegrationsComponent, AddWebserverComponent, ApllicationServerComponent, DatabaseServerComponent, 
      AddStorageComponent, SecurityComplianceComponent, AddSecurCompiComponent, UserManagementComponent, UserListComponent, 
-     CreateNewUserComponent, CustomerManagementComponent, CustomerListComponent, CreateNewCustomerComponent, InformationValidationComponent, LoaderBusyComponent,  
+     CreateNewUserComponent, CustomerManagementComponent, CustomerListComponent, CreateNewCustomerComponent, InformationValidationComponent, LoaderBusyComponent, 
+    
     
     
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,ReactiveFormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule
+    AppRoutingModule,ReactiveFormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule,ToastrModule.forRoot()
   ],
   providers: [{provide:HTTP_INTERCEPTORS, useClass:APIKEYInterceptor,multi:true},{provide:HTTP_INTERCEPTORS, useClass:LoaderInterceptor,multi:true}],
   bootstrap: [AppComponent]
