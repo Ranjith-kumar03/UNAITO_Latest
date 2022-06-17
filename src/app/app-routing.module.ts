@@ -19,28 +19,58 @@ import { AddApplicationOverviewComponent } from './Component/add-application-ove
 import { AddApplicationOverviewDetailsComponent } from './Component/add-application-overview-details/add-application-overview-details.component';
 import { ServersComponent } from './Component/servers/servers.component';
 import { StorageComponent } from './Component/storage/storage.component';
+import { ApplicationLayerComponent } from './Component/application-layer/application-layer.component';
+import { AddApplicationLayerComponent } from './Component/add-application-layer/add-application-layer.component';
+import { IntegrationsComponent } from './Component/integrations/integrations.component';
+import { AddWebserverComponent } from './Component/add-webserver/add-webserver.component';
+import { ApllicationServerComponent } from './Component/apllication-server/apllication-server.component';
+import { DatabaseServerComponent } from './Component/database-server/database-server.component';
+import { AddStorageComponent } from './Component/add-storage/add-storage.component';
+import { SecurityComplianceComponent } from './Component/security-compliance/security-compliance.component';
+import { AddSecurCompiComponent } from './Component/add-secur-compi/add-secur-compi.component';
+import { AdministrationComponent } from './Component/administration/administration.component';
+import { UserManagementComponent } from './Component/user-management/user-management.component';
+import { CreateNewUserComponent } from './Component/create-new-user/create-new-user.component';
+import { CustomerManagementComponent } from './Component/customer-management/customer-management.component';
+import { CreateNewCustomerComponent } from './Component/create-new-customer/create-new-customer.component';
+import { InformationValidationComponent } from './Component/information-validation/information-validation.component';
 
 
 const routes: Routes = [
- { path: '', pathMatch: 'full', redirectTo: 'login'},
-  {path:"login" , component:LoginComponent},
-  {path:"forgetpassword" , component:ForgetPasswordComponent},
-  {path:"application" , component:ApplicationComponent},
-  {path:"dashboard" , component:DashboardComponent},
-  {path:"projectlist",component:ProjectListComponent},
-  {path:"newproject",component:CreateNewProjectComponent},
-  {path:"projectdetailsDashboard/:id", component:ProjectDetailsDashboardComponent},
-  {path:"addDrivers", component:ProjectDetailsDriversComponent},
-  {path:"editDrivers", component:EditDriversComponent},
-  {path:"addScope", component:ProjectDetailsScopeComponent},
-  {path:"overview", component:ProjectOverViewComponent},
-  {path:"teamonboard", component:TeamOnboardingComponent},
-  {path:"assessmentprojectplan", component:AssessmentProjectplanComponent},
-  {path:"addAppOverview", component:AddApplicationOverviewComponent},
-  {path:"addAppOverviewdetails", component:AddApplicationOverviewDetailsComponent},
-  {path:"server", component:ServersComponent},
-  {path:"storage", component:StorageComponent},
-  {path:"logout" , component:LogoutComponent}
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
+  { path: "login", component: LoginComponent },
+  { path: "forgetpassword", component: ForgetPasswordComponent },
+  { path: "application", component: ApplicationComponent },
+  { path: "dashboard", component: DashboardComponent },
+  { path: "projectlist", component: ProjectListComponent },
+  { path: "newproject", component: CreateNewProjectComponent },
+  { path: "projectdetailsDashboard/:id", component: ProjectDetailsDashboardComponent },
+  { path: "addDrivers", component: ProjectDetailsDriversComponent },
+  { path: "editDrivers", component: EditDriversComponent },
+  { path: "addScope", component: ProjectDetailsScopeComponent },
+  { path: "overview", component: ProjectOverViewComponent },
+  { path: "teamonboard", component: TeamOnboardingComponent },
+  { path: "assessmentprojectplan", component: AssessmentProjectplanComponent },
+  { path: "addAppOverview", component: AddApplicationOverviewComponent },
+  { path: "addAppOverviewdetails", component: AddApplicationOverviewDetailsComponent },
+  { path: "server", component: ServersComponent },
+  { path: "addWebServer", component: AddWebserverComponent },
+  { path: "addappServer", component: ApllicationServerComponent },
+  { path: 'adddatbaseserver', component: DatabaseServerComponent },
+  { path: "storage", component: StorageComponent },
+  { path: "addstorage", component: AddStorageComponent },
+  { path: "applicationLayer", component: ApplicationLayerComponent },
+  { path: "addApplicationLayerDetails", component: AddApplicationLayerComponent },
+  { path: "addIntegration", component: IntegrationsComponent },
+  { path: "securityCompliance", component: SecurityComplianceComponent },
+  { path: "addSecurCompi", component: AddSecurCompiComponent },
+  { path: "administration", component: AdministrationComponent },
+  {path:"userListTable", component: UserManagementComponent },
+  {path:"newUser",component:CreateNewUserComponent},
+  {path:"customerListTable",component:CustomerManagementComponent},
+  {path:"newCustomer",component:CreateNewCustomerComponent},
+  {path:"informationValidation", component:InformationValidationComponent},
+    { path: "logout", component: LogoutComponent }
 ];
 
 @NgModule({

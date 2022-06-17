@@ -24,6 +24,7 @@ import { AuthService } from './Services/auth.service';
 })
 export class AppComponent {
   isLoggedIn$: Observable<boolean>;
+  loggedIn:boolean;
   screen_Application:boolean = false;
   // subMenuState: boolean = false;
   // appListState: boolean = false;
@@ -103,40 +104,45 @@ export class AppComponent {
 
 
 
-  // menuClicked(evnt) {
-  //   this.subMenuState = evnt;
-  //   this.openSideBarStatus = true;
-  //   console.log("inside burgerClicked: pls. change showMenu to be:", this.subMenuState);
-  // }
+  
 
-  // appListClicked(evnt) {
-  //   this.appListState = evnt;
-  //   this.openSideBarStatus = true;
-  //   console.log("inside appListClicked: pls. change appListClicked to be:", this.appListState);
-  // }
-
-  // notificationClicked(evnt) {
-  //   this.notificationState = evnt;
-  //   this.openSideBarStatus = true;
-  //   console.log("inside notificationClicked: pls. change notificationClickedto be:", this.notificationState);
-  // }
-
-  // searchClicked(evnt) {
-  //   this.searchState = evnt;
-  //   this.openSideBarStatus = true;
-  //   console.log("inside searchClicked: pls. change searchClicked to be:", this.searchState);
-  // }
-
-  constructor(private authService: AuthService, private cdr: ChangeDetectorRef, private router: Router) {  }
+  constructor(public authService: AuthService, private cdr: ChangeDetectorRef, private router: Router) {  }
 
   isApplicationView() {
-    // return true if the current page is home
-    //console.log("see the router url",this.router.url)
-    return this.router.url.match('/application');
+   
+    console.log("see the router url",this.router.url)
+    if(this.router.url.match('/application'))
+    {
+      console.log("Iam inside true")
+      return true;
+    }else{
+      console.log("Iam inside false")
+      return false;
+    }
+   
+  }
+
+  clickNotification(e)
+  {
+   console.log("Iam clciked in Notifcation new")
+  }
+
+  clickApplication(e)
+  {
+    console.log("Iam clciked in Application new")
+  }
+
+  clickMenu(e)
+  {
+    console.log("Iam clciked in Menu new")
   }
 
   ngOnInit() {
     this.isLoggedIn$ = this.authService.isLoggedInAsync;
+    this.isLoggedIn$.subscribe((status)=>{
+    this.loggedIn=status;
+    console.log("Am i logged In",this.loggedIn)
+    })
   }
 
   ngAfterViewChecked() {
