@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Vali
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/Services/auth.service';
+import { ToasterNotificatonService } from 'src/app/Services/toaster.notificaton.service';
 
 
 export interface User {
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit,OnDestroy {
   submitted = false;
   
   constructor(private fb: FormBuilder,         
-  private authService: AuthService, private router:Router ) { }
+  private authService: AuthService, private router:Router,private _notificationToast:ToasterNotificatonService ) { }
 
   ngOnInit(): void {
     
@@ -75,13 +76,15 @@ get password(){
     this.subscription.add(this.authService.login(this.loginForm.get('userName').value,this.loginForm.get('password').value ).subscribe((data) => {
       console.log("see the data",data)
       if(data.responseObject.firstTimeLogin) {
+        this._notificationToast.showSuccess("User Logged In Sucessfully Please Create Your own Password ","Logged In Sucess")
         this.router.navigate(['forgetpassword'])
         
       } else {
+        this._notificationToast.showSuccess("User Logged In Sucessfully","Logged In Sucess")
         this.authService.setLoggedIn(true)
         this.router.navigate(['application'])
       }
-    },(err)=>{console.log("see the error",err)}))
+    },(err)=>{console.log("see the error",err),this._notificationToast.showError("User Log In Failed","Logon Failure")}))
     
   }
 

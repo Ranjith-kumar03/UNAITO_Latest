@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/Services/auth.service';
 import { RegisterService } from 'src/app/Services/register.service';
+import { ToasterNotificatonService } from 'src/app/Services/toaster.notificaton.service';
 
 export interface RegisterUser{
 userName:String,
@@ -49,7 +50,7 @@ export class CreateNewUserComponent implements OnInit {
   ];
   role='select'
   constructor(private fb: FormBuilder,         
-  private router:Router ,private registerService:  RegisterService) { }
+  private router:Router ,private registerService:  RegisterService, private _notificationToast:ToasterNotificatonService) { }
  
 
   ngOnInit(): void {
@@ -109,6 +110,7 @@ onSubmit() {
   this.registerForm.get('roleName').value).subscribe((data) => {
     console.log("see the data",data)
     if(data.responseCode === 201) {
+      this._notificationToast.showSuccess("User Created Sucessfully","Created User")
       this.userName.reset('')
       this.firstName.reset('')
       this.lastName.reset('')
@@ -118,9 +120,9 @@ onSubmit() {
       this.roleName.reset('')
       //this.registerForm.controls['roleName'].setValue('0');
     } else {
-      window.alert(data.responseCode)
+      this._notificationToast.showSuccess("User Creation Failed","Cannot Create User")
     }
-  },(err)=>{console.log("see the error",err)}))
+  },(err)=>{console.log("see the error",err), this._notificationToast.showSuccess(err,"Cannot Create User")}))
   
 }
 ngOnDestroy() {  
