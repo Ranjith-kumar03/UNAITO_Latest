@@ -19,78 +19,95 @@ export interface User {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit,OnDestroy {
+export class LoginComponent implements OnInit, OnDestroy {
 
-  loginForm: FormGroup;                   
+  loginForm: FormGroup;
   private subscription: Subscription = new Subscription();
   submitted = false;
-  
-  constructor(private fb: FormBuilder,         
-  private authService: AuthService, private router:Router,private _notificationToast:ToasterNotificatonService ) { }
+
+  constructor(private fb: FormBuilder,
+    private authService: AuthService, private router: Router, private _notificationToast: ToasterNotificatonService) { }
 
   ngOnInit(): void {
-    
-   
+
+
 
     this.loginForm = this.fb.group({
+
+
+      // username: ['', [Validators.required]],
+      //  password: ['', [Validators.required,Validators.minLength(6), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
+      userName: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+
       
 
-     // username: ['', [Validators.required]],
-    //  password: ['', [Validators.required,Validators.minLength(6), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
-    userName: ['', ],
-      password: ['', ],
+   
       rememberMe: ['']
-  });
-  console.log(this.loginForm.get('userName'))
-  console.log(this.loginForm.get('password'))
-}
+    });
+    console.log(this.loginForm.get('userName'))
+    console.log(this.loginForm.get('password'))
+  }
 
-get username(){
-  return this.loginForm.get('userName')
-}
+  get username() {
+    return this.loginForm.get('userName')
+  }
 
-get password(){
-  return this.loginForm.get('password')
-}
-  
+  get password() {
+    return this.loginForm.get('password')
+  }
+
 
   onSubmit() {
-    console.log("see the username",this.loginForm.get('userName'))
-  console.log("see the password",this.loginForm.get('password'))
+    console.log("see the username", this.loginForm.get('userName'))
+    console.log("see the password", this.loginForm.get('password'))
     // this.router.navigate(['application'])
     //   this.authService.setLoggedIn(true)
     //   console.log("submit clicked")
-    // if(this.loginForm.get('username').errors && this.loginForm.get('password').errors)
-    // {
-    //   return;
-    // }
+    if (this.loginForm.get('userName').errors && this.loginForm.get('password').errors) {
+      return;
+    }
 
-    // if(!this.loginForm.valid) {
-    //   this.loginForm.markAllAsTouched();
-    //   return;
-    // }
-// this.router.navigate(['application'])
-//       this.authService.setLoggedIn(true)
-     
+    if (!this.loginForm.valid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+    // this.router.navigate(['application'])
+    //       this.authService.setLoggedIn(true)
+   
 
-    this.subscription.add(this.authService.login(this.loginForm.get('userName').value,this.loginForm.get('password').value ).subscribe((data) => {
-      console.log("see the data",data)
-      if(data.responseObject.firstTimeLogin) {
-        this._notificationToast.showSuccess("User Logged In Sucessfully Please Create Your own Password ","Logged In Sucess")
-        this.router.navigate(['forgetpassword'])
-        
-      } else {
-        this._notificationToast.showSuccess("User Logged In Sucessfully","Logged In Sucess")
-        this.authService.setLoggedIn(true)
-        this.router.navigate(['application'])
+    this.subscription.add(this.authService.login(this.loginForm.get('userName').value, this.loginForm.get('password').value).subscribe((data) => {
+      console.log("see the data", data)
+      if (data.responseCode === 200) {
+        if (data.responseObject.firstTimeLogin) {
+          localStorage.setItem("sessionId",data.responseObject.sessionId)
+          localStorage.setItem("jwtType",data.responseObject.jwtType)
+          localStorage.setItem("jwt",data.responseObject.jwt)
+          localStorage.setItem("jwtCreatedTime",data.responseObject.jwtCreatedTime)
+          localStorage.setItem("jwtExpiryTime",data.responseObject.jwtExpiryTime)
+          localStorage.setItem("firstTimeLogin",data.responseObject.firstTimeLogin)
+          this._notificationToast.showSuccess("User Logged In Sucessfully Please Create Your own Password ", "Logged In Sucess")
+          this.router.navigate(['forgetpassword'])
+
+        } else {
+          this._notificationToast.showSuccess("User Logged In Sucessfully", "Logged In Sucess")
+          localStorage.setItem("sessionId",data.responseObject.sessionId)
+          localStorage.setItem("jwtType",data.responseObject.jwtType)
+          localStorage.setItem("jwt",data.responseObject.jwt)
+          localStorage.setItem("jwtCreatedTime",data.responseObject.jwtCreatedTime)
+          localStorage.setItem("jwtExpiryTime",data.responseObject.jwtExpiryTime)
+          localStorage.setItem("firstTimeLogin",data.responseObject.firstTimeLogin)
+          //this.authService.setLoggedIn()
+          this.router.navigate(['application'])
+        }
       }
-    },(err)=>{console.log("see the error",err),this._notificationToast.showError("User Log In Failed","Logon Failure")}))
-    
+    }, (err) => { console.log("see the error", err), this._notificationToast.showError("User Log In Failed", "Logon Failure") }))
+
   }
 
-  ngOnDestroy() {  
+  ngOnDestroy() {
     // Unsubscribed the subscription  
-   this.subscription.unsubscribe();  
-   }  
+    this.subscription.unsubscribe();
+  }
 
 }

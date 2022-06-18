@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -122,7 +123,16 @@ onSubmit() {
     } else {
       this._notificationToast.showSuccess("User Creation Failed","Cannot Create User")
     }
-  },(err)=>{console.log("see the error",err), this._notificationToast.showSuccess(err,"Cannot Create User")}))
+  },(err)=>{
+            console.log("see the error",err)
+            if(err instanceof HttpErrorResponse)
+            {
+              this._notificationToast.showError(JSON.stringify(err),"Cannot Create User Back To Log In Page")
+              this.router.navigate(['login'])
+            }
+            
+            this._notificationToast.showError(JSON.stringify(err),"Cannot Create User")
+          }))
   
 }
 ngOnDestroy() {  

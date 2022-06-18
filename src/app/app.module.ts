@@ -55,6 +55,7 @@ import { APIKEYInterceptor } from './Interceptors/api-key.interceptor';
 import { LoaderBusyComponent } from './Loader/loader-busy/loader-busy.component';
 import { LoaderInterceptor } from './Interceptors/loader.interceptor';
 import { ToastrModule } from 'ngx-toastr';
+import { TokenInterceptor } from './Interceptors/token.interceptor';
 
 
 
@@ -85,9 +86,16 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,ReactiveFormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule,ToastrModule.forRoot()
+    AppRoutingModule,ReactiveFormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule,ToastrModule.forRoot({
+      timeOut: 1000,
+      positionClass: 'toast-center-center',
+      preventDuplicates: true,
+    })
   ],
-  providers: [{provide:HTTP_INTERCEPTORS, useClass:APIKEYInterceptor,multi:true},{provide:HTTP_INTERCEPTORS, useClass:LoaderInterceptor,multi:true}],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:APIKEYInterceptor,multi:true},
+    {provide:HTTP_INTERCEPTORS, useClass:LoaderInterceptor,multi:true},
+    {provide:HTTP_INTERCEPTORS, useClass:TokenInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

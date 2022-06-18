@@ -49,31 +49,38 @@ export class AuthService {
   }
 
   login(userName: string, password: string) {
-    console.log("see the LOGIN USERNAME",userName)
-    console.log("see theLOGIN password",password)
+    console.log("see the LOGIN USERNAME", userName)
+    console.log("see theLOGIN password", password)
     return this.http.post<any>(environment.API_SIGN_IN_URL, {
       userName,
       password
     })
-    
+
     // ,{headers:new HttpHeaders({
     //   "API-KEY":"USER-API-KEY"
     // })}
   }
-  setLoggedIn(value: boolean) {
-    this.loggedIn.next(true);
-    this.isLoggedIn=true
-    this.router.navigate(['/application']);
-      }
 
+  getloggedIn(): boolean {
+    this.loggedIn.next(true);
+    this.isLoggedIn = true
+    return !!localStorage.getItem("jwt");
+  }
+  getToken() {
+    return localStorage.getItem('jwt');
+  }
 
   resetcredentials() {
-    //clear all localstorages
-    localStorage.removeItem('rememberCurrentUser');
-    localStorage.removeItem('currentUser');
-    sessionStorage.removeItem('currentUser');
+
+    localStorage.removeItem("sessionId")
+    localStorage.removeItem("jwtType")
+    localStorage.removeItem("jwt")
+    localStorage.removeItem("jwtCreatedTime")
+    localStorage.removeItem("jwtExpiryTime")
+    localStorage.removeItem("firstTimeLogin")
+
     this.currentUserSubject.next(null);
-    this.isLoggedIn=false
+    this.isLoggedIn = false
     this.loggedIn.next(false);
   }
 
