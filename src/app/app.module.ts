@@ -56,6 +56,7 @@ import { LoaderBusyComponent } from './Loader/loader-busy/loader-busy.component'
 import { LoaderInterceptor } from './Interceptors/loader.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { TokenInterceptor } from './Interceptors/token.interceptor';
+import { ConfirmPasswordComponent } from './Component/confirm-password/confirm-password.component';
 
 
 
@@ -79,7 +80,7 @@ import { TokenInterceptor } from './Interceptors/token.interceptor';
      AddApplicationOverviewDetailsComponent, ServersComponent, StorageComponent, ApplicationLayerComponent, AddApplicationLayerComponent, 
      IntegrationsComponent, AddWebserverComponent, ApllicationServerComponent, DatabaseServerComponent, 
      AddStorageComponent, SecurityComplianceComponent, AddSecurCompiComponent, UserManagementComponent, UserListComponent, 
-     CreateNewUserComponent, CustomerManagementComponent, CustomerListComponent, CreateNewCustomerComponent, InformationValidationComponent, LoaderBusyComponent, 
+     CreateNewUserComponent, CustomerManagementComponent, CustomerListComponent, CreateNewCustomerComponent, InformationValidationComponent, LoaderBusyComponent, ConfirmPasswordComponent, 
     
     
     

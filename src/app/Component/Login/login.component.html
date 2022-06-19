@@ -14,10 +14,10 @@
                         <!-- <div *ngIf="isFieldInvalid('password')">
                                 Please inform your password
                             </div> -->
-                        <div *ngIf="(username.invalid && username.errors?.required )&& 
-                            (username.dirty || username.touched)" class="alert alert-danger">
+                        <div *ngIf="(userName.invalid && userName.errors?.required )&& 
+                            (userName.dirty || userName.touched)" class="alert alert-danger">
 
-                            <div *ngIf="username.errors?.required">
+                            <div *ngIf="userName.errors?.required">
                                 Username is required.
                             </div>
 
@@ -63,7 +63,8 @@
                             <label for="customCheck1">Remember Me</label>
                         </div>
                         <!-- &quest; -->
-                        <a href="forgot-password.html" routerLink="/forgetpassword" class="btn-link">Forgot password</a>
+                        <a  [routerLink]="['/forgetpassword/', loginForm.get('userName').value]" class="btn-link">Forgot password</a>
+                       
                     </div>
                 </div>
                 <div class="form-group">

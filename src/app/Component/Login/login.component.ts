@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     console.log(this.loginForm.get('password'))
   }
 
-  get username() {
+  get userName() {
     return this.loginForm.get('userName')
   }
 
@@ -90,7 +90,8 @@ export class LoginComponent implements OnInit, OnDestroy {
           localStorage.setItem("jwtExpiryTime",data.responseObject.jwtExpiryTime)
           localStorage.setItem("firstTimeLogin",data.responseObject.firstTimeLogin)
           this._notificationToast.showSuccess("User Logged In Sucessfully Please Create Your own Password ", "Logged In Sucess")
-          this.router.navigate(['forgetpassword'])
+          this.router.navigate(['forgetpassword',this.loginForm.get('userName').value])
+          
 
         } else {
           this._notificationToast.showSuccess("User Logged In Sucessfully", "Logged In Sucess")

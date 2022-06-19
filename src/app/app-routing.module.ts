@@ -35,12 +35,14 @@ import { CustomerManagementComponent } from './Component/customer-management/cus
 import { CreateNewCustomerComponent } from './Component/create-new-customer/create-new-customer.component';
 import { InformationValidationComponent } from './Component/information-validation/information-validation.component';
 import { AuthGuard } from './Guards/auth-guard';
+import { ConfirmPasswordComponent } from './Component/confirm-password/confirm-password.component';
 
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: "login", component: LoginComponent },
-  { path: "forgetpassword", component: ForgetPasswordComponent },
+  { path: "forgetpassword/:emailId", component: ForgetPasswordComponent },
+  { path: "confirmpassword/:emailId", component: ConfirmPasswordComponent },
   { path: "application", component: ApplicationComponent ,canActivate:[AuthGuard]},
   { path: "dashboard", component: DashboardComponent ,canActivate:[AuthGuard]},
   { path: "projectlist", component: ProjectListComponent ,canActivate:[AuthGuard]},
