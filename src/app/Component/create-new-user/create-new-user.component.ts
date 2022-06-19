@@ -104,11 +104,11 @@ onSubmit() {
     this.registerForm.markAllAsTouched();
     return;
   }
+  // this.subscription.add(this.registerService.create(this.registerForm.get('userName').value,this.registerForm.get('firstName').value,this.registerForm.get('lastName').value,
+  // this.registerForm.get('email').value,this.registerForm.get('contactNumber').value,this.registerForm.get('location').value,
+  // this.registerForm.get('roleName').value).
 
-
-  this.subscription.add(this.registerService.create(this.registerForm.get('userName').value,this.registerForm.get('firstName').value,this.registerForm.get('lastName').value,
-  this.registerForm.get('email').value,this.registerForm.get('contactNumber').value,this.registerForm.get('location').value,
-  this.registerForm.get('roleName').value).subscribe((data) => {
+  this.subscription.add(this.registerService.create(this.registerForm.value).subscribe((data:any) => {
     console.log("see the data",data)
     if(data.responseCode === 201) {
       this._notificationToast.showSuccess("User Created Sucessfully","Created User")

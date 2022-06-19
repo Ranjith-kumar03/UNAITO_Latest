@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 import { ToasterNotificatonService } from 'src/app/Services/toaster.notificaton.service';
 
 
-export interface User {
+export interface UserLogin {
   userName: string;
   password: string;
 }
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       //  password: ['', [Validators.required,Validators.minLength(6), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
       userName: ['', [Validators.required]],
       password: ['', [Validators.required]],
-      rememberMe: ['']
+      //rememberMe: ['']
     });
     console.log(this.loginForm.get('userName'))
     console.log(this.loginForm.get('password'))
@@ -54,8 +54,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
 
   onSubmit() {
-    console.log("see the username", this.loginForm.get('userName'))
-    console.log("see the password", this.loginForm.get('password'))
+    console.log("see the login form value", this.loginForm.value)
+    
     // this.router.navigate(['application'])
     //   this.authService.setLoggedIn(true)
     //   console.log("submit clicked")
@@ -69,9 +69,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
     // this.router.navigate(['application'])
     //       this.authService.setLoggedIn(true)
-   
+    //this.subscription.add(this.authService.login(this.loginForm.get('userName').value, this.loginForm.get('password').value)
 
-    this.subscription.add(this.authService.login(this.loginForm.get('userName').value, this.loginForm.get('password').value).subscribe((data) => {
+    this.subscription.add(this.authService.login(this.loginForm.value).subscribe((data:any) => {
       console.log("see the data", data)
       if (data.responseCode === 200) {
         if (data.responseObject.firstTimeLogin) {

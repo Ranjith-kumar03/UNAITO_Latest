@@ -10,8 +10,8 @@ export class RegisterService {
 
   constructor(private http: HttpClient) { }
 
-  create(userName: String, firstName:String,lastName:String,email:String,contactNumber:String,location:String,roleName:String) {
-    return this.http.post<any>(environment.API_REGISTER_URL,{userName,firstName,lastName,email,contactNumber,location,roleName}); 
+  create(registerUser:RegisterUser) {
+    return this.http.post<RegisterUser>(environment.API_REGISTER_URL,{...registerUser}); 
     // {headers:new HttpHeaders({
     //   "API-KEY":"USER-API-KEY"
     // })}
