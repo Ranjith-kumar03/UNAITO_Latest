@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ConfirmPasswordValidator } from 'src/app/CrossFieldValidators/cross.field.custom.validators';
 import { AuthService } from 'src/app/Services/auth.service';
 import { ToasterNotificatonService } from 'src/app/Services/toaster.notificaton.service';
 
@@ -12,18 +13,32 @@ import { ToasterNotificatonService } from 'src/app/Services/toaster.notificaton.
 })
 export class ConfirmPasswordComponent implements OnInit {
   changePasswordForm: FormGroup;
+  submitted: boolean = false;
   private subscription: Subscription = new Subscription();
   constructor(private fb: FormBuilder,
-    private authService: AuthService, private router: Router,private activatedRoute: ActivatedRoute, private _notificationToast: ToasterNotificatonService) { }
+    private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute, private _notificationToast: ToasterNotificatonService) { }
 
   ngOnInit(): void {
-    this.changePasswordForm = this.fb.group({
+    // this.changePasswordForm = this.fb.group({
 
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(6), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
-      confirmPassword: ['', [Validators.required, Validators.minLength(6), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]]
+    //   email: ['', [Validators.required]],
+    //   password: ['', [Validators.required, Validators.minLength(6), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
+    //   confirmPassword: ['', [Validators.required, ]]
 
-    });
+    // },{validator: this.passwordMatchValidator});
+    this.changePasswordForm = this.fb.group(
+      {
+        email: ["",Validators.required],
+        password: ["",Validators.required],
+        confirmPassword: ["",Validators.required]
+      },
+      {
+        validator: ConfirmPasswordValidator("password", "confirmPassword")
+      }
+    );
+   
+
+
 
     this.activatedRoute.params.subscribe(params => {
       let emailId = params['emailId'];
@@ -33,22 +48,22 @@ export class ConfirmPasswordComponent implements OnInit {
     });
 
   }
-  get email() {
-    return this.changePasswordForm.get('email')
-  }
-  get password() {
-    return this.changePasswordForm.get('password')
-  }
 
-  get confirmPassword() {
-    return this.changePasswordForm.get('confirmPassword')
-  }
+
+  // get email() {
+  //   return this.changePasswordForm.get('email')
+  // }
+  // get password() {
+  //   return this.changePasswordForm.get('password')
+  // }
+
+  // get confirmPassword() {
+  //   return this.changePasswordForm.get('confirmPassword')
+  // }
 
   onSubmit() {
-    console.log("see the login form value", this.changePasswordForm.value)
-
-
-    if (this.changePasswordForm.get('password').errors && this.changePasswordForm.get('confirmPassword').errors) {
+    this.submitted = true;
+    if (this.changePasswordForm.get('email').errors || this.changePasswordForm.get('password').errors || this.changePasswordForm.get('confirmPassword').errors) {
       return;
     }
 
@@ -56,21 +71,9 @@ export class ConfirmPasswordComponent implements OnInit {
       this.changePasswordForm.markAllAsTouched();
       return;
     }
+    console.log("see the change password values",this.changePasswordForm.value)
 
-
-    this.subscription.add(this.authService.login(this.changePasswordForm.value).subscribe((data: any) => {
-      console.log("see the data", data)
-      if (data.responseCode === 200) {
-
-
-      } else {
-
-      }
-    }))
-
-
-
-
+    this.router.navigate(['login'])
   }
 
 }
