@@ -67,12 +67,13 @@ export class LoginComponent implements OnInit, OnDestroy {
     // this.router.navigate(['application'])
     //   this.authService.setLoggedIn(true)
     //   console.log("submit clicked")
-    if (this.loginForm.get('userName').errors || this.loginForm.get('password').errors) {
+    
+    if (!this.loginForm.valid) {
+      this.loginForm.markAllAsTouched();
       return;
     }
 
-    if (!this.loginForm.valid) {
-      this.loginForm.markAllAsTouched();
+    if (this.loginForm.get('userName').errors || this.loginForm.get('password').errors) {
       return;
     }
     // this.router.navigate(['application'])
