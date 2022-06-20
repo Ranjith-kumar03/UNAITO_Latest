@@ -29,7 +29,7 @@ export class ConfirmPasswordComponent implements OnInit {
     this.changePasswordForm = this.fb.group(
       {
         email: ["",Validators.required],
-        password: ["",Validators.required],
+        password: ["",[Validators.required,Validators.minLength(6), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
         confirmPassword: ["",Validators.required]
       },
       {
@@ -60,19 +60,21 @@ export class ConfirmPasswordComponent implements OnInit {
   // get confirmPassword() {
   //   return this.changePasswordForm.get('confirmPassword')
   // }
-
+/// ref https://stackblitz.com/edit/angular-match-password-validation?file=src%2Fapp%2Fconfirm-password.validator.ts
   onSubmit() {
     this.submitted = true;
-    if (this.changePasswordForm.get('email').errors || this.changePasswordForm.get('password').errors || this.changePasswordForm.get('confirmPassword').errors) {
-      return;
-    }
+   
 
     if (!this.changePasswordForm.valid) {
       this.changePasswordForm.markAllAsTouched();
       return;
     }
+    if (this.changePasswordForm.get('email').errors || this.changePasswordForm.get('password').errors || this.changePasswordForm.get('confirmPassword').errors) {
+      return;
+    }
     console.log("see the change password values",this.changePasswordForm.value)
 
+    this.authService.logout()
     this.router.navigate(['login'])
   }
 

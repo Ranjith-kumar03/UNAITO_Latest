@@ -36,6 +36,7 @@ import { CreateNewCustomerComponent } from './Component/create-new-customer/crea
 import { InformationValidationComponent } from './Component/information-validation/information-validation.component';
 import { AuthGuard } from './Guards/auth-guard';
 import { ConfirmPasswordComponent } from './Component/confirm-password/confirm-password.component';
+import { ErrorPageComponent } from './Component/error-page/error-page.component';
 
 
 const routes: Routes = [
@@ -73,7 +74,9 @@ const routes: Routes = [
   {path:"customerListTable",component:CustomerManagementComponent ,canActivate:[AuthGuard]},
   {path:"newCustomer",component:CreateNewCustomerComponent ,canActivate:[AuthGuard]},
   {path:"informationValidation", component:InformationValidationComponent ,canActivate:[AuthGuard]},
-    { path: "logout", component: LogoutComponent ,canActivate:[AuthGuard]}
+    { path: "logout", component: LogoutComponent ,canActivate:[AuthGuard]},
+    { path: "**", component: ErrorPageComponent },
+    { path: "error", component: ErrorPageComponent }
 ];
 
 @NgModule({
