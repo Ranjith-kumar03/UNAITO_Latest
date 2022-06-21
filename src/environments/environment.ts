@@ -7,8 +7,12 @@ export const environment = {
   API_SIGN_IN_URL: 'http://localhost:8080/unaito/v1/users/sign-in',
   API_FORGETPASSWORD_URL: 'http://localhost:8080/unaito/v1/users/forgot-password/email/',
   API_REGISTER_URL: 'http://localhost:8080/unaito/v1/users/register',
-  API_USEREDIT_URL: 'http://localhost:8080/unaito/v1/users/edit',
-  API_USERDELETE_URL: 'http://localhost:8080/unaito/v1/users/delete/',
+  API_UPDATEUSER_URL: 'http://localhost:3000/uselists/',
+  //API_USEREDIT_URL: 'http://localhost:8080/unaito/v1/users/edit',
+  API_GETUSERBYID_URL: 'http://localhost:3000/uselists/',
+  //API_USERDELETE_URL: 'http://localhost:8080/unaito/v1/users/delete/',
+  API_USERDELETE_URL: 'http://localhost:3000/uselists/',
+  API_GETALLUSERS_URL:'http://localhost:3000/uselists'
 };
 
 /*

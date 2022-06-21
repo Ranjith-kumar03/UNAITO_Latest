@@ -1,30 +1,35 @@
 <table class="table">
     <thead class="thead-light">
         <tr>
-            <th>SL.NO</th>
             <th>USER NAME</th>
+            <th>FIRST NAME</th>
             <th>ROLE</th>
             <th>EMAIL</th>
             <th>CONTACT NO</th>
             <th>LAST UPDATED ON</th>
-
+            <th style="text-align:center">ACTION</th>
         </tr>
     </thead>
     <tbody>
 
-        <tr class="clickable" *ngFor="let item of customerListTable" [routerLink]="['/projectdetailsDashboard/', item.SL_NO]">
+        <tr class="clickable" *ngFor="let item of customerListTable" [routerLink]="['/projectdetailsDashboard/', item.id]">
             <!-- https://www.positronx.io/build-dynamic-html-table-in-angular-with-ngfor/ -->
             
-                <td>{{item.SL_NO}}</td>
-                <td>{{item.USERNAME}}</td>
-                <td>{{item.ROLE}}</td>
-                <td>{{item.EMAIL}}</td>
-                <td>{{item.CONTACT_NO}}</td>
-                <td>{{item.LASTUPDATEDON}}</td>
-                <td><button class="btn btn-danger " type="button" (click)="onDeleteItem($event,item.USERNAME)" >
-                    Delete
-                </button></td>
-                <td><button type="button" class="btn btn-primary btn-sm" (click)="onEditItem($event,item.USERNAME)">Edit</button></td>
+                <td>{{item.userName}}</td>
+                <td>{{item.firstName}}</td>
+                <td>{{item.roleName}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.contactNumber}}</td>
+                <td>{{item.location}}</td>
+                <td>
+                    <button  class="btn btn-danger  mr-1" type="button" (click)="onDeleteItem($event,item.id)" >
+                    Delete</button>
+                    
+                    <button type="button" class="btn btn-primary" [routerLink]="['/editUser/', item.id]">Edit</button>
+                
+                
+                </td>
+                
            
         </tr>
         <!-- <tr>

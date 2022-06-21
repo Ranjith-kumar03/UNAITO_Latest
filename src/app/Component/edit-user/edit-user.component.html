@@ -1,0 +1,149 @@
+<div class="page-content d-flex align-items-stretch">
+    <app-left-side-bar></app-left-side-bar>
+    <div class="content-inner dashboardContent">
+
+        <!-- ==============          Dashboard  page          =================  -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 title-bar justify-content-between d-flex align-items-center">
+                    <h2 class="page-title"><img class="svg" src="../../../assets/Images/UNAITO/Icon/left-arrow.svg" />
+                        Edit 
+                        User</h2>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center">
+                <div class="card col-md-7">
+                    <div class="col-md-10">
+                        <form [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <label for="">User Name
+                                </label>
+                                <input type="text" class="form-control spl-width" id="" placeholder="Enter User Name"
+                                    formControlName="userName">
+                                <div *ngIf="(userName.invalid && userName.errors?.required )&& 
+                                            (userName.dirty || userName.touched)" class="alert alert-danger">
+
+                                    <div *ngIf="userName.errors?.required">
+                                        UserName is required.
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row" style="height: auto;">
+
+                                <div class="form-group ml-3">
+                                    <label for="">First Name</label>
+                                    <input type="text" class="form-control custom-width " id=""
+                                        formControlName="firstName" placeholder="Enter first name">
+                                    <div *ngIf="(firstName.invalid && firstName.errors?.required )&& 
+                                            (firstName.dirty || firstName.touched)" class="alert alert-danger">
+
+                                        <div *ngIf="firstName.errors?.required">
+                                            First Name is required.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" form-group  ml-3">
+                                    <label for="">Last Name</label>
+                                    <input type="text" class="form-control custom-width" id=""
+                                        formControlName="lastName" placeholder="Enter last name">
+                                    <div *ngIf="(lastName.invalid && lastName.errors?.required )&& 
+                                            (lastName.dirty || lastName.touched)" class="alert alert-danger">
+
+                                        <div *ngIf="lastName.errors?.required">
+                                            Last Name is required.
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="dropdown form-group d-flex flex-column">
+                                <label for="">Role
+                                </label>
+                                <select class="form-control spl-width d-flex justify-content-between align-items-center" required [value]='0' formControlName="roleName" >
+                                    <option   id="defaultColour" value="" disabled="true" selected="true">Select your Role</option>
+                                    <option  *ngFor="let role of roles" [value]="role.id"  [selected]="role.name==roleValue">
+                                       {{ role.name }} 
+                                    </option>
+                                </select>
+                                <div *ngIf="(roleName.invalid && roleName.errors?.required )&& 
+                                            (roleName.dirty || roleName.touched)" class="alert alert-danger">
+
+                                    <div *ngIf="roleName.errors?.required">
+                                        Role Name is required.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Email Address
+                                </label>
+                                <input type="text" class="form-control spl-width" id=""
+                                    placeholder="Enter email address" formControlName="email">
+                                <div *ngIf="(email.invalid && email.errors?.required )&& 
+                                            (email.dirty || email.touched)" class="alert alert-danger">
+
+                                    <div *ngIf="email.errors?.required">
+                                        Email is required.
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="">Contact No.
+                                </label>
+                                <input type="text" class="form-control spl-width" id="" placeholder="+91"
+                                    formControlName="contactNumber">
+                                <div *ngIf="(contactNumber.invalid && contactNumber.errors?.required )&& 
+                                            (contactNumber.dirty || contactNumber.touched)" class="alert alert-danger">
+
+                                    <div *ngIf="contactNumber.errors?.required">
+                                        Contact Number is required.
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Location.
+                                </label>
+                                <input type="text" class="form-control spl-width" id="" placeholder="Enter location"
+                                    formControlName="location">
+                                <div *ngIf="(location.invalid && location.errors?.required )&& 
+                                            (location.dirty || location.touched)" class="alert alert-danger">
+
+                                    <div *ngIf="location.errors?.required">
+                                        Location is required.
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary create-btn">Update User</button>
+                                <button routerLink="/userListTable" class="btn cancel-btn create-btn">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+
+                </div>
+                <div class="col-md-2">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- ==============          Dashboard  page          =================  -->
+</div>
