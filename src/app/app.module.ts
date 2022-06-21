@@ -58,6 +58,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { TokenInterceptor } from './Interceptors/token.interceptor';
 import { ConfirmPasswordComponent } from './Component/confirm-password/confirm-password.component';
 import { ErrorPageComponent } from './Component/error-page/error-page.component';
+import { EditUserComponent } from './Component/edit-user/edit-user.component';
 
 
 
@@ -81,7 +82,7 @@ import { ErrorPageComponent } from './Component/error-page/error-page.component'
      AddApplicationOverviewDetailsComponent, ServersComponent, StorageComponent, ApplicationLayerComponent, AddApplicationLayerComponent, 
      IntegrationsComponent, AddWebserverComponent, ApllicationServerComponent, DatabaseServerComponent, 
      AddStorageComponent, SecurityComplianceComponent, AddSecurCompiComponent, UserManagementComponent, UserListComponent, 
-     CreateNewUserComponent, CustomerManagementComponent, CustomerListComponent, CreateNewCustomerComponent, InformationValidationComponent, LoaderBusyComponent, ConfirmPasswordComponent, ErrorPageComponent, 
+     CreateNewUserComponent, CustomerManagementComponent, CustomerListComponent, CreateNewCustomerComponent, InformationValidationComponent, LoaderBusyComponent, ConfirmPasswordComponent, ErrorPageComponent, EditUserComponent, 
     
     
     

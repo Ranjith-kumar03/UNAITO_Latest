@@ -37,6 +37,7 @@ import { InformationValidationComponent } from './Component/information-validati
 import { AuthGuard } from './Guards/auth-guard';
 import { ConfirmPasswordComponent } from './Component/confirm-password/confirm-password.component';
 import { ErrorPageComponent } from './Component/error-page/error-page.component';
+import { EditUserComponent } from './Component/edit-user/edit-user.component';
 
 
 const routes: Routes = [
@@ -71,6 +72,7 @@ const routes: Routes = [
   { path: "administration", component: AdministrationComponent ,canActivate:[AuthGuard]},
   {path:"userListTable", component: UserManagementComponent ,canActivate:[AuthGuard]},
   {path:"newUser",component:CreateNewUserComponent ,canActivate:[AuthGuard]},
+  {path:"editUser/:id",component:EditUserComponent ,canActivate:[AuthGuard]},
   {path:"customerListTable",component:CustomerManagementComponent ,canActivate:[AuthGuard]},
   {path:"newCustomer",component:CreateNewCustomerComponent ,canActivate:[AuthGuard]},
   {path:"informationValidation", component:InformationValidationComponent ,canActivate:[AuthGuard]},
