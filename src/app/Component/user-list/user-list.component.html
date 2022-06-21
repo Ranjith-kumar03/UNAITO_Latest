@@ -21,6 +21,10 @@
                 <td>{{item.EMAIL}}</td>
                 <td>{{item.CONTACT_NO}}</td>
                 <td>{{item.LASTUPDATEDON}}</td>
+                <td><button class="btn btn-danger " type="button" (click)="onDeleteItem($event,item.USERNAME)" >
+                    Delete
+                </button></td>
+                <td><button type="button" class="btn btn-primary btn-sm" (click)="onEditItem($event,item.USERNAME)">Edit</button></td>
            
         </tr>
         <!-- <tr>

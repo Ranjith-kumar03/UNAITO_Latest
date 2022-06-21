@@ -17,7 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
   loggedIn: boolean;
   constructor(public authService: AuthService, private cdr: ChangeDetectorRef, private router: Router) {
     this.isLoggedIn$ = this.authService.isLoggedInAsync;
-
+   
     this.isLoggedIn$.subscribe((status) => {
       this.loggedIn = status;
       console.log("Am i logged In", this.loggedIn)

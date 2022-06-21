@@ -5,7 +5,10 @@
 export const environment = {
   production: false,
   API_SIGN_IN_URL: 'http://localhost:8080/unaito/v1/users/sign-in',
-  API_REGISTER_URL: 'http://localhost:8080/unaito/v1/users/register'
+  API_FORGETPASSWORD_URL: 'http://localhost:8080/unaito/v1/users/forgot-password/email/',
+  API_REGISTER_URL: 'http://localhost:8080/unaito/v1/users/register',
+  API_USEREDIT_URL: 'http://localhost:8080/unaito/v1/users/edit',
+  API_USERDELETE_URL: 'http://localhost:8080/unaito/v1/users/delete/',
 };
 
 /*
