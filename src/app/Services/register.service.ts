@@ -18,6 +18,10 @@ export class RegisterService {
 }
 
 update(updateUser: RegisterUser) {
-    return this.http.put(environment.API_REGISTER_URL ,updateUser);
+    return this.http.put<any>(environment.API_USEREDIT_URL,updateUser);
+}
+
+delete(username:String){
+  return this.http.delete<any>(environment.API_USERDELETE_URL+username);
 }
 }

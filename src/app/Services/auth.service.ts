@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import {  UserLogin } from '../Component/login/login.component';
+import { UserLogin } from '../Component/login/login.component';
 
 @Injectable({
   providedIn: 'root'
@@ -50,7 +50,7 @@ export class AuthService {
 
   login(userLogin: UserLogin) {
     console.log("see the LOGIN USERNAME", userLogin)
-    
+
     return this.http.post<UserLogin>(environment.API_SIGN_IN_URL, {
       ...userLogin
     })
@@ -59,7 +59,11 @@ export class AuthService {
     //   "API-KEY":"USER-API-KEY"
     // })}
   }
+  forgetPassword(email: String) {
+    return this.http.put<any>(environment.API_FORGETPASSWORD_URL + email, {
 
+    })
+  }
   getloggedIn(): boolean {
     this.loggedIn.next(true);
     this.isLoggedIn = true

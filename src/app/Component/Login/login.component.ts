@@ -91,8 +91,9 @@ export class LoginComponent implements OnInit, OnDestroy {
           localStorage.setItem("jwtExpiryTime",data.responseObject.jwtExpiryTime)
           localStorage.setItem("firstTimeLogin",data.responseObject.firstTimeLogin)
           this._notificationToast.showSuccess("User Logged In Sucessfully Please Create Your own Password ", "Logged In Sucess")
-          this.router.navigate(['forgetpassword',this.loginForm.get('userName').value])
-          
+         
+          //this.router.navigate(['confirmpassword',this.loginForm.get('userName').value])
+          this.router.navigate(['application'])
 
         } else {
           this._notificationToast.showSuccess("User Logged In Sucessfully", "Logged In Sucess")
@@ -106,7 +107,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.router.navigate(['application'])
         }
       }
-    }, (err) => { console.log("see the error", err), this._notificationToast.showError("User Log In Failed", "Logon Failure") }))
+    }, (err) => { console.log("see the error", err), this._notificationToast.showError(`User Log In Failed ${JSON.stringify(err)}`, "Logon Failure") }))
 
   }
 
