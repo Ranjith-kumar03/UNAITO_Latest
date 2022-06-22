@@ -16,22 +16,23 @@ export class RegisterService {
     //   "API-KEY":"USER-API-KEY"
     // })}
   }
-  updateUser(id:number,updateUser: RegisterUser) {
-    return this.http.put<RegisterUser>(environment.API_UPDATEUSER_URL+id, { ...updateUser });
-    // {headers:new HttpHeaders({
-    //   "API-KEY":"USER-API-KEY"
-    // })}
-  }
-  getAllUsers()
+   getAllUsers()
   {
     return this.http.get<RegisterUser>(environment.API_GETALLUSERS_URL);
   }
 
-  getOneUser(id: number) {
-    return this.http.get<any>(environment.API_GETUSERBYID_URL+id);
+  getOneUser(userName: String) {
+    return this.http.get<any>(environment.API_GETUSERBYID_URL+userName);
   }
 
-  delete(id: number) {
-    return this.http.delete<any>(environment.API_USERDELETE_URL + id);
+  updateUser(updateUser: RegisterUser) {
+    return this.http.put<RegisterUser>(environment.API_USEREDIT_URL, { ...updateUser });
+    {headers:new HttpHeaders({
+      "API-KEY":"USER-API-KEY"
+    })}
+  }
+
+  delete(userName: String) {
+    return this.http.delete<any>(environment.API_USERDELETE_URL + userName);
   }
 }

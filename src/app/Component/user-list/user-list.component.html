@@ -22,10 +22,10 @@
                 <td>{{item.contactNumber}}</td>
                 <td>{{item.location}}</td>
                 <td>
-                    <button  class="btn btn-danger  mr-1" type="button" (click)="onDeleteItem($event,item.id)" >
+                    <button  class="btn btn-danger  mr-1" type="button" (click)="onDeleteItem($event,item.userName)" >
                     Delete</button>
                     
-                    <button type="button" class="btn btn-primary" [routerLink]="['/editUser/', item.id]">Edit</button>
+                    <button type="button" class="btn btn-primary" [routerLink]="['/editUser/', item.userName]">Edit</button>
                 
                 
                 </td>

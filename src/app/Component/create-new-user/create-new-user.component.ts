@@ -126,6 +126,7 @@ onSubmit() {
       this.location.reset('')
       this.roleName.reset('')
       //this.registerForm.controls['roleName'].setValue('0');
+      this.router.navigate(['userListTable'])
     } else {
       this._notificationToast.showSuccess("User Creation Failed","Cannot Create User")
     }
