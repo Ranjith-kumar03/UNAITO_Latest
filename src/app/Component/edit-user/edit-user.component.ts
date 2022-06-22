@@ -68,10 +68,10 @@ export class EditUserComponent implements OnInit, OnDestroy {
             this.roleValue = data.responseObject.roleName
             console.log("see the updated value", this.editUserForm.value)
           } else {
-            this._notificationToast.showError(`No Such User Found ${data.responseCode}`, `${data.responseObject}`)
+            this._notificationToast.showError(`No Such User Found `, `User Not Found`)
           }
         }, (err) => {
-          this._notificationToast.showError(JSON.stringify(err), "Cannot find the User")
+          this._notificationToast.showError(`User Not Found `, "Cannot find the User")
   
         })
   
@@ -147,12 +147,12 @@ export class EditUserComponent implements OnInit, OnDestroy {
         //this.registerForm.controls['roleName'].setValue('0');
         this.router.navigate(['userListTable'])
       } else {
-        this._notificationToast.showError("User Updation Failed", `${data.responseObject}`)
+        this._notificationToast.showError("You are not authorized to Edit other user's profile.", "Unauthorized ")
       }
     }, (err) => {
       console.log("see the error", err)
       if (err instanceof HttpErrorResponse) {
-        this._notificationToast.showError(JSON.stringify(err), "Cannot Update User ")
+        this._notificationToast.showError("You are not authorized to Edit other user's profile.", "Unauthorized ")
 
       }
 

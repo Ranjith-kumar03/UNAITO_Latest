@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/Services/auth.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit, AfterViewChecked,AfterContentChecked {
-  isLoggedIn$: Observable<boolean>;   
+    
   @Output() menuState = new EventEmitter();
   @Output() appListState = new EventEmitter();
   @Output() notificationState = new EventEmitter();
@@ -28,7 +28,7 @@ export class SearchComponent implements OnInit, AfterViewChecked,AfterContentChe
   }
 
   ngOnInit(): void {
-    this.isLoggedIn$ = this.authService.isLoggedInAsync; 
+    
   }
 
   ngAfterContentChecked() {

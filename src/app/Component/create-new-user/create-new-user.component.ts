@@ -134,11 +134,12 @@ onSubmit() {
             console.log("see the error",err)
             if(err instanceof HttpErrorResponse)
             {
-              this._notificationToast.showError(JSON.stringify(err),"Cannot Create User Back To Log In Page")
-              this.router.navigate(['login'])
-            }
+              this._notificationToast.showError("Cannot Create User",`${err.error.errorMessage}`)
+              //this.router.navigate(['login'])
+            }else{
             
-            this._notificationToast.showError(JSON.stringify(err),"Cannot Create User")
+            this._notificationToast.showError("Cannot Create User Now","Cannot Create User")
+            }
           }))
   
 }

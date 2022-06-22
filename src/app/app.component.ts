@@ -12,21 +12,32 @@ import { AuthService } from './Services/auth.service';
 
 })
 export class AppComponent implements OnInit, OnDestroy {
-  isLoggedIn$: Observable<boolean>;
-
+  //isLoggedIn$: Observable<boolean>;
+  name:String;
   loggedIn: boolean;
   constructor(public authService: AuthService, private cdr: ChangeDetectorRef, private router: Router) {
-    this.isLoggedIn$ = this.authService.isLoggedInAsync;
-   
-    this.isLoggedIn$.subscribe((status) => {
-      this.loggedIn = status;
-      console.log("Am i logged In", this.loggedIn)
+    this.authService.username$.subscribe((username) => {
+      this.name=username;
+      console.log("see the full name",this.name )
     })
+
 
   }
 
   ngOnChanges() {
+     ///for Firstname and Last Name Display on ICON
+    
+  }
 
+ 
+   
+   
+
+  getInitials(nameString) {
+    console.log("see the name string",nameString)
+    const fullName = nameString.split(' ');
+    const initials = fullName.shift().charAt(0) + fullName.pop().charAt(0);
+    return initials.toUpperCase();
   }
 
   ngOnInit() {
@@ -35,7 +46,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngAfterViewChecked() {
     this.cdr.detectChanges()
-
+    // this.name = !!localStorage.getItem('fullname') ? localStorage.getItem('fullname') : ""
+    // console.log("see the full name",this.name )
+    
   }
 
   isApplicationView() {
