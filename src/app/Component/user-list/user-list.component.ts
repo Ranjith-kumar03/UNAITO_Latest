@@ -47,18 +47,23 @@ export class UserListComponent implements OnInit, OnDestroy {
   {
     this.registerService.getAllUsers().subscribe((data:any) => {
       console.log("see all users",data)
-      this.customerListTable=data;
+      if(data.responseCode===200){
+      this.customerListTable=data.responseObject;
+      }else{
+        this.customerListTable=[];
+        this._notificationToast.showSuccess(`No Users For Display`, `No Users Yet`)
+      }
     }, (err) => {
       this._notificationToast.showError(`User download failed ${JSON.stringify(err)} `, `Download Failed`)
     })
   }
 
-  onDeleteItem(e: Event, id: number) {
+  onDeleteItem(e: Event, userName: String) {
     e.stopPropagation()
-    this.registerService.delete(id).subscribe((data) => {
-      // if (data.responseCode === 200) {
-      //   this._notificationToast.showSuccess("User Deleted Successfully", `${data.responseObject}`)
-      // }
+    this.registerService.delete(userName).subscribe((data) => {
+      if (data.responseCode === 200) {
+        this._notificationToast.showSuccess("User Deleted Successfully", `${data.responseObject}`)
+      }
       this._notificationToast.showSuccess("User Deleted Successfully", `${data.responseObject}`)
       this.getAllUsers()
     }, (err) => {

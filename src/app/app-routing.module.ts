@@ -72,7 +72,7 @@ const routes: Routes = [
   { path: "administration", component: AdministrationComponent ,canActivate:[AuthGuard]},
   {path:"userListTable", component: UserManagementComponent ,canActivate:[AuthGuard]},
   {path:"newUser",component:CreateNewUserComponent ,canActivate:[AuthGuard]},
-  {path:"editUser/:id",component:EditUserComponent ,canActivate:[AuthGuard]},
+  {path:"editUser/:userName",component:EditUserComponent ,canActivate:[AuthGuard]},
   {path:"customerListTable",component:CustomerManagementComponent ,canActivate:[AuthGuard]},
   {path:"newCustomer",component:CreateNewCustomerComponent ,canActivate:[AuthGuard]},
   {path:"informationValidation", component:InformationValidationComponent ,canActivate:[AuthGuard]},
