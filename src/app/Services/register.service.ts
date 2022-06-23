@@ -35,4 +35,10 @@ export class RegisterService {
   delete(userName: String) {
     return this.http.delete<any>(environment.API_USERDELETE_URL + userName);
   }
+
+  ///Team On Boarding
+  getTeamMembers()
+  {
+    return this.http.get<any>(environment.API_GET_TEAM_MEMBERS);
+  }
 }
