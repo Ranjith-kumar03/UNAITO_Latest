@@ -13,28 +13,31 @@ import { AuthService } from './Services/auth.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   //isLoggedIn$: Observable<boolean>;
-  name:String;
+  name: String;
   loggedIn: boolean;
   constructor(public authService: AuthService, private cdr: ChangeDetectorRef, private router: Router) {
     this.authService.username$.subscribe((username) => {
-      this.name=username;
-      console.log("see the full name",this.name )
+      this.name = username;
+      console.log("see the full name", this.name)
     })
-
+    if (this.name === '') {
+      this.name = localStorage.getItem('fullname')
+    }
 
   }
 
   ngOnChanges() {
-     ///for Firstname and Last Name Display on ICON
-    
+    ///for Firstname and Last Name Display on ICON
+
   }
 
- 
-   
-   
 
-  getInitials(nameString) {
-    console.log("see the name string",nameString)
+
+
+
+  getInitials(nameString?: String) {
+
+    console.log("see the name string", nameString)
     const fullName = nameString.split(' ');
     const initials = fullName.shift().charAt(0) + fullName.pop().charAt(0);
     return initials.toUpperCase();
@@ -48,8 +51,23 @@ export class AppComponent implements OnInit, OnDestroy {
     this.cdr.detectChanges()
     // this.name = !!localStorage.getItem('fullname') ? localStorage.getItem('fullname') : ""
     // console.log("see the full name",this.name )
-    
+
   }
+  isLoginView() {
+    if (this.router.url.match('/login')) {
+      //need to remove once refresh screen white page is fixed
+      localStorage.removeItem("sessionId")
+    localStorage.removeItem("jwtType")
+    localStorage.removeItem("jwt")
+    localStorage.removeItem("jwtCreatedTime")
+    localStorage.removeItem("jwtExpiryTime")
+    localStorage.removeItem("firstTimeLogin")
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 
   isApplicationView() {
 

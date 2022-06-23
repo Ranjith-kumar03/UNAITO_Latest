@@ -1,4 +1,4 @@
-<div [hidden]="!authService.getloggedIn()">
+<div [hidden]="!authService.getloggedIn() || isLoginView()">
     <header class="header">
         <nav class="top-navbar fixed-top d-flex w-100">
             <div class="container-fluid">
