@@ -90,7 +90,7 @@ import { EditUserComponent } from './Component/edit-user/edit-user.component';
   imports: [
     BrowserModule,
     AppRoutingModule,ReactiveFormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule,ToastrModule.forRoot({
-      timeOut: 1000,
+      timeOut: 3000,
       positionClass: 'toast-center-center',
       preventDuplicates: true,
     })

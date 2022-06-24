@@ -13,40 +13,40 @@ export class AuthService {
   isLoggedIn: boolean = false;
   httpOptions = null;
   rememberMe: boolean = false;
-  private loggedIn = new BehaviorSubject<boolean>(false);
-
-  private currentUserSubject: BehaviorSubject<UserLogin>;
-  public currentUser: Observable<UserLogin>;
+  private username = new BehaviorSubject<String>('');
+  public username$ = this.username.asObservable();
+  // private currentUserSubject: BehaviorSubject<UserLogin>;
+  // public currentUser: Observable<UserLogin>;
 
   constructor(
     public router: Router,
     private http: HttpClient
   ) //public ngZone: NgZone // NgZone service to remove outside scope warning
   {
-    this.rememberMe = localStorage.getItem('rememberCurrentUser') == 'true' ? true : false;
+    // this.rememberMe = localStorage.getItem('rememberCurrentUser') == 'true' ? true : false;
 
-    if ((this.rememberMe = true)) {
-      this.currentUserSubject = new BehaviorSubject<UserLogin>(
-        JSON.parse(localStorage.getItem('currentUser'))
-      );
-    } else {
-      // this.currentUserSubject = new BehaviorSubject<User>(
-      //   JSON.parse(sessionStorage.getItem('currentUser'))
-      // );
-    }
+    // if ((this.rememberMe = true)) {
+    //   this.currentUserSubject = new BehaviorSubject<UserLogin>(
+    //     JSON.parse(localStorage.getItem('currentUser'))
+    //   );
+    // } else {
+    //   // this.currentUserSubject = new BehaviorSubject<User>(
+    //   //   JSON.parse(sessionStorage.getItem('currentUser'))
+    //   // );
+    // }
 
-    // this.currentUser = this.currentUserSubject.asObservable();
+    // // this.currentUser = this.currentUserSubject.asObservable();
 
-    this.httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
+    // this.httpOptions = {
+    //   headers: new HttpHeaders({
+    //     'Content-Type': 'application/json'
+    //   })
+    // };
   }
 
-  public get currentUserValue(): UserLogin {
-    return this.currentUserSubject.value;
-  }
+  // public get currentUserValue(): UserLogin {
+  //   return this.currentUserSubject.value;
+  // }
 
   login(userLogin: UserLogin) {
     console.log("see the LOGIN USERNAME", userLogin)
@@ -64,8 +64,11 @@ export class AuthService {
 
     })
   }
+  setUserName(name: String) {
+    this.username.next(name)
+  }
+
   getloggedIn(): boolean {
-    this.loggedIn.next(true);
     this.isLoggedIn = true
     return !!localStorage.getItem("jwt");
   }
@@ -81,10 +84,11 @@ export class AuthService {
     localStorage.removeItem("jwtCreatedTime")
     localStorage.removeItem("jwtExpiryTime")
     localStorage.removeItem("firstTimeLogin")
+    localStorage.removeItem("fullname")
 
-    this.currentUserSubject.next(null);
+    this.username.next(null);
     this.isLoggedIn = false
-    this.loggedIn.next(false);
+    //this.loggedIn.next(false);
   }
 
   logout() {
@@ -93,7 +97,5 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  get isLoggedInAsync() {
-    return this.loggedIn.asObservable();
-  }
+
 }

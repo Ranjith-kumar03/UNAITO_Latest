@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Vali
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/Services/auth.service';
+import { RegisterService } from 'src/app/Services/register.service';
 import { ToasterNotificatonService } from 'src/app/Services/toaster.notificaton.service';
 
 
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   submitted = false;
 
   constructor(private fb: FormBuilder,
-    private authService: AuthService, private router: Router, private _notificationToast: ToasterNotificatonService) { }
+    private authService: AuthService,private registerService:  RegisterService, private router: Router, private _notificationToast: ToasterNotificatonService) { }
 
   ngOnInit(): void {
 
@@ -83,6 +84,14 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.subscription.add(this.authService.login(this.loginForm.value).subscribe((data:any) => {
       console.log("see the data", data)
       if (data.responseCode === 200) {
+
+        let username = this.loginForm.get('userName').value
+        this.registerService.getOneUser(username).subscribe((data) => {
+          console.log("see the user", data.responseObject)
+          let fullname = data.responseObject.firstName + " "+data.responseObject.lastName
+          localStorage.setItem("fullname",fullname)
+          this.authService.setUserName(fullname)
+        })
         if (data.responseObject.firstTimeLogin) {
           localStorage.setItem("sessionId",data.responseObject.sessionId)
           localStorage.setItem("jwtType",data.responseObject.jwtType)
@@ -107,7 +116,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.router.navigate(['application'])
         }
       }
-    }, (err) => { console.log("see the error", err), this._notificationToast.showError(`User Log In Failed ${JSON.stringify(err)}`, "Logon Failure") }))
+    }, (err) => { console.log("see the error", err), this._notificationToast.showError(`User Log In Failed `, `${err.error.errorMessage}`) }))
 
   }
 

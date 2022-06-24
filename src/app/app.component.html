@@ -1,5 +1,5 @@
 <div [hidden]="!authService.getloggedIn()">
-    <header class="header" >
+    <header class="header">
         <nav class="top-navbar fixed-top d-flex w-100">
             <div class="container-fluid">
                 <div class="navbar-holder w-100 d-flex align-items-center justify-content-between">
@@ -41,7 +41,12 @@
                         <li class="nav-item assoc-app-btn dropdown usr-prof" id="aboutTxt">
                             <a (click)="clickMenu($event)" class="nav-link dropdown-toggle expose">
                                 <!-- <span>Warren Haynes <br> <small>Zinc Corporation Ltd.,</small></span> -->
-                                <img src="../assets/Images/UNAITO/Header/profile.svg">
+                                <!-- <img src="../assets/Images/UNAITO/Header/profile.svg"> -->
+                                <div class="rows">
+                                    <div class="circles" *ngIf="name">
+                                        {{ getInitials(name ) }}
+                                    </div>
+                                </div>
                             </a>
                         </li>
 
