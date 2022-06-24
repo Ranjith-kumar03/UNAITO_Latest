@@ -35,4 +35,20 @@ export class RegisterService {
   delete(userName: String) {
     return this.http.delete<any>(environment.API_USERDELETE_URL + userName);
   }
+
+  ///Team On Boarding
+  getTeamMembers()
+  {
+    return this.http.get<any>(environment.API_GET_TEAM_MEMBERS);
+  }
+  updateOneTeamMember(i:number,update:any)
+  {
+    return this.http.put<any>(environment.API_UPDATE_ONE_TEAM_MEMBERS+i,{...update});
+  }
+  createTeamMember(newMember: any) {
+    return this.http.post<any>(environment.API_ADD_TEAM_MEMBERS, { ...newMember });
+    // {headers:new HttpHeaders({
+    //   "API-KEY":"USER-API-KEY"
+    // })}
+  }
 }

@@ -13,6 +13,10 @@ export const environment = {
   API_GETALLUSERS_URL:'http://localhost:8080/unaito/v1/users/all-users',
   API_USEREDIT_URL: 'http://localhost:8080/unaito/v1/users/edit',
   API_GETUSERBYID_URL: 'http://localhost:8080/unaito/v1/users/get-user/',
+
+  API_GET_TEAM_MEMBERS: 'http://localhost:3000/responseObject',
+  API_UPDATE_ONE_TEAM_MEMBERS: 'http://localhost:3000/responseObject/',
+  API_ADD_TEAM_MEMBERS: 'http://localhost:3000/responseObject/'
 };
 
 /*
