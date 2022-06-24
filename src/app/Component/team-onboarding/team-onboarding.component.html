@@ -82,12 +82,11 @@
                                             <td><button class="btn btn-danger mr-2 " type="button" (click)="onDeleteItem(i)" >
                                                 Delete
                                             </button>
-                                            <button class="btn btn-danger mr-2 " type="button" (click)=" onEditOne(i)" >
-                                                Edit
+                                            <button   class="btn btn-primary mr-2 "    type="button"  (click)="onEditOne(p, i)">
+                                                   {{canEdit===i? buttonText : defautltButtonText}}
+                                               
                                             </button>
-                                            <button class="btn btn-primary " type="button" (click)="onEditOneItem(i)">
-                                                Save
-                                            </button>
+                                           
                                             </td>
 
                                         </tr>
@@ -104,7 +103,7 @@
 
                                   <hr>
                                 <div class="text-center">
-                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                    <button *ngIf="showSubmitButton" class="btn btn-primary" type="submit">Save New Members</button>
                                 </div>
                             </form>
                         </div>

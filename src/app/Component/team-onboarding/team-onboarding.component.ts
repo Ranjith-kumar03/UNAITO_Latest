@@ -10,7 +10,11 @@ import { ToasterNotificatonService } from 'src/app/Services/toaster.notificaton.
 })
 export class TeamOnboardingComponent implements OnInit {
   addTeamMeberForm: FormGroup;
-   a=10;
+  buttonText:String = "Edit"
+  defautltButtonText:String = "Edit"
+  canEdit:Number
+  showSubmitButton:boolean = false;
+   
   constructor(private fb: FormBuilder, private registerService: RegisterService, private _notificationToast: ToasterNotificatonService) {
 
     this.addTeamMeberForm = this.fb.group({
@@ -34,11 +38,13 @@ export class TeamOnboardingComponent implements OnInit {
   setExistingTeamMember(teamMembers?: any): FormArray {
     const formArray = new FormArray([]);
     teamMembers.forEach(s => {
+      console.log("see the s",s)
+      console.log("see the s inside value",s.addTeamMebers[0].name)
       formArray.push(this.fb.group({
-        id: [this.ID()],
-        name: [s.name, [Validators.required]],
-        role: [s.role, [Validators.required]],
-        email: [s.email, [Validators.required]],
+        // id: [this.ID()],
+        name: [s.addTeamMebers[0].name, [Validators.required]],
+        role: [s.addTeamMebers[0].role, [Validators.required]],
+        email: [s.addTeamMebers[0].email, [Validators.required]],
       }));
     });
     return formArray;
@@ -54,19 +60,14 @@ export class TeamOnboardingComponent implements OnInit {
   createParticulars(): FormGroup {
     
     return this.fb.group({
-       id: [this.ID()],
+      //  id: [this.ID()],
       name: ['', [Validators.required,]],
       role: ['', [Validators.required]],
       email: ['', Validators.required],
 
     });
   }
-   ID = function () {
-    // Math.random should be unique because of its seeding algorithm.
-    // Convert it to base 36 (numbers + letters), and grab the first 9 characters
-    // after the decimal.
-    return '_' + Math.random().toString(36).substr(2, 9);
-  };
+  
 
 
   get addTeamMebers(): FormArray {
@@ -76,6 +77,7 @@ export class TeamOnboardingComponent implements OnInit {
   addItem(): void {
    
     this.addTeamMebers.push(this.createParticulars());
+    this.showSubmitButton=true
   }
 
    //on submit click
@@ -108,11 +110,19 @@ export class TeamOnboardingComponent implements OnInit {
 
 
 
-  onEditOne(index: any) {
+  onEditOne(element:any,index: number) {
     //https://stackblitz.com/edit/angular-form-array-enable-disable?file=src%2Fapp%2Fapp.component.ts
+    console.log("see the button text",element)
+    this.canEdit=index;
+    if(this.buttonText==="Edit"){
+      this.showSubmitButton=false;
     (<FormArray>this.addTeamMeberForm.get("addTeamMebers")).at(index).get('name').enable();
     (<FormArray>this.addTeamMeberForm.get("addTeamMebers")).at(index).get('email').enable();
     (<FormArray>this.addTeamMeberForm.get("addTeamMebers")).at(index).get('role').enable();
+    this.buttonText="Update"
+    }else if(this.buttonText==="Update"){
+      this.onEditOneItem(index)
+    }
 
   }
   onEditOneItem(index: number) {
@@ -124,9 +134,9 @@ export class TeamOnboardingComponent implements OnInit {
     console.log("values  before", myForm.get('role').value);
     console.log("values before", myForm.get('email').value);
     myForm.patchValue({
-      name: [myForm.get('name').value],
-      role: [myForm.get('role').value],
-      email: [myForm.get('email').value],
+      name: myForm.get('name').value,
+      role: myForm.get('role').value,
+      email: myForm.get('email').value,
     });
     // this.hideArray[index] = currentVal;
     // console.log("=>", myForm, myForm.value.toggle);
@@ -142,6 +152,8 @@ export class TeamOnboardingComponent implements OnInit {
     console.log("values after", myForm.get('name').value);
     console.log("values after", myForm.get('role').value);
     console.log("values after", myForm.get('email').value);
+    this.buttonText==="Edit"
+    this.showSubmitButton=true;
   }
 
   onDeleteItem(i) {
