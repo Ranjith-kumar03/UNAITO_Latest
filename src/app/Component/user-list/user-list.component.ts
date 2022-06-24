@@ -2,16 +2,16 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { RegisterService } from 'src/app/Services/register.service';
 import { ToasterNotificatonService } from 'src/app/Services/toaster.notificaton.service';
-
+import Swal from 'sweetalert2'
 
 export interface userData {
-userName:String,
-firstName:String,
-lastName:String,
-email:String,
-contactNumber:String,
-location:String,
-roleName:String
+  userName: String,
+  firstName: String,
+  lastName: String,
+  email: String,
+  contactNumber: String,
+  location: String,
+  roleName: String
 }
 
 @Component({
@@ -23,7 +23,7 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   private searchSubscription: Subscription;
   @Input() search: Observable<void>;
-  customerListTable:userData[]=[]
+  customerListTable: userData[] = []
   //   customerListTable:userData[]=[
   //     {SL_NO: 1, USERNAME:'Anna Dianne',ROLE:'Consultant',EMAIL:'anna.aianne@acldigital.com',CONTACT_NO:'+91-944567321',LASTUPDATEDON:'12/01/2022, 10:15AM'},
   //     {SL_NO: 2, USERNAME:'Mark Lukas',ROLE:'Reviewer',EMAIL:'mark.lukas@acldigital.com',CONTACT_NO:'+91-9941128743',LASTUPDATEDON:'20/12/2021, 10:15AM'},
@@ -43,14 +43,13 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.getAllUsers()
   }
 
-  getAllUsers()
-  {
-    this.registerService.getAllUsers().subscribe((data:any) => {
-      console.log("see all users",data)
-      if(data.responseCode===200){
-      this.customerListTable=data.responseObject;
-      }else{
-        this.customerListTable=[];
+  getAllUsers() {
+    this.registerService.getAllUsers().subscribe((data: any) => {
+      console.log("see all users", data)
+      if (data.responseCode === 200) {
+        this.customerListTable = data.responseObject;
+      } else {
+        this.customerListTable = [];
         this._notificationToast.showSuccess(`No Users For Display`, `No Users Yet`)
       }
     }, (err) => {
@@ -60,18 +59,36 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   onDeleteItem(e: Event, userName: String) {
     e.stopPropagation()
-    this.registerService.delete(userName).subscribe((data) => {
-      if (data.responseCode === 200) {
-        this._notificationToast.showSuccess("User Deleted Successfully", "Deleted Successfully")
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.registerService.delete(userName).subscribe((data) => {
+          if (data.responseCode === 200) {
+            Swal.fire(
+              'Deleted!',
+              `${userName} details has been deleted.`,
+              'success'
+            )
+          }
+
+          this.getAllUsers()
+        }, (err) => {
+          this._notificationToast.showError("You are not authorized to Delete other user's profile.", "Unauthorized Deletion")
+        })
+
       }
-      
-      this.getAllUsers()
-    }, (err) => {
-      this._notificationToast.showError("You are not authorized to Delete other user's profile.", "Unauthorized Deletion")
     })
+
   }
 
- 
+
 
   ngOnDestroy() {
     this.searchSubscription.unsubscribe();
