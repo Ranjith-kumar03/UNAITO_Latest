@@ -43,19 +43,21 @@
 
                             </div>
                             <!-- <form [formGroup]="gaugeTitleForm" (ngSubmit)="onSubmit()">   -->
-                            <form autocomplete="off" [formGroup]="addTeamMeberForm" (ngSubmit)="onSave()"  >
+                            <form autocomplete="off" [formGroup]="addTeamMeberForm" (ngSubmit)="onSave()">
                                 <table style="width:100%">
                                     <thead>
                                         <tr>
                                             <td>Name</td>
                                             <td>Role</td>
                                             <td>Email</td>
+                                            <td>Delete</td>
+                                            <td>Edit</td>
                                         </tr>
                                     </thead>
                                     <tbody formArrayName="addTeamMebers">
 
                                         <tr *ngFor="let p of addTeamMebers.controls; let i = index" [formGroupName]="i">
-                                            <td><input type="text" formControlName="name" >
+                                            <td><input type="text" formControlName="name">
                                                 <span *ngIf="p.get('name').touched ||  p.get('name').dirty">
                                                     <span class="alert alert-danger"
                                                         *ngIf="p.get('name')?.errors?.required">
@@ -63,7 +65,7 @@
                                                     </span>
                                                 </span>
                                             </td>
-                                            <td><input type="text" formControlName="role" >
+                                            <td><input type="text" formControlName="role">
                                                 <span *ngIf="p.get('role').touched ||  p.get('role').dirty">
                                                     <span class="alert alert-danger"
                                                         *ngIf="p.get('role')?.errors?.required">
@@ -71,7 +73,7 @@
                                                     </span>
                                                 </span>
                                             </td>
-                                            <td><input type="email" formControlName="email" >
+                                            <td><input type="email" formControlName="email">
                                                 <span *ngIf="p.get('email').touched ||  p.get('email').dirty">
                                                     <span class="alert alert-danger"
                                                         *ngIf="p.get('email')?.errors?.required">
@@ -79,31 +81,39 @@
                                                     </span>
                                                 </span>
                                             </td>
-                                            <td><button class="btn btn-danger mr-2 " type="button" (click)="onDeleteItem(i)" >
-                                                Delete
-                                            </button>
-                                            <button   class="btn btn-primary mr-2 "    type="button"  (click)="onEditOne(p, i)">
-                                                   {{canEdit===i? buttonText : defautltButtonText}}
-                                               
-                                            </button>
-                                           
+                                            <td><button [disabled]="!disableDeleteandSaveButtonStatus"
+                                                    class="btn btn-danger mr-2 " type="button"
+                                                    (click)="onDeleteItem(i)">
+                                                    Delete
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button [disabled]="!disableDeleteandSaveButtonStatus"
+                                                    class="btn btn-primary mr-2 " type="button"
+                                                    (click)="onEditOne(p, i)">
+                                                    {{canEdit===i? buttonText : defautltButtonText}}
+
+                                                </button>
                                             </td>
 
                                         </tr>
                                     </tbody>
                                 </table>
-                                
+
                                 <div class="row">
                                     <div class="col-12 col-md-12 btn-row">
-                                                                          
-                                      <button type="button" class="btn btn-primary btn-sm float-right mt-2" (click)="addItem()">Add Members</button>
+
+                                        <button type="button" *ngIf="addMemberButtonStatus"
+                                            class="btn btn-primary btn-sm float-right mt-2" (click)="addItem()">Add
+                                            Members</button>
                                     </div>
-                                  </div>
+                                </div>
 
 
-                                  <hr>
+                                <hr>
                                 <div class="text-center">
-                                    <button *ngIf="showSubmitButton" class="btn btn-primary" type="submit">Save New Members</button>
+                                    <button *ngIf="showSubmitButton" class="btn btn-primary" type="submit">Save New
+                                        Members</button>
                                 </div>
                             </form>
                         </div>
