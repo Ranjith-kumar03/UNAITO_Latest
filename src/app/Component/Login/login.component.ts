@@ -88,9 +88,15 @@ export class LoginComponent implements OnInit, OnDestroy {
         let username = this.loginForm.get('userName').value
         this.registerService.getOneUser(username).subscribe((data) => {
           console.log("see the user", data.responseObject)
+
+          //For showing Name on Logo
           let fullname = data.responseObject.firstName + " "+data.responseObject.lastName
           localStorage.setItem("fullname",fullname)
           this.authService.setUserName(fullname)
+
+          //For Logout collecting username
+          let userName = data.responseObject.userName
+          localStorage.setItem("userName",userName)
         })
         if (data.responseObject.firstTimeLogin) {
           localStorage.setItem("sessionId",data.responseObject.sessionId)

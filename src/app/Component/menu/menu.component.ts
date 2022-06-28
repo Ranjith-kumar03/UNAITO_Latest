@@ -39,7 +39,7 @@ export class MenuComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.authService.logout();
+    //this.authService.logout();
   }
 
   ngOnChanges()

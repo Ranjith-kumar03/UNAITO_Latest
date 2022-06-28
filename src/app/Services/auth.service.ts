@@ -85,16 +85,18 @@ export class AuthService {
     localStorage.removeItem("jwtExpiryTime")
     localStorage.removeItem("firstTimeLogin")
     localStorage.removeItem("fullname")
+    localStorage.removeItem("userName")
 
     this.username.next(null);
     this.isLoggedIn = false
     //this.loggedIn.next(false);
   }
 
-  logout() {
+  logout(userName:String) {
     //clear all localstorages and redirect to main publib page
-    this.resetcredentials();
-    this.router.navigate(['/login']);
+    return this.http.get<any>(environment.API_LOGOUT_URL + userName)
+    // this.resetcredentials();
+    // this.router.navigate(['/login']);
   }
 
 

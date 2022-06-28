@@ -4,8 +4,12 @@
 
 export const environment = {
   production: false,
+  //LOGIN
   API_SIGN_IN_URL: 'http://localhost:8080/unaito/v1/users/sign-in',
   API_FORGETPASSWORD_URL: 'http://localhost:8080/unaito/v1/users/forgot-password/email/',
+  API_LOGOUT_URL:'http://localhost:8080/unaito/v1/users/logout/',
+
+  //User Management User Create
   API_REGISTER_URL: 'http://localhost:8080/unaito/v1/users/create',
   
   API_USERDELETE_URL: 'http://localhost:8080/unaito/v1/users/delete/',
@@ -14,6 +18,7 @@ export const environment = {
   API_USEREDIT_URL: 'http://localhost:8080/unaito/v1/users/edit',
   API_GETUSERBYID_URL: 'http://localhost:8080/unaito/v1/users/get-user/',
 
+  //Team OnBoarding
   API_GET_TEAM_MEMBERS: 'http://localhost:3000/addTeamMebers',
   API_UPDATE_ONE_TEAM_MEMBERS: 'http://localhost:3000/addTeamMebers/',
   API_ADD_TEAM_MEMBERS: 'http://localhost:3000/addTeamMebers/'
