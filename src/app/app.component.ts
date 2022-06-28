@@ -56,12 +56,15 @@ export class AppComponent implements OnInit, OnDestroy {
   isLoginView() {
     if (this.router.url.match('/login')) {
       //need to remove once refresh screen white page is fixed
-      localStorage.removeItem("sessionId")
-    localStorage.removeItem("jwtType")
-    localStorage.removeItem("jwt")
-    localStorage.removeItem("jwtCreatedTime")
-    localStorage.removeItem("jwtExpiryTime")
-    localStorage.removeItem("firstTimeLogin")
+    //   localStorage.removeItem("sessionId")
+    // localStorage.removeItem("jwtType")
+    // localStorage.removeItem("jwt")
+    // localStorage.removeItem("jwtCreatedTime")
+    // localStorage.removeItem("jwtExpiryTime")
+    // localStorage.removeItem("firstTimeLogin")
+    // localStorage.removeItem("fullname")
+    // localStorage.removeItem("userName")
+    this.logOut()
       return true;
     } else {
       return false;
@@ -95,7 +98,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   logOut() {
-    this.authService.logout();
+    //this.authService.logout();
+    this.router.navigate(['/logout']);
   }
 
 

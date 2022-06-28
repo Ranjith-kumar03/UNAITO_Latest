@@ -35,7 +35,8 @@
     --white: #fff;
     --sideNavActiveBg: #E6F0FF;
     --sideNavActiveIcon: #0D72FF;
-    --boxShadow: rgba(26, 26, 26, 0.1);
+    /* --boxShadow: rgba(26, 26, 26, 0.1); */
+    --boxShadow: #ccc;
     --bodyBg: #EEF2F9;
     --subCardBoard: #d3d3d3;
     --online: #29CC31;
@@ -1034,6 +1035,7 @@ svg.active path {
     box-shadow: 2px 0 6px 0 var(--boxShadow);
     font-family: 'Roboto_Bold';
     font-size: 24px;
+    height: 3em;
     z-index: 1;
 }
 

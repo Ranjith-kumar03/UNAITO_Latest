@@ -28,15 +28,15 @@ export class ConfirmPasswordComponent implements OnInit {
     // },{validator: this.passwordMatchValidator});
     this.changePasswordForm = this.fb.group(
       {
-        email: ["",Validators.required],
-        password: ["",[Validators.required,Validators.minLength(6), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
-        confirmPassword: ["",Validators.required]
+        email: ["", Validators.required],
+        password: ["", [Validators.required, Validators.minLength(6), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
+        confirmPassword: ["", Validators.required]
       },
       {
         validator: ConfirmPasswordValidator("password", "confirmPassword")
       }
     );
-   
+
 
 
 
@@ -60,10 +60,10 @@ export class ConfirmPasswordComponent implements OnInit {
   // get confirmPassword() {
   //   return this.changePasswordForm.get('confirmPassword')
   // }
-/// ref https://stackblitz.com/edit/angular-match-password-validation?file=src%2Fapp%2Fconfirm-password.validator.ts
+  /// ref https://stackblitz.com/edit/angular-match-password-validation?file=src%2Fapp%2Fconfirm-password.validator.ts
   onSubmit() {
     this.submitted = true;
-   
+
 
     if (!this.changePasswordForm.valid) {
       this.changePasswordForm.markAllAsTouched();
@@ -72,10 +72,19 @@ export class ConfirmPasswordComponent implements OnInit {
     if (this.changePasswordForm.get('email').errors || this.changePasswordForm.get('password').errors || this.changePasswordForm.get('confirmPassword').errors) {
       return;
     }
-    console.log("see the change password values",this.changePasswordForm.value)
+    console.log("see the change password values", this.changePasswordForm.value)
 
-    this.authService.logout()
-    this.router.navigate(['login'])
+    // this.authService.logout()
+    // this.router.navigate(['login'])
+    let userName = localStorage.getItem("userName")
+    this.authService.logout(userName).subscribe((data) => {
+      if (data.responseCode === 200) {
+        this.authService.resetcredentials()
+        this.router.navigate(['/login']);
+      }
+    }, (err) => {
+      this._notificationToast.showError(`User Log Out Failed `, "Log Out Failed")
+    });
   }
 
 }
