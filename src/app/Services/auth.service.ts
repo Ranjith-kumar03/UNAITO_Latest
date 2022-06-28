@@ -86,6 +86,8 @@ export class AuthService {
     localStorage.removeItem("firstTimeLogin")
     localStorage.removeItem("fullname")
     localStorage.removeItem("userName")
+    localStorage.removeItem('rememberme')
+    localStorage.removeItem('password')
 
     this.username.next(null);
     this.isLoggedIn = false
