@@ -16,20 +16,21 @@ export class RegisterService {
     //   "API-KEY":"USER-API-KEY"
     // })}
   }
-   getAllUsers()
-  {
+  getAllUsers() {
     return this.http.get<RegisterUser>(environment.API_GETALLUSERS_URL);
   }
 
   getOneUser(userName: String) {
-    return this.http.get<any>(environment.API_GETUSERBYID_URL+userName);
+    return this.http.get<any>(environment.API_GETUSERBYID_URL + userName);
   }
 
   updateUser(updateUser: RegisterUser) {
     return this.http.put<RegisterUser>(environment.API_USEREDIT_URL, { ...updateUser });
-    {headers:new HttpHeaders({
-      "API-KEY":"USER-API-KEY"
-    })}
+    {
+      headers: new HttpHeaders({
+        "API-KEY": "USER-API-KEY"
+      })
+    }
   }
 
   delete(userName: String) {
@@ -37,18 +38,19 @@ export class RegisterService {
   }
 
   ///Team On Boarding
-  getTeamMembers()
-  {
+  getTeamMembers() {
     return this.http.get<any>(environment.API_GET_TEAM_MEMBERS);
   }
-  updateOneTeamMember(i:number,update:any)
-  {
-    return this.http.put<any>(environment.API_UPDATE_ONE_TEAM_MEMBERS+i,{...update});
+  updateOneTeamMember(i: number, update: any) {
+    return this.http.patch<any>(environment.API_UPDATE_ONE_TEAM_MEMBERS + i, { ...update });
   }
   createTeamMember(newMember: any) {
     return this.http.post<any>(environment.API_ADD_TEAM_MEMBERS, { ...newMember });
     // {headers:new HttpHeaders({
     //   "API-KEY":"USER-API-KEY"
     // })}
+  }
+  deleteTeamMember(index: number) {
+    return this.http.delete<any>(environment.API_DELETE_TEAM_MEMBERS + index)
   }
 }

@@ -21,7 +21,8 @@ export const environment = {
   //Team OnBoarding
   API_GET_TEAM_MEMBERS: 'http://localhost:3000/addTeamMebers',
   API_UPDATE_ONE_TEAM_MEMBERS: 'http://localhost:3000/addTeamMebers/',
-  API_ADD_TEAM_MEMBERS: 'http://localhost:3000/addTeamMebers/'
+  API_ADD_TEAM_MEMBERS: 'http://localhost:3000/addTeamMebers/',
+  API_DELETE_TEAM_MEMBERS: 'http://localhost:3000/addTeamMebers/'
 };
 
 /*
