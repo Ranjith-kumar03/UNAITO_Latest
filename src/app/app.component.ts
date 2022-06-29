@@ -57,17 +57,10 @@ export class AppComponent implements OnInit, OnDestroy {
   isLoginView() {
     if (this.router.url.match('/login')) {
       //need to remove once refresh screen white page is fixed
-      //   localStorage.removeItem("sessionId")
-      // localStorage.removeItem("jwtType")
-      // localStorage.removeItem("jwt")
-      // localStorage.removeItem("jwtCreatedTime")
-      // localStorage.removeItem("jwtExpiryTime")
-      // localStorage.removeItem("firstTimeLogin")
-      // localStorage.removeItem("fullname")
-      // localStorage.removeItem("userName")
       this.rememberme = localStorage.getItem('rememberme');
       if (!this.rememberme) {
         this.logOut()
+        //console.log("iam inside app component remember me not",this.rememberme)
       }
       return true;
     } else {

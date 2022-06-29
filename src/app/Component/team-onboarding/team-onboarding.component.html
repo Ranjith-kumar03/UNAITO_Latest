@@ -83,14 +83,14 @@
                                             </td>
                                             <td><button [disabled]="!disableDeleteandSaveButtonStatus"
                                                     class="btn btn-danger mr-2 " type="button"
-                                                    (click)="onDeleteItem(i)">
+                                                    (click)="onDeleteItem(p.get('id').value)">
                                                     Delete
                                                 </button>
                                             </td>
                                             <td>
                                                 <button [disabled]="!disableDeleteandSaveButtonStatus"
                                                     class="btn btn-primary mr-2 " type="button"
-                                                    (click)="onEditOne(p, i)">
+                                                    (click)="onEditOne(i, p.get('id').value)">
                                                     {{canEdit===i? buttonText : defautltButtonText}}
 
                                                 </button>

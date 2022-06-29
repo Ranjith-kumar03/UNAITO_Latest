@@ -3,7 +3,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from 'src/app/Services/register.service';
 import { ToasterNotificatonService } from 'src/app/Services/toaster.notificaton.service';
 import Swal from 'sweetalert2'
-//import generator  from 'generate-serial-number';
+import generator  from 'generate-serial-number';
 //var serialNumber = generator.generate(10); 
 
 @Component({
@@ -50,7 +50,7 @@ export class TeamOnboardingComponent implements OnInit {
       console.log("see the s", s)
       console.log("see the s inside value", s.name)
       formArray.push(this.fb.group({
-        // id: [this.ID()],
+         id: [s.id],
         name: [s.name, [Validators.required]],
         role: [s.role, [Validators.required]],
         email: [s.email, [Validators.required]],
@@ -69,7 +69,7 @@ export class TeamOnboardingComponent implements OnInit {
   createParticulars(): FormGroup {
 
     return this.fb.group({
-      // id: [generator.generate(10)],
+       id: [generator.generate(10)],
       name: ['', [Validators.required,]],
       role: ['', [Validators.required]],
       email: ['', Validators.required],
@@ -127,9 +127,9 @@ export class TeamOnboardingComponent implements OnInit {
 
 
 
-  onEditOne(element: any, index: number) {
+  onEditOne( index: number, id:any) {
     //https://stackblitz.com/edit/angular-form-array-enable-disable?file=src%2Fapp%2Fapp.component.ts
-    console.log("see the button text", element)
+    
     this.canEdit = index;
     if (this.buttonText === "Edit") {
       this.showSubmitButton = false;
@@ -138,11 +138,11 @@ export class TeamOnboardingComponent implements OnInit {
       (<FormArray>this.addTeamMeberForm.get("addTeamMebers")).at(index).get('role').enable();
       this.buttonText = "Update"
     } else if (this.buttonText === "Update") {
-      this.onEditOneItem(index)
+      this.onEditOneItem(index,id)
     }
 
   }
-  onEditOneItem(index: number) {
+  onEditOneItem(index: number, id:any) {
     //https://stackblitz.com/edit/angular-form-array-example-update-value-9xrlbv?file=src%2Fapp%2Fapp.component.html
     const myForm = (<FormArray>this.addTeamMeberForm.get("addTeamMebers")).at(index);
 
@@ -157,8 +157,8 @@ export class TeamOnboardingComponent implements OnInit {
     });
     // this.hideArray[index] = currentVal;
     // console.log("=>", myForm, myForm.value.toggle);
-    this.registerService.updateOneTeamMember(index, myForm.value).subscribe((data) => {
-
+    this.registerService.updateOneTeamMember(id, myForm.value).subscribe((data) => {
+      this.buttonText = "Edit";
       (<FormArray>this.addTeamMeberForm.get("addTeamMebers")).at(index).disable();
       this._notificationToast.showSuccess("Team members Updated Sucessfully", "UpadtedTeamMembers")
     }, (err) => {
@@ -169,11 +169,11 @@ export class TeamOnboardingComponent implements OnInit {
     console.log("values after", myForm.get('name').value);
     console.log("values after", myForm.get('role').value);
     console.log("values after", myForm.get('email').value);
-    this.buttonText = "Edit"
+    
 
   }
 
-  onDeleteItem(i) {
+  onDeleteItem(id:any) {
     //https://sweetalert2.github.io/#examples
     Swal.fire({
       title: 'Are you sure?',
@@ -185,7 +185,7 @@ export class TeamOnboardingComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.registerService.deleteTeamMember(i).subscribe((data) => {
+        this.registerService.deleteTeamMember(id).subscribe((data) => {
           Swal.fire(
             'Deleted!',
             'Your file has been deleted.',
