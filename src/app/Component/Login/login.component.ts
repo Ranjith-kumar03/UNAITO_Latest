@@ -34,11 +34,23 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.loginForm = this.fb.group({
 
+
       // username: ['', [Validators.required]],
       //  password: ['', [Validators.required,Validators.minLength(6), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
       userName: ['', [Validators.required]],
       password: ['', [Validators.required]],
+
       rememberMe: ['']
+
+
+      //rememberMe: ['']
+
+
+      
+
+   
+    
+
     });
     this.rememberme = localStorage.getItem('rememberme');
     if (this.rememberme) {
