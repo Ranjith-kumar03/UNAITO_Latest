@@ -25,13 +25,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
   private subscription: Subscription = new Subscription();
   submitted = false;
+  rememberme;
 
   constructor(private fb: FormBuilder,
-    private authService: AuthService,private registerService:  RegisterService, private router: Router, private _notificationToast: ToasterNotificatonService) { }
+    private authService: AuthService, private registerService: RegisterService, private router: Router, private _notificationToast: ToasterNotificatonService) { }
 
   ngOnInit(): void {
-
-
 
     this.loginForm = this.fb.group({
 
@@ -41,6 +40,9 @@ export class LoginComponent implements OnInit, OnDestroy {
       userName: ['', [Validators.required]],
       password: ['', [Validators.required]],
 
+      rememberMe: ['']
+
+
       //rememberMe: ['']
 
 
@@ -48,10 +50,17 @@ export class LoginComponent implements OnInit, OnDestroy {
 
    
     
+
     });
-    console.log(this.loginForm.get('userName'))
-    console.log(this.loginForm.get('password'))
+    this.rememberme = localStorage.getItem('rememberme');
+    if (this.rememberme) {
+      console.log("Iam inside remember me")
+      this.AutoLogin()
+    }
+    this.autoLogoutJWTTimeExpiry()
   }
+
+
 
   get userName() {
     return this.loginForm.get('userName')
@@ -64,11 +73,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     console.log("see the login form value", this.loginForm.value)
-    
-    // this.router.navigate(['application'])
-    //   this.authService.setLoggedIn(true)
-    //   console.log("submit clicked")
-    
+
+
     if (!this.loginForm.valid) {
       this.loginForm.markAllAsTouched();
       return;
@@ -77,11 +83,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     if (this.loginForm.get('userName').errors || this.loginForm.get('password').errors) {
       return;
     }
-    // this.router.navigate(['application'])
-    //       this.authService.setLoggedIn(true)
-    //this.subscription.add(this.authService.login(this.loginForm.get('userName').value, this.loginForm.get('password').value)
 
-    this.subscription.add(this.authService.login(this.loginForm.value).subscribe((data:any) => {
+    this.subscription.add(this.authService.login(this.loginForm.value).subscribe((data: any) => {
       console.log("see the data", data)
       if (data.responseCode === 200) {
 
@@ -90,40 +93,87 @@ export class LoginComponent implements OnInit, OnDestroy {
           console.log("see the user", data.responseObject)
 
           //For showing Name on Logo
-          let fullname = data.responseObject.firstName + " "+data.responseObject.lastName
-          localStorage.setItem("fullname",fullname)
+          let fullname = data.responseObject.firstName + " " + data.responseObject.lastName
+          localStorage.setItem("fullname", fullname)
           this.authService.setUserName(fullname)
 
           //For Logout collecting username
           let userName = data.responseObject.userName
-          localStorage.setItem("userName",userName)
+          localStorage.setItem("userName", userName)
+
+          //For Remember Me collecting username and Password
+
+          let password = this.loginForm.get('password').value;
+          this.rememberme = this.loginForm.get('rememberMe').value;
+          if (this.rememberme) {
+            localStorage.setItem("userName", userName)
+            localStorage.setItem("password", password)
+            localStorage.setItem("rememberme", 'yes')
+          }
+
         })
+
+
         if (data.responseObject.firstTimeLogin) {
-          localStorage.setItem("sessionId",data.responseObject.sessionId)
-          localStorage.setItem("jwtType",data.responseObject.jwtType)
-          localStorage.setItem("jwt",data.responseObject.jwt)
-          localStorage.setItem("jwtCreatedTime",data.responseObject.jwtCreatedTime)
-          localStorage.setItem("jwtExpiryTime",data.responseObject.jwtExpiryTime)
-          localStorage.setItem("firstTimeLogin",data.responseObject.firstTimeLogin)
+          localStorage.setItem("sessionId", data.responseObject.sessionId)
+          localStorage.setItem("jwtType", data.responseObject.jwtType)
+          localStorage.setItem("jwt", data.responseObject.jwt)
+          localStorage.setItem("jwtCreatedTime", data.responseObject.jwtCreatedTime)
+          localStorage.setItem("jwtExpiryTime", data.responseObject.jwtExpiryTime)
+          localStorage.setItem("firstTimeLogin", data.responseObject.firstTimeLogin)
           this._notificationToast.showSuccess("User Logged In Sucessfully Please Create Your own Password ", "Logged In Sucess")
-         
+
           //this.router.navigate(['confirmpassword',this.loginForm.get('userName').value])
           this.router.navigate(['application'])
 
         } else {
           this._notificationToast.showSuccess("User Logged In Sucessfully", "Logged In Sucess")
-          localStorage.setItem("sessionId",data.responseObject.sessionId)
-          localStorage.setItem("jwtType",data.responseObject.jwtType)
-          localStorage.setItem("jwt",data.responseObject.jwt)
-          localStorage.setItem("jwtCreatedTime",data.responseObject.jwtCreatedTime)
-          localStorage.setItem("jwtExpiryTime",data.responseObject.jwtExpiryTime)
-          localStorage.setItem("firstTimeLogin",data.responseObject.firstTimeLogin)
-          //this.authService.setLoggedIn()
+          localStorage.setItem("sessionId", data.responseObject.sessionId)
+          localStorage.setItem("jwtType", data.responseObject.jwtType)
+          localStorage.setItem("jwt", data.responseObject.jwt)
+          localStorage.setItem("jwtCreatedTime", data.responseObject.jwtCreatedTime)
+          localStorage.setItem("jwtExpiryTime", data.responseObject.jwtExpiryTime)
+          localStorage.setItem("firstTimeLogin", data.responseObject.firstTimeLogin)
           this.router.navigate(['application'])
+
         }
       }
     }, (err) => { console.log("see the error", err), this._notificationToast.showError(`User Log In Failed `, `${err.error.errorMessage}`) }))
 
+
+  }
+
+  AutoLogin() {
+    //For Remember Me
+    let expiryTime = localStorage.getItem("jwtExpiryTime")
+    let expirytime = new Date(expiryTime);
+    let currentTime = new Date(Date.now())
+    console.log("expirytime.getTime()", expirytime.getTime())
+    console.log("currentTime.getTime()", currentTime.getTime())
+    if (expirytime.getTime() > currentTime.getTime()) {
+      this.loginForm.get('userName').setValue(localStorage.getItem('userName'));
+      this.loginForm.get('password').setValue(localStorage.getItem('password'));
+    } else {
+      this.loginForm.get('userName').setValue('');
+      this.loginForm.get('password').setValue('');
+    }
+
+
+  }
+
+  autoLogoutJWTTimeExpiry() {
+    //For Auto Logout 
+    let expiryTime = localStorage.getItem("jwtExpiryTime")
+    let expirytime = new Date(expiryTime);
+    let currentTime = new Date(Date.now())
+    console.log("expirytime.getTime()", expirytime.getTime())
+    console.log("currentTime.getTime()", currentTime.getTime())
+    if (expirytime.getTime() < currentTime.getTime()) {
+      console.log("Expiry Time expired")
+
+      this.router.navigate(['logout'])
+
+    }
   }
 
   ngOnDestroy() {

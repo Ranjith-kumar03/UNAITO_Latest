@@ -15,6 +15,7 @@ export class AppComponent implements OnInit, OnDestroy {
   //isLoggedIn$: Observable<boolean>;
   name: String;
   loggedIn: boolean;
+  rememberme;
   constructor(public authService: AuthService, private cdr: ChangeDetectorRef, private router: Router) {
     this.authService.username$.subscribe((username) => {
       this.name = username;
@@ -56,15 +57,18 @@ export class AppComponent implements OnInit, OnDestroy {
   isLoginView() {
     if (this.router.url.match('/login')) {
       //need to remove once refresh screen white page is fixed
-    //   localStorage.removeItem("sessionId")
-    // localStorage.removeItem("jwtType")
-    // localStorage.removeItem("jwt")
-    // localStorage.removeItem("jwtCreatedTime")
-    // localStorage.removeItem("jwtExpiryTime")
-    // localStorage.removeItem("firstTimeLogin")
-    // localStorage.removeItem("fullname")
-    // localStorage.removeItem("userName")
-    this.logOut()
+      //   localStorage.removeItem("sessionId")
+      // localStorage.removeItem("jwtType")
+      // localStorage.removeItem("jwt")
+      // localStorage.removeItem("jwtCreatedTime")
+      // localStorage.removeItem("jwtExpiryTime")
+      // localStorage.removeItem("firstTimeLogin")
+      // localStorage.removeItem("fullname")
+      // localStorage.removeItem("userName")
+      this.rememberme = localStorage.getItem('rememberme');
+      if (!this.rememberme) {
+        this.logOut()
+      }
       return true;
     } else {
       return false;
