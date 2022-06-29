@@ -28,6 +28,7 @@ export class CreateNewUserComponent implements OnInit, OnDestroy {
   registerForm: FormGroup;                   
   private subscription: Subscription = new Subscription();
   submitted = false;
+  showEmailValidatiom = false;
 
   roles = [
     // {
@@ -46,13 +47,13 @@ export class CreateNewUserComponent implements OnInit, OnDestroy {
       id: 'customer',
       name: 'Customer'
     }
-    ,{
-      id: 'reviewer',
-      name: 'Reviewer'
-    }, {
-      id: 'consultant',
-      name: 'Consultant'
-    },
+    // ,{
+    //   id: 'reviewer',
+    //   name: 'Reviewer'
+    // }, {
+    //   id: 'consultant',
+    //   name: 'Consultant'
+    // },
     
   ];
   //role='select'
@@ -67,7 +68,7 @@ export class CreateNewUserComponent implements OnInit, OnDestroy {
       userName: ['',[Validators.required] ],
       firstName: ['',[Validators.required] ],
       lastName: ['',[Validators.required]],
-      email: ['',[Validators.required]],
+      email: ['',[Validators.required,Validators.email]],
       contactNumber: ['',[Validators.required]],
       location: ['',[Validators.required]],
       roleName: ["",[Validators.required]],
@@ -142,6 +143,9 @@ onSubmit() {
             }
           }))
   
+}
+onBlurMethod(){
+this.showEmailValidatiom =true;
 }
 ngOnDestroy() {  
   // Unsubscribed the subscription  
