@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
   private subscription: Subscription = new Subscription();
   submitted = false;
-  rememberme;
+  rememberMe;
 
   constructor(private fb: FormBuilder,
     private authService: AuthService, private registerService: RegisterService, private router: Router, private _notificationToast: ToasterNotificatonService) { }
@@ -40,8 +40,8 @@ export class LoginComponent implements OnInit, OnDestroy {
       password: ['', [Validators.required]],
       rememberMe: ['']
     });
-    this.rememberme = localStorage.getItem('rememberme');
-    if (this.rememberme) {
+    this.rememberMe = localStorage.getItem('rememberme');
+    if (this.rememberMe) {
       console.log("Iam inside remember me")
       this.AutoLogin()
     }
@@ -92,11 +92,15 @@ export class LoginComponent implements OnInit, OnDestroy {
           //For Remember Me collecting username and Password
 
           let password = this.loginForm.get('password').value;
-          this.rememberme = this.loginForm.get('rememberMe').value;
-          if (this.rememberme) {
+          this.rememberMe = this.loginForm.get('rememberMe').value;
+          if (this.rememberMe) {
             localStorage.setItem("userName", userName)
             localStorage.setItem("password", password)
             localStorage.setItem("rememberme", 'yes')
+            console.log("iam checked inside remember me")
+          }else{
+            localStorage.setItem("rememberme", '')
+            console.log("iam not checked outside remember me")
           }
 
         })
@@ -141,9 +145,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     if (expirytime.getTime() > currentTime.getTime()) {
       this.loginForm.get('userName').setValue(localStorage.getItem('userName'));
       this.loginForm.get('password').setValue(localStorage.getItem('password'));
+      this.loginForm.get('rememberMe').setValue(localStorage.getItem('rememberme'));
     } else {
       this.loginForm.get('userName').setValue('');
       this.loginForm.get('password').setValue('');
+      this.loginForm.get('rememberMe').setValue('');
     }
 
 

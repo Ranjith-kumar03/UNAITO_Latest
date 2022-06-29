@@ -10,17 +10,15 @@ import { ToasterNotificatonService } from 'src/app/Services/toaster.notificaton.
 })
 export class LogoutComponent implements OnInit {
 
-  constructor(private authService: AuthService,private _notificationToast: ToasterNotificatonService, private router:Router) { }
+  constructor(private authService: AuthService, private _notificationToast: ToasterNotificatonService, private router: Router) { }
 
   ngOnInit(): void {
     let userName = localStorage.getItem("userName")
-    this.authService.logout(userName).subscribe((data)=>{
-      if(data.responseCode===200)
-      {
+    this.authService.logout(userName).subscribe((data) => {
+      if (data.responseCode === 200)
         this.authService.resetcredentials()
-        this.router.navigate(['/login']);
-      }
-    },(err)=>{
+      this.router.navigate(['/login']);
+    }, (err) => {
       this._notificationToast.showError(`User Log Out Failed `, "Log Out Failed")
     });
   }
