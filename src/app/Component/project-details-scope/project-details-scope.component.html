@@ -1,5 +1,5 @@
 <div class="page">
-   
+
 
     <div class="page-content d-flex align-items-stretch">
         <app-left-side-bar></app-left-side-bar>
@@ -9,7 +9,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 title-bar justify-content-between d-flex align-items-center">
-                        <h2 class="page-title"><img class="svg" src="../../../assets/Images/UNAITO/Icon/left-arrow.svg" /> Add Scope
+                        <h2 class="page-title"><img class="svg"
+                                src="../../../assets/Images/UNAITO/Icon/left-arrow.svg" /> Add Scope
                         </h2>
                     </div>
                 </div>
@@ -24,61 +25,77 @@
                         <div class="col-md-12">
                             <div class="business-drivers">
                                 <h5>Functional Scope</h5>
-                                <form>
+                                <form [formGroup]="addScopeForm" (ngSubmit)="addScopes()">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                        <input class="form-check-input" type="checkbox" #inputBox1
+                                            value="Determine target cloud platform"
+                                            (change)="GetStats1($event, inputBox1?.checked)"
+                                            formControlName="determineTargeCP" id="defaultCheck1">
                                         <label class="form-check-label" for="defaultCheck1">
                                             Determine target cloud platform
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                                        <input class="form-check-input" type="checkbox" id="defaultCheck2" #inputBox2
+                                            value="Application Fitment & Readiness assess"
+                                            (change)="GetStats2($event, inputBox2?.checked)"
+                                            formControlName="appFitReadAss">
                                         <label class="form-check-label" for="defaultCheck2">
                                             Application Fitment & Readiness assess
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                                        <input class="form-check-input" type="checkbox" id="defaultCheck3" #inputBox3
+                                            value="Security" (change)="GetStats3($event, inputBox3?.checked)"
+                                            formControlName="security">
                                         <label class="form-check-label" for="defaultCheck3">
                                             Security
                                         </label>
                                     </div>
                                     <div class="row col-md-12">
                                         <div class="form-check ml-5">
-                                            <input class="form-check-input" type="radio" value="" id="defaultCheck10">
-                                            <label class="form-check-label" for="defaultCheck10">
-                                                Highlevel
-                                            </label>
+                                            <input id="Highlevel" type="radio" class="form-check-input"
+                                                value="Highlevel" name="security_radio"
+                                                formControlName="security_radio">
+                                            <label class="form-check-label" for="Highlevel">Highlevel</label>
                                         </div>
+
                                         <div class="form-check ml-5">
-                                            <input class="form-check-input" type="radio" value="" id="defaultCheck11">
-                                            <label class="form-check-label" for="defaultCheck11">
-                                                Detail
-                                            </label>
+                                            <input id="Detail" type="radio" class="form-check-input" value="Detail"
+                                                name="security_radio" formControlName="security_radio">
+                                            <label class="form-check-label" for="Detail">Detail</label>
                                         </div>
                                     </div>
+
+
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck15">
+                                        <input class="form-check-input" type="checkbox" id="defaultCheck15" #inputBox5
+                                            value="Risk" (change)="GetStats5($event, inputBox5?.checked)"
+                                            formControlName="risk">
                                         <label class="form-check-label" for="defaultCheck15">
                                             Risk
                                         </label>
                                     </div>
+
                                     <div class="row col-md-12">
                                         <div class="form-check ml-5">
-                                            <input class="form-check-input" type="radio" value="" id="defaultCheck10">
-                                            <label class="form-check-label" for="defaultCheck10">
-                                                Highlevel
-                                            </label>
+                                            <input id="Highlevel_risk" type="radio" class="form-check-input"
+                                                value="Highlevel" name="risk_radio" formControlName="risk_radio">
+                                            <label class="form-check-label" for="Highlevel_risk">Highlevel</label>
                                         </div>
+
                                         <div class="form-check ml-5">
-                                            <input class="form-check-input" type="radio" value="" id="defaultCheck11">
-                                            <label class="form-check-label" for="defaultCheck11">
-                                                Detail
-                                            </label>
+                                            <input id="Detail_risk" type="radio" class="form-check-input" value="Detail"
+                                                name="risk_radio" formControlName="risk_radio">
+                                            <label class="form-check-label" for="Detail_risk">Detail</label>
                                         </div>
                                     </div>
+
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+                                        <input class="form-check-input" type="checkbox" id="defaultCheck4" #inputBox7
+                                            value="To be state architecture"
+                                            (change)="GetStats7($event, inputBox7?.checked)"
+                                            formControlName="toBeStateArch">
                                         <label class="form-check-label" for="defaultCheck4">
                                             To be state architecture
                                         </label>
@@ -86,74 +103,95 @@
 
 
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
+                                        <input class="form-check-input" type="checkbox" id="defaultCheck5" #inputBox8
+                                            value="Migration plan" (change)="GetStats8($event, inputBox8?.checked)"
+                                            formControlName="migrationPlan">
                                         <label class="form-check-label" for="defaultCheck5">
                                             Migration plan
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck6">
+                                        <input class="form-check-input" type="checkbox" id="defaultCheck6" #inputBox9
+                                            value="Total cost of ownership"
+                                            (change)="GetStats9($event, inputBox9?.checked)"
+                                            formControlName="totalCostOwner">
                                         <label class="form-check-label" for="defaultCheck6">
                                             Total cost of ownership
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck7">
+                                        <input class="form-check-input" type="checkbox" id="defaultCheck7" #inputBox10
+                                            value="ROI calculation" (change)="GetStats10($event, inputBox10?.checked)"
+                                            formControlName="roi">
                                         <label class="form-check-label" for="defaultCheck7">
                                             ROI calculation
                                         </label>
                                     </div>
                                     <h5 class=" mt-3 pt-4 mb-2 it-drivers">Quantitative Scope</h5>
+                                    <!-- (change)="GetStats11($event, inputBox11?.checked)" -->
                                     <div class="row col-md-12 zeropadding">
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <label for="">Legal Entities
                                                 </label>
-                                                <input type="text" class="form-control " id="">
+                                                <input type="text" class="form-control " id="" #inputBox11 value=""
+                                                    formControlName="legalEntity">
                                             </div>
                                         </div>
+                                        <!-- (change)="GetStats12($event, inputBox12?.checked)" -->
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <label for="">Business Unit
                                                 </label>
-                                                <input type="text" class="form-control " id="">
+                                                <input type="text" class="form-control " id="" #inputBox12 value=""
+                                                    formControlName="bussinessUnit">
                                             </div>
                                         </div>
+                                        <!-- (change)="GetStats13($event, inputBox13?.checked)" -->
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <label for="">Applications
                                                 </label>
-                                                <input type="text" class="form-control " id="">
+                                                <input type="text" class="form-control " id="" #inputBox13 value=""
+                                                    formControlName="applications">
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- (change)="GetStats14($event, inputBox14?.checked)" -->
                                     <div class="row col-md-12 zeropadding">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="">Databases
                                                 </label>
-                                                <input type="text" class="form-control " id="">
+                                                <input type="text" class="form-control " id="" #inputBox14 value=""
+                                                    formControlName="databases">
                                             </div>
                                         </div>
+                                        <!-- (change)="GetStats15($event, inputBox15?.checked)" -->
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="">Servers
                                                 </label>
-                                                <input type="text" class="form-control " id="">
+                                                <input type="text" class="form-control " id="" #inputBox15 value=""
+                                                    formControlName="servers">
                                             </div>
                                         </div>
+                                        <!-- (change)="GetStats16($event, inputBox16?.checked)" -->
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="">Locations
                                                 </label>
-                                                <input type="text" class="form-control " id="">
+                                                <input type="text" class="form-control " id="" #inputBox16 value=""
+                                                    formControlName="locations">
                                             </div>
                                         </div>
                                     </div>
 
-                                    <a href="avantor-cloud-readiness-assessment-2.html"
-                                        class="btn btn-primary create-btn mt-3">Add</a>
-                                    <button type="submit" class="btn cancel-btn create-btn mt-3">Cancel</button>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary mr-2">Add</button>
+                                        <button [routerLink]="['/overview']"
+                                            class="btn cancel-btn create-btn mt-3">Cancel</button>
+                                    </div>
                                 </form>
                             </div>
 

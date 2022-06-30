@@ -1,5 +1,5 @@
 <div class="page">
- 
+
 
     <div class="page-content d-flex align-items-stretch">
         <app-left-side-bar></app-left-side-bar>
@@ -9,7 +9,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 title-bar justify-content-between d-flex align-items-center">
-                        <h2 class="page-title"><img class="svg" src="../../../assets/Images/UNAITO/Icon/left-arrow.svg" /> Add Drivers
+                        <h2 class="page-title"><img class="svg"
+                                src="../../../assets/Images/UNAITO/Icon/left-arrow.svg" /> Add Drivers
                         </h2>
                     </div>
                 </div>
@@ -23,65 +24,111 @@
                         <div class="col-md-10">
                             <div class="business-drivers">
                                 <h5>Business Drivers</h5>
-                                <form>
+                                <form [formGroup]="addDriversForm" (ngSubmit)="addDrivers()">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                        <input #inputBox1 class="form-check-input" type="checkbox" value="Finance model"
+                                            (change)="GetStats1($event, inputBox1?.checked)"
+                                            formControlName="financeModel" id="defaultCheck1">
                                         <label class="form-check-label" for="defaultCheck1">
                                             Finance model
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                                        <input #inputBox2 class="form-check-input" type="checkbox"
+                                            value="Faster time to market"
+                                            (change)="GetStats2($event,inputBox2?.checked)"
+                                            formControlName="fasterTimetoMarket" id="defaultCheck2">
                                         <label class="form-check-label" for="defaultCheck2">
                                             Faster time to market
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                                        <input #inputBox3 class="form-check-input" type="checkbox"
+                                            value="Innovation/Experimentation at low cost"
+                                            (change)="GetStats3($event,inputBox3?.checked)"
+                                            formControlName="innv_exp_lowcost" id="defaultCheck3">
                                         <label class="form-check-label" for="defaultCheck3">
                                             Innovation/Experimentation at low cost
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+                                        <input #inputBox4 class="form-check-input" type="checkbox"
+                                            value="Business agility & flexibility"
+                                            (change)="GetStats4($event, inputBox4?.checked)"
+                                            formControlName="business_agility_flex" id="defaultCheck4">
                                         <label class="form-check-label" for="defaultCheck4">
                                             Business agility & flexibility
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
+                                        <input #inputBox5 class="form-check-input" type="checkbox" value="others_BD"
+                                            (change)="GetStats5($event,inputBox5?.checked)" formControlName="others_BD"
+                                            id="defaultCheck5">
                                         <label class="form-check-label" for="defaultCheck5">
                                             Others
                                         </label>
                                     </div>
+                                    <!-- (change)="GetStats11($event)" -->
+                                    <div class="form-group" *ngIf="others_BD">
+                                        <label for="">Descrption</label>
+                                        <textarea class="form-control custom-width" #inputBox11 type="textarea" value=""
+                                             formControlName="others_BD_Text" rows="3"
+                                            placeholder="Enter a short description"></textarea>
+                                    </div>
                                     <h5 class=" mt-3 pt-3 mb-2 it-drivers">IT Drivers</h5>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck6">
+                                        <input #inputBox6 class="form-check-input" type="checkbox"
+                                            value="Ease of operation" (change)="GetStats6($event,inputBox6?.checked)"
+                                            formControlName="Ease_of_operation" id="defaultCheck6">
                                         <label class="form-check-label" for="defaultCheck6">
                                             Ease of operation
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck7">
+                                        <input #inputBox7 class="form-check-input" type="checkbox" value="Scalability"
+                                            (change)="GetStats7($event,inputBox7?.checked)"
+                                            formControlName="Scalability" id="defaultCheck7">
                                         <label class="form-check-label" for="defaultCheck7">
                                             Scalability
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck8">
+                                        <input #inputBox8 class="form-check-input" type="checkbox" value="Automation"
+                                            (change)="GetStats8($event,inputBox8?.checked)" formControlName="Automation"
+                                            id="defaultCheck8">
                                         <label class="form-check-label" for="defaultCheck8">
                                             Automation
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck9">
+                                        <input #inputBox9 class="form-check-input" type="checkbox" value="Others_IT"
+                                            (change)="GetStats9($event,inputBox9?.checked)" formControlName="Others_IT"
+                                            id="defaultCheck9">
                                         <label class="form-check-label" for="defaultCheck9">
                                             Others
                                         </label>
                                     </div>
-                                    <a href="avantor-cloud-readiness-assessment-1.html"
-                                        class="btn btn-primary create-btn mt-3">Add</a>
-                                    <button type="submit" class="btn cancel-btn create-btn mt-3">Cancel</button>
+                                    <!-- (change)="GetStats10($event)" -->
+                                    <div class="form-group" *ngIf="others_IT">
+                                        <label for="">Descrption</label>
+                                        <textarea class="form-control custom-width" #inputBox10 type="textarea" value=""
+                                             formControlName="Others_IT_Text" id=""
+                                            rows="3" placeholder="Enter a short description"></textarea>
+
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary mr-2">Add</button>
+                                        <button [routerLink]="['/overview']" 
+                                            class="btn cancel-btn create-btn mt-3">Cancel</button>
+                                    </div>
+                                    <!-- <a 
+                                        class="btn btn-primary create-btn mt-3">Add</a> -->
+
+
+
                                 </form>
                             </div>
 
