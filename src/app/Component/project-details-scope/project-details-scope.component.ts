@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectService } from 'src/app/Services/project.service';
 
 @Component({
@@ -30,7 +30,7 @@ export class ProjectDetailsScopeComponent implements OnInit {
   locations: String
 
   addScopeForm: FormGroup;
-  constructor(private fb: FormBuilder, private projectService: ProjectService, private activatedRoute: ActivatedRoute) { }
+  constructor(private fb: FormBuilder,private router: Router, private projectService: ProjectService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -167,6 +167,7 @@ export class ProjectDetailsScopeComponent implements OnInit {
 
     this.projectService.addScopestobackend(this.projectId, this.scopeData).subscribe((data) => {
       console.log(data)
+      this.router.navigate(['overview'])
     }, (err) => {
       console.log(err)
     })

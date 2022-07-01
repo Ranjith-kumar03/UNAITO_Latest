@@ -27,6 +27,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   submitted = false;
   rememberMe;
 
+  dispDateExiry;
+  dispDateNow;
+
   constructor(private fb: FormBuilder,
     private authService: AuthService, private registerService: RegisterService, private router: Router, private _notificationToast: ToasterNotificatonService) { }
 
@@ -159,10 +162,17 @@ export class LoginComponent implements OnInit, OnDestroy {
     //For Auto Logout 
     let expiryTime = localStorage.getItem("jwtExpiryTime")
     let expirytime = new Date(expiryTime);
+    
+    var currentDate = new Date(new Date(Date.now()).getTime()+(0.1*24*60*60*1000));
+
     let currentTime = new Date(Date.now())
-    console.log("expirytime.getTime()", expirytime.getTime())
-    console.log("currentTime.getTime()", currentTime.getTime())
-    if (expirytime.getTime() < currentTime.getTime()) {
+    
+    // setInterval(()=>{
+    //   this.dispDateExiry=expirytime
+    // this.dispDateNow = myDate
+    // },500)
+    
+    if (expirytime.getTime() < currentDate.getTime()) {
       console.log("Expiry Time expired")
 
       this.router.navigate(['logout'])
