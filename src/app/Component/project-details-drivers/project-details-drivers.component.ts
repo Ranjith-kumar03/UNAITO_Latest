@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectService } from 'src/app/Services/project.service';
 
 @Component({
@@ -24,7 +24,7 @@ export class ProjectDetailsDriversComponent implements OnInit {
   others_IT: String
   others_IT_Text: String
   projectId: Number
-  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private projectService: ProjectService) { }
+  constructor(private fb: FormBuilder,private router: Router, private activatedRoute: ActivatedRoute, private projectService: ProjectService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -156,7 +156,7 @@ export class ProjectDetailsDriversComponent implements OnInit {
 
     this.projectService.addDriverstobackend(this.projectId, this.driverData).subscribe((data) => {
       console.log(data)
-
+      this.router.navigate(['overview'])
 
     }, (err) => {
 

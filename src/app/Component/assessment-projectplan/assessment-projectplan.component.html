@@ -32,8 +32,13 @@
                             <p class="overview-heading">Assessment Project Plan
                             </p>
                             <p class="assessment-input input-div mr-4"><b>4 Weeks </b>
-                                <span class="assessment-label">(27 Jan ’22 to 24 Feb ’22)</span>
-                                <img class="svg pl-4" src="../../../assets/Images/UNAITO/Icon/calendar.svg" />
+                                <!-- <span class="assessment-label">(27 Jan ’22 to 24 Feb ’22)</span>
+                                <img class="svg pl-4" src="../../../assets/Images/UNAITO/Icon/calendar.svg" /> -->
+                                <input class="mr-4" type="date" id="birthday" name="pickDate">
+                                <button class="btn btn-primary" type="button" (click)="fileInput.click()">
+                                    <i class="fa-solid fa-upload"></i> <span> Upload</span>
+                                    <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />
+                                  </button>
                             </p>
                         </div>
 
@@ -58,7 +63,17 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody class="d-none">
+                                <tbody>
+                                    <tr class="clickable" *ngFor="let item of excelData" >
+                                        <!-- https://www.positronx.io/build-dynamic-html-table-in-angular-with-ngfor/ -->
+                                        
+                                        <td></td>
+                                            <td>{{item.Week1}}</td>
+                                            <td>{{item.Week2}}</td>
+                                            <td>{{item.Week3}}</td>
+                                            <td>{{item.Week4}}</td>
+                                            </tr>
+                                            
 
                                 </tbody>
                             </table>
