@@ -21,7 +21,7 @@
                             <li class="nav-item assoc-app-btn expose" id="notifyTxt">
                                 <a class="nav-item assoc-app-btn expose" (click)="clickNotification($event)"
                                     class="nav-link">
-                                    <div *ngIf="!isApplicationView()">
+                                    <div [hidden]="isApplicationView()">
                                         <img src="../assets/Images/UNAITO/Header/notification.svg">
                                         <span class="badge badge-light">9</span>
                                     </div>
@@ -31,7 +31,7 @@
                         <ng-container>
                             <li class="nav-item assoc-app-btn expose" id="appListTxt">
                                 <a (click)="clickApplication($event)" class="nav-link">
-                                    <div *ngIf="!isApplicationView()">
+                                    <div [hidden]="isApplicationView()">
                                         <img src="../assets/Images/UNAITO/Header/applicationlist.svg">
                                     </div>
                                 </a>
@@ -43,7 +43,7 @@
                                 <!-- <span>Warren Haynes <br> <small>Zinc Corporation Ltd.,</small></span> -->
                                 <!-- <img src="../assets/Images/UNAITO/Header/profile.svg"> -->
                                 <div class="rows">
-                                    <div class="circles" *ngIf="name">
+                                    <div class="circles" [hidden]="!name">
                                         {{ getInitials(name ) }}
                                     </div>
                                 </div>
