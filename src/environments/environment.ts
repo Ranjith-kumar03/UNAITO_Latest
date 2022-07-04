@@ -22,7 +22,11 @@ export const environment = {
   API_GET_TEAM_MEMBERS: 'http://localhost:3000/addTeamMebers',
   API_UPDATE_ONE_TEAM_MEMBERS: 'http://localhost:3000/addTeamMebers/',
   API_ADD_TEAM_MEMBERS: 'http://localhost:3000/addTeamMebers/',
-  API_DELETE_TEAM_MEMBERS: 'http://localhost:3000/addTeamMebers/'
+  API_DELETE_TEAM_MEMBERS: 'http://localhost:3000/addTeamMebers/',
+
+  //Add Drivers  /unaito/v1/projects/{project-id}/add-scope
+  API_ADD_DRIVERS_URL:'http://localhost:8080/unaito/v1/projects/',
+  API_SCOPE_DRIVERS_URL:'http://localhost:8080/unaito/v1/projects/',
 };
 
 /*
