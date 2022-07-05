@@ -5,13 +5,13 @@
     </button> -->
     <ul class=" list-unstyled">
         <li class="">
-            <a href="" routerLink="/overview" class="nav-link active text" title="Dashboard">
+            <a  routerLink="/overview" class="nav-link active text" title="Dashboard">
 
                 <span class="nav-text text">Overview</span>
             </a>
         </li>
         <li class="">
-            <a href="team-onboarding.html" routerLink="/teamonboard" class="nav-link " title="Projects">
+            <a  [routerLink]="['/teamonboard/', project_id]"  class="nav-link " title="Projects">
 
                 <span class="nav-text text1">Team Onboarding </span>
             </a>

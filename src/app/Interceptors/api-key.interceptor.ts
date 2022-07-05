@@ -8,10 +8,11 @@ import {
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { ProjectService } from "../Services/project.service";
+import { RegisterService } from "../Services/register.service";
 
 @Injectable()
 export class APIKEYInterceptor implements HttpInterceptor {
-  constructor(private projectService: ProjectService) {}
+  constructor(private projectService: ProjectService, private registerService: RegisterService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
     console.log("see the url from interceptor", request.url)
@@ -38,7 +39,13 @@ export class APIKEYInterceptor implements HttpInterceptor {
       });
       this.projectService.addScopesUrl=""
       return next.handle(API_KEY_Request);
-    }   
+    }   else if (request.url ===  this.registerService.addTeamMemberurl ) {
+      let API_KEY_Request = request.clone({
+        headers: request.headers.append("API-KEY", "PROJECT-API-KEY"),
+      });
+      this.registerService.addTeamMemberurl=""
+      return next.handle(API_KEY_Request);
+    }
     
     else {
       let API_KEY_Request = request.clone({
