@@ -24,4 +24,10 @@ export class ProjectService {
   {
     return this.http.post<any>(environment.API_CREATE_NEWCUSTOMER, { ...newCustomer })
   }
+
+  ///Create Project
+  createProject(newProject: any)
+  {
+    return this.http.post<any>(environment.API_CREATE_NEWPROJECT, { ...newProject })
+  }
 }

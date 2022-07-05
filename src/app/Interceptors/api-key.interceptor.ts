@@ -19,7 +19,14 @@ export class APIKEYInterceptor implements HttpInterceptor {
         headers: request.headers.append("API-KEY", "CUSTOMER-API-KEY"),
       });
       return next.handle(API_KEY_Request);
-    } else {
+    } else if (request.url === environment.API_CREATE_NEWPROJECT) {
+      let API_KEY_Request = request.clone({
+        headers: request.headers.append("API-KEY", "PROJECT-API-KEY"),
+      });
+      return next.handle(API_KEY_Request);
+    }     
+    
+    else {
       let API_KEY_Request = request.clone({
         headers: request.headers.append("API-KEY", "USER-API-KEY"),
       });

@@ -36,13 +36,13 @@
                 <label for="">Location</label>
                 <input type="text" class="form-control spl-width" id="" placeholder="Enter Customer Location"
                   formControlName="location">
-                  <div *ngIf="(location.invalid && location.errors?.required )&& 
+                <div *ngIf="(location.invalid && location.errors?.required )&& 
                   (location.dirty || location.touched)" class="alert alert-danger">
-  
-                    <div *ngIf="location.errors?.required">
-                      location is required.
-                    </div>
+
+                  <div *ngIf="location.errors?.required">
+                    location is required.
                   </div>
+                </div>
 
               </div>
 
@@ -51,9 +51,9 @@
                   <label for="">SPOC First Name</label>
                   <input type="text" class="form-control custom-width " id="" placeholder="Enter first name"
                     formControlName="spocFirstName">
-                    <div *ngIf="(spocFirstName.invalid && spocFirstName.errors?.required )&& 
+                  <div *ngIf="(spocFirstName.invalid && spocFirstName.errors?.required )&& 
                   (spocFirstName.dirty || spocFirstName.touched)" class="alert alert-danger">
-  
+
                     <div *ngIf="spocFirstName.errors?.required">
                       spocFirstName is required.
                     </div>
@@ -63,9 +63,9 @@
                   <label for="">SPOC Last Name</label>
                   <input type="text" class="form-control custom-width" id="" placeholder="Enter last name"
                     formControlName="spocLastName">
-                    <div *ngIf="(spocLastName.invalid && spocLastName.errors?.required )&& 
+                  <div *ngIf="(spocLastName.invalid && spocLastName.errors?.required )&& 
                   (spocLastName.dirty || spocLastName.touched)" class="alert alert-danger">
-  
+
                     <div *ngIf="spocLastName.errors?.required">
                       spocLastName is required.
                     </div>
@@ -77,20 +77,20 @@
                 <label for="">Email Address</label>
                 <input type="email" class="form-control spl-width" id="" placeholder="Enter email address"
                   formControlName="email" (blur)="onBlurMethod()">
-                  <div *ngIf="(email.invalid && email.errors?.required )&& 
+                <div *ngIf="(email.invalid && email.errors?.required )&& 
                                             (email.dirty || email.touched)" class="alert alert-danger">
 
-                                    <div *ngIf="email.errors?.required">
-                                        Email is required.
-                                    </div>
+                  <div *ngIf="email.errors?.required">
+                    Email is required.
+                  </div>
 
-                                </div>
-                                <div *ngIf="(email.invalid && email.errors?.email && showEmailValidatiom )&& 
+                </div>
+                <div *ngIf="(email.invalid && email.errors?.email && showEmailValidatiom )&& 
                                             (email.dirty || email.touched)" class="alert alert-danger">
-                                    <div *ngIf="email.errors?.email">
-                                        You must enter a valid email.
-                                    </div>
-                                </div>
+                  <div *ngIf="email.errors?.email">
+                    You must enter a valid email.
+                  </div>
+                </div>
 
               </div>
 
@@ -101,17 +101,17 @@
                 " formControlName="contactNumber">
                 <div *ngIf="(contactNumber.invalid && contactNumber.errors?.required )&& 
                   (contactNumber.dirty || contactNumber.touched)" class="alert alert-danger">
-  
-                    <div *ngIf="contactNumber.errors?.required">
-                      contactNumber is required.
-                    </div>
+
+                  <div *ngIf="contactNumber.errors?.required">
+                    contactNumber is required.
                   </div>
+                </div>
 
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary create-btn">Create</button>
-                <button routerLink="/customerListTable" class="btn cancel-btn create-btn">Cancel</button>
-            </div>
+                <button routerLink="/customerListTable" class="btn cancel-btn">Cancel</button>
+              </div>
             </form>
           </div>
           <div class="col-md-2">
