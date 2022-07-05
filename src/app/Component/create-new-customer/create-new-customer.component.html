@@ -19,45 +19,99 @@
       <div class="row d-flex justify-content-center">
         <div class="card col-md-7">
           <div class="col-md-10">
-            <form>
+            <form [formGroup]="customerRegisterForm" (ngSubmit)="onSubmit()">
               <div class="form-group ">
                 <label for="">Name</label>
-                <input type="text" class="form-control spl-width" id="" placeholder="Enter Customer Name">
+                <input type="text" class="form-control spl-width" id="" placeholder="Enter Customer Name"
+                  formControlName="customerName">
+                <div *ngIf="(customerName.invalid && customerName.errors?.required )&& 
+                (customerName.dirty || customerName.touched)" class="alert alert-danger">
 
+                  <div *ngIf="customerName.errors?.required">
+                    customerName is required.
+                  </div>
+                </div>
               </div>
               <div class="form-group">
                 <label for="">Location</label>
-                <input type="text" class="form-control spl-width" id="" placeholder="Enter Customer Location">
-
+                <input type="text" class="form-control spl-width" id="" placeholder="Enter Customer Location"
+                  formControlName="location">
+                  <div *ngIf="(location.invalid && location.errors?.required )&& 
+                  (location.dirty || location.touched)" class="alert alert-danger">
+  
+                    <div *ngIf="location.errors?.required">
+                      location is required.
+                    </div>
+                  </div>
 
               </div>
 
               <div class="row">
                 <div class="form-group ml-3">
                   <label for="">SPOC First Name</label>
-                  <input type="text" class="form-control custom-width " id="" placeholder="Enter first name">
+                  <input type="text" class="form-control custom-width " id="" placeholder="Enter first name"
+                    formControlName="spocFirstName">
+                    <div *ngIf="(spocFirstName.invalid && spocFirstName.errors?.required )&& 
+                  (spocFirstName.dirty || spocFirstName.touched)" class="alert alert-danger">
+  
+                    <div *ngIf="spocFirstName.errors?.required">
+                      spocFirstName is required.
+                    </div>
+                  </div>
                 </div>
                 <div class=" form-group  ml-3">
                   <label for="">SPOC Last Name</label>
-                  <input type="text" class="form-control custom-width" id="" placeholder="Enter last name">
+                  <input type="text" class="form-control custom-width" id="" placeholder="Enter last name"
+                    formControlName="spocLastName">
+                    <div *ngIf="(spocLastName.invalid && spocLastName.errors?.required )&& 
+                  (spocLastName.dirty || spocLastName.touched)" class="alert alert-danger">
+  
+                    <div *ngIf="spocLastName.errors?.required">
+                      spocLastName is required.
+                    </div>
+                  </div>
                 </div>
 
               </div>
               <div class="form-group">
                 <label for="">Email Address</label>
-                <input type="text" class="form-control spl-width" id="" placeholder="Enter email address">
+                <input type="email" class="form-control spl-width" id="" placeholder="Enter email address"
+                  formControlName="email" (blur)="onBlurMethod()">
+                  <div *ngIf="(email.invalid && email.errors?.required )&& 
+                                            (email.dirty || email.touched)" class="alert alert-danger">
+
+                                    <div *ngIf="email.errors?.required">
+                                        Email is required.
+                                    </div>
+
+                                </div>
+                                <div *ngIf="(email.invalid && email.errors?.email && showEmailValidatiom )&& 
+                                            (email.dirty || email.touched)" class="alert alert-danger">
+                                    <div *ngIf="email.errors?.email">
+                                        You must enter a valid email.
+                                    </div>
+                                </div>
 
               </div>
 
               <div class="form-group">
                 <label for="">Contact No.
                 </label>
-                <input type="text" class="form-control spl-width" id="" placeholder="+91
-                ">
+                <input type="number" class="form-control spl-width" id="" placeholder="+91
+                " formControlName="contactNumber">
+                <div *ngIf="(contactNumber.invalid && contactNumber.errors?.required )&& 
+                  (contactNumber.dirty || contactNumber.touched)" class="alert alert-danger">
+  
+                    <div *ngIf="contactNumber.errors?.required">
+                      contactNumber is required.
+                    </div>
+                  </div>
 
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary create-btn">Create</button>
+                <button routerLink="/customerListTable" class="btn cancel-btn create-btn">Cancel</button>
             </div>
-              <button type="submit" class="btn btn-primary create-btn">Create</button>
-              <button type="submit" class="btn cancel-btn create-btn">Cancel</button>
             </form>
           </div>
           <div class="col-md-2">

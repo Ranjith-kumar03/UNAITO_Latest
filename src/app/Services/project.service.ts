@@ -18,4 +18,10 @@ export class ProjectService {
   {
     return this.http.post<any>(environment.API_SCOPE_DRIVERS_URL+ project_id+"/add-scope", { add_scope });
   }
+
+  /// Create Customer
+  createCustomer(newCustomer: any)
+  {
+    return this.http.post<any>(environment.API_CREATE_NEWCUSTOMER, { newCustomer });
+  }
 }
