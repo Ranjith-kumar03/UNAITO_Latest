@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -22,6 +22,6 @@ export class ProjectService {
   /// Create Customer
   createCustomer(newCustomer: any)
   {
-    return this.http.post<any>(environment.API_CREATE_NEWCUSTOMER, { newCustomer });
+    return this.http.post<any>(environment.API_CREATE_NEWCUSTOMER, { ...newCustomer })
   }
 }
