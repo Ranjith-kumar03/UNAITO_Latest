@@ -20,4 +20,9 @@
   .rows .circles:nth-child(n+5){
      display: none;
     }
+
+ #notifyTxt,#appListTxt,#aboutTxt{
+      cursor: pointer;
+    }
+
  

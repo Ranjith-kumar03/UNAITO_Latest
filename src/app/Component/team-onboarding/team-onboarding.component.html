@@ -43,79 +43,115 @@
 
                             </div>
                             <!-- <form [formGroup]="gaugeTitleForm" (ngSubmit)="onSubmit()">   -->
-                            <form autocomplete="off" [formGroup]="addTeamMeberForm" (ngSubmit)="onSave()">
-                                <table style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                            <td>Role</td>
-                                            <td>Email</td>
-                                            <td>Delete</td>
-                                            <td>Edit</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody formArrayName="teamMembers">
 
-                                        <tr *ngFor="let p of teamMembers.controls; let i = index" [formGroupName]="i">
-                                            <td><input type="text" formControlName="memberName">
-                                                <span *ngIf="p.get('memberName').touched ||  p.get('memberName').dirty">
-                                                    <span class="alert alert-danger"
-                                                        *ngIf="p.get('memberName')?.errors?.required">
-                                                        Name is required
-                                                    </span>
-                                                </span>
-                                            </td>
-                                            <td><input type="text" formControlName="roleId">
-                                                <span *ngIf="p.get('roleId').touched ||  p.get('roleId').dirty">
-                                                    <span class="alert alert-danger"
-                                                        *ngIf="p.get('roleId')?.errors?.required">
-                                                        Role is required
-                                                    </span>
-                                                </span>
-                                            </td>
-                                            <td><input type="email" formControlName="email">
-                                                <span *ngIf="p.get('email').touched ||  p.get('email').dirty">
-                                                    <span class="alert alert-danger"
-                                                        *ngIf="p.get('email')?.errors?.required">
-                                                        Email is required
-                                                    </span>
-                                                </span>
-                                            </td>
-                                            <td><button [disabled]="!disableDeleteandSaveButtonStatus"
-                                                    class="btn btn-danger mr-2 " type="button"
-                                                    (click)="onDeleteItem(p.get('id').value)">
-                                                    Delete
-                                                </button>
+                            <table class="table table-bordered table-hover table-responsive" style="width:100%" *ngIf="memberListTable?.length>0">
+                                <thead>
+                                    <tr>
+                                        <td class="ml-3">Name</td>
+                                        <td>Role</td>
+                                        <td>Email</td>
+                                        <td>Delete</td>
+                                        <td>Edit</td>
+                                        <td>Save</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="clickable" *ngFor="let item of memberListTable" >
+                                        <!-- https://www.positronx.io/build-dynamic-html-table-in-angular-with-ngfor/ -->
+                                        
+                                            <td class="ml-3">{{item.memberName}}</td>
+                                            <td>{{item.roleId}}</td>
+                                            <td>{{item.email}}</td>
+                                            
+                                            <td>
+                                                <button  class="btn btn-danger  mr-1" type="button"  >
+                                                Delete</button>
+                                                     
                                             </td>
                                             <td>
-                                                <button [disabled]="!disableDeleteandSaveButtonStatus"
-                                                    class="btn btn-primary mr-2 " type="button"
-                                                    (click)="onEditOne(i, p.get('id').value)">
-                                                    {{canEdit===i? buttonText : defautltButtonText}}
-
-                                                </button>
+                                                <button type="button" class="btn btn-primary btn-sm" >Edit</button>
                                             </td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" >Save</button>
+                                            </td>
+                                            
+                                       
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
 
-                                        </tr>
-                                    </tbody>
-                                </table>
 
-                                <div class="row">
-                                    <div class="col-12 col-md-12 btn-row">
 
-                                        <button type="button" *ngIf="addMemberButtonStatus"
-                                            class="btn btn-primary btn-sm float-right mt-2" (click)="addItem()">Add
-                                            Members</button>
+                            <form *ngIf="ShowInputBox" autocomplete="off" [formGroup]="addTeamMeberForm"
+                                (ngSubmit)="onSave()">
+                                <div class="row col-md-12 zeropadding">
+                                    <div class="col-md-3 ml-3 mt-3">
+                                        <div class="form-group">
+                                            <label for="">Name
+                                            </label>
+                                            <input type="text" class="form-control " id="" #inputBox11 value=""
+                                                formControlName="memberName">
+                                            <div *ngIf="(memberName.invalid && memberName.errors?.required )&& 
+                                                (memberName.dirty || memberName.touched)" class="alert alert-danger">
+
+                                                <div *ngIf="memberName.errors?.required">
+                                                    memberName is required.
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3  mt-3">
+                                        <div class="form-group">
+                                            <label for="">Role
+                                            </label>
+                                            <input type="text" class="form-control " id="" #inputBox12 value=""
+                                                formControlName="roleId">
+                                                <div *ngIf="(roleId.invalid && roleId.errors?.required )&& 
+                                                (roleId.dirty || roleId.touched)" class="alert alert-danger">
+
+                                                <div *ngIf="roleId.errors?.required">
+                                                    Role ID is required.
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 mt-3">
+                                        <div class="form-group">
+                                            <label for="">Mail
+                                            </label>
+                                            <input type="text" class="form-control " id="" #inputBox13 value=""
+                                                formControlName="email">
+                                                <div *ngIf="(email.invalid && email.errors?.required )&& 
+                                                (email.dirty || email.touched)" class="alert alert-danger">
+
+                                                <div *ngIf="email.errors?.required">
+                                                    email is required.
+                                                </div>
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
 
                                 <hr>
                                 <div class="text-center">
-                                    <button *ngIf="showSubmitButton" class="btn btn-primary" type="submit">Save New
+                                    <button class="btn btn-primary" type="submit">Save New
                                         Members</button>
                                 </div>
                             </form>
+                            <div class="form-group">
+                                <button *ngIf="!ShowInputBox" type="submit" class="btn btn-primary ml-3 mt-3"(click)="addItem()">Add
+                                    Members</button>
+                                <button *ngIf="ShowInputBox" (click)="cancelItem()" class="btn cancel-btn float-right">Cancel</button>
+                            </div>
+                          
                         </div>
                     </div>
                 </div>
