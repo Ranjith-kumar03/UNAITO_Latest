@@ -48,8 +48,8 @@ export class RegisterService {
   createTeamMember(newMember: any,project_id:any,) {
     //add hard copy opf 4 for project_id    
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    this.addTeamMemberurl=environment.API_ADD_TEAM_MEMBERS+5+"/team-onboarding/add-team-member"
-    return this.http.post<any>(environment.API_ADD_TEAM_MEMBERS+5+"/team-onboarding/add-team-member", { ...newMember },{headers: headers});
+    this.addTeamMemberurl=environment.API_ADD_TEAM_MEMBERS+6+"/team-onboarding/add-team-member"
+    return this.http.post<any>(environment.API_ADD_TEAM_MEMBERS+6+"/team-onboarding/add-team-member", { ...newMember },{headers: headers});
     // {headers:new HttpHeaders({
     //   "API-KEY":"USER-API-KEY"
     // })}

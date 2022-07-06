@@ -16,16 +16,16 @@ export class ProjectService {
   {
     //add hard copy opf 4 for project_id    
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    this.addDriversurl=environment.API_ADD_DRIVERS_URL+4+"/add-drivers"
-    return this.http.post<any>(environment.API_ADD_DRIVERS_URL+4+"/add-drivers",{add_drivers},{headers: headers});
+    this.addDriversurl=environment.API_ADD_DRIVERS_URL+6+"/add-drivers"
+    return this.http.post<any>(environment.API_ADD_DRIVERS_URL+6+"/add-drivers",{add_drivers},{headers: headers});
   }
 
   addScopestobackend(project_id:any,add_scope: any)
   {
     //add hard copy opf 4 for project_id
     let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    this.addScopesUrl=environment.API_SCOPE_DRIVERS_URL+4+"/add-scope"
-    return this.http.post<any>(environment.API_SCOPE_DRIVERS_URL+ 4+"/add-scope", { ...add_scope },{headers: headers});
+    this.addScopesUrl=environment.API_SCOPE_DRIVERS_URL+6+"/add-scope"
+    return this.http.post<any>(environment.API_SCOPE_DRIVERS_URL+ 6+"/add-scope", { ...add_scope },{headers: headers});
   }
 
   /// Create Customer

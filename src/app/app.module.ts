@@ -91,7 +91,7 @@ import { EditUserComponent } from './Component/edit-user/edit-user.component';
     BrowserModule,
     AppRoutingModule,ReactiveFormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule,ToastrModule.forRoot({
       timeOut: 3000,
-      positionClass: 'toast-center-center',
+      positionClass: 'toast-top-right',
       preventDuplicates: true,
     })
   ],
