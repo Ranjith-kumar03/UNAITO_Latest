@@ -29,7 +29,10 @@ export const environment = {
   API_SCOPE_DRIVERS_URL:'http://localhost:8080/unaito/v1/projects/',
 
   //Create New Customers
-  API_CREATE_NEWCUSTOMER: 'http://localhost:8080/unaito/v1/customers/create'
+  API_CREATE_NEWCUSTOMER: 'http://localhost:8080/unaito/v1/customers/create',
+
+  //Create New Project
+  API_CREATE_NEWPROJECT: 'http://localhost:8080/unaito/v1/projects/create',
 };
 
 /*
