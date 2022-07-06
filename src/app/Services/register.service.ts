@@ -7,6 +7,7 @@ import { RegisterUser } from '../Component/create-new-user/create-new-user.compo
   providedIn: 'root'
 })
 export class RegisterService {
+  addTeamMemberurl:String;
 
   constructor(private http: HttpClient) { }
 
@@ -38,19 +39,22 @@ export class RegisterService {
   }
 
   ///Team On Boarding
-  getTeamMembers() {
-    return this.http.get<any>(environment.API_GET_TEAM_MEMBERS);
-  }
-  updateOneTeamMember(i: number, update: any) {
-    return this.http.patch<any>(environment.API_UPDATE_ONE_TEAM_MEMBERS + i, { ...update });
-  }
-  createTeamMember(newMember: any) {
-    return this.http.post<any>(environment.API_ADD_TEAM_MEMBERS, { ...newMember });
+  // getTeamMembers() {
+  //   return this.http.get<any>(environment.API_GET_TEAM_MEMBERS);
+  // }
+  // updateOneTeamMember(i: number, update: any) {
+  //   return this.http.patch<any>(environment.API_UPDATE_ONE_TEAM_MEMBERS + i, { ...update });
+  // }
+  createTeamMember(newMember: any,project_id:any,) {
+    //add hard copy opf 4 for project_id    
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    this.addTeamMemberurl=environment.API_ADD_TEAM_MEMBERS+5+"/team-onboarding/add-team-member"
+    return this.http.post<any>(environment.API_ADD_TEAM_MEMBERS+5+"/team-onboarding/add-team-member", { ...newMember },{headers: headers});
     // {headers:new HttpHeaders({
     //   "API-KEY":"USER-API-KEY"
     // })}
   }
-  deleteTeamMember(index: number) {
-    return this.http.delete<any>(environment.API_DELETE_TEAM_MEMBERS + index)
-  }
+  // deleteTeamMember(index: number) {
+  //   return this.http.delete<any>(environment.API_DELETE_TEAM_MEMBERS + index)
+  // }
 }

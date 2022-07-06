@@ -54,21 +54,21 @@
                                             <td>Edit</td>
                                         </tr>
                                     </thead>
-                                    <tbody formArrayName="addTeamMebers">
+                                    <tbody formArrayName="teamMembers">
 
-                                        <tr *ngFor="let p of addTeamMebers.controls; let i = index" [formGroupName]="i">
-                                            <td><input type="text" formControlName="name">
-                                                <span *ngIf="p.get('name').touched ||  p.get('name').dirty">
+                                        <tr *ngFor="let p of teamMembers.controls; let i = index" [formGroupName]="i">
+                                            <td><input type="text" formControlName="memberName">
+                                                <span *ngIf="p.get('memberName').touched ||  p.get('memberName').dirty">
                                                     <span class="alert alert-danger"
-                                                        *ngIf="p.get('name')?.errors?.required">
+                                                        *ngIf="p.get('memberName')?.errors?.required">
                                                         Name is required
                                                     </span>
                                                 </span>
                                             </td>
-                                            <td><input type="text" formControlName="role">
-                                                <span *ngIf="p.get('role').touched ||  p.get('role').dirty">
+                                            <td><input type="text" formControlName="roleId">
+                                                <span *ngIf="p.get('roleId').touched ||  p.get('roleId').dirty">
                                                     <span class="alert alert-danger"
-                                                        *ngIf="p.get('role')?.errors?.required">
+                                                        *ngIf="p.get('roleId')?.errors?.required">
                                                         Role is required
                                                     </span>
                                                 </span>
