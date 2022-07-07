@@ -39,7 +39,7 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
       console.log("see the data", data)
       if (data.responseCode === 200) {
         console.log("Password Replaced")
-        this._notificationToast.showSuccess("Password Mail is send ", "Password Change Sucess")
+        this._notificationToast.showSuccess("Password Mail is sent ", "Password Change Success")
         this.router.navigate(['login'])
       }
     },(error)=>{
