@@ -21,6 +21,10 @@ export interface userData {
 })
 export class UserListComponent implements OnInit, OnDestroy {
 
+  userName:String
+  
+
+
   private searchSubscription: Subscription;
   @Input() search: Observable<void>;
   customerListTable: userData[] = []
@@ -34,7 +38,10 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   // ];
 
-  constructor(private registerService: RegisterService, private _notificationToast: ToasterNotificatonService) { }
+  constructor(private registerService: RegisterService, private _notificationToast: ToasterNotificatonService) { 
+
+    this.userName = localStorage.getItem("userName")
+  }
 
 
 
