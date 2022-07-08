@@ -30,7 +30,7 @@
                 (customerName.dirty || customerName.touched)" class="alert alert-danger">
 
                                     <div *ngIf="customerName.errors?.required">
-                                        customerName is required.
+                                        Customer Name is required.
                                     </div>
                                 </div>
 
@@ -50,7 +50,7 @@
                 (projectName.dirty || projectName.touched)" class="alert alert-danger">
 
                                     <div *ngIf="projectName.errors?.required">
-                                        projectName is required.
+                                        Project Name is required.
                                     </div>
                                 </div>
 
@@ -68,7 +68,7 @@
                 (description.dirty || description.touched)" class="alert alert-danger">
 
                                     <div *ngIf="description.errors?.required">
-                                        description is required.
+                                        Description is required.
                                     </div>
                                 </div>
                             </div>
@@ -76,38 +76,49 @@
                                 <div class="col form-group">
                                     <label for="">Start date</label>
                                     <input type="date" class="form-control " id="" placeholder="Start date"
-                                        formControlName="startDate">
+                                        [min]="todayDate" formControlName="startDate" (input)="validation($event)">
                                     <div *ngIf="(startDate.invalid && startDate.errors?.required )&& 
                                         (startDate.dirty || startDate.touched)" class="alert alert-danger">
 
                                         <div *ngIf="startDate.errors?.required">
-                                            startDate is required.
+                                            Start Date is required.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col form-group">
                                     <label for="">End date</label>
                                     <input type="date" class="form-control " id="" placeholder="End date"
-                                        formControlName="endDate">
+                                        [min]="todayDate" formControlName="endDate" (input)="validation($event)">
                                     <div *ngIf="(endDate.invalid && endDate.errors?.required )&& 
                                         (endDate.dirty || endDate.touched)" class="alert alert-danger">
 
                                         <div *ngIf="endDate.errors?.required">
-                                            endDate is required.
+                                            End Date is required.
                                         </div>
+
                                     </div>
+                                    <div class="alert alert-danger"
+                                        *ngIf="(validation() && (endDate.dirty || endDate.touched))">
+
+                                        <div *ngIf="validation()">End Date must be greater than Start
+                                            date</div>
+
+                                    </div>
+
+
+
                                 </div>
-                                <div class="col form-group">
+                                <div class="col-md-6 form-group">
                                     <label for="">duration</label>
                                     <input type="text" class="form-control " id="" formControlName="duration">
                                 </div>
-                                <div *ngIf="(duration.invalid && duration.errors?.required )&& 
+                                <!-- <div *ngIf="(duration.invalid && duration.errors?.required )&& 
                                         (duration.dirty || duration.touched)" class="alert alert-danger">
 
                                     <div *ngIf="duration.errors?.required">
-                                        duration is required.
+                                        Duration is required.
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
                             <div class="form-group">

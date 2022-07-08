@@ -16,10 +16,9 @@ export class UserManagementComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  searchFilter()
+  searchFilter(event:any)
   {
-    console.log('search value: ', this.searchInput);
-    this.searchSubject.next(this.searchInput);
+        this.searchSubject.next(this.searchInput);
   }
 
 

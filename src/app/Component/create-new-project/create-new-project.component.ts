@@ -1,3 +1,4 @@
+import { DatePipe, formatDate } from "@angular/common";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import {
@@ -12,6 +13,8 @@ import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { ProjectService } from "src/app/Services/project.service";
 import { ToasterNotificatonService } from "src/app/Services/toaster.notificaton.service";
+
+
 @Component({
   selector: "app-create-new-project",
   templateUrl: "./create-new-project.component.html",
@@ -20,12 +23,15 @@ import { ToasterNotificatonService } from "src/app/Services/toaster.notificaton.
 export class CreateNewProjectComponent implements OnInit {
   projectRegisterForm: FormGroup;
   private subscription: Subscription = new Subscription();
+  todayDate:any
+ 
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private projectService: ProjectService,
-    private _notificationToast: ToasterNotificatonService
+    private _notificationToast: ToasterNotificatonService,
+    private datePipe: DatePipe
   ) {}
 
   ngOnInit(): void {
@@ -37,6 +43,21 @@ export class CreateNewProjectComponent implements OnInit {
       endDate: ["", [Validators.required]],
       duration: ["", [Validators.required]],
     });
+  }
+
+  validation(event?: any) {
+    this.todayDate = this.datePipe.transform(new Date(), "yyyy-MM-dd");
+    if (this.startDate && this.endDate) {
+      console.log("see the start and end date", this.startDate, this.endDate);
+      let startdate = new Date(this.projectRegisterForm.get("startDate").value);
+      let enddate = new Date(this.projectRegisterForm.get("endDate").value);
+      if (startdate.getTime() < enddate.getTime()) {
+        this.projectRegisterForm
+          .get("duration")
+          .setValue(this.weeksBetween(startdate.getTime(), enddate.getTime()));
+        return false;
+      } else return true;
+    }
   }
 
   get customerName() {
@@ -60,8 +81,16 @@ export class CreateNewProjectComponent implements OnInit {
     return this.projectRegisterForm.get("duration");
   }
 
+  weeksBetween(d1, d2) {
+    let noOfdays = d2 - d1;
+    const diffInDays = noOfdays / (1000 * 60 * 60 * 24);
+    let weeks = Math.round(diffInDays / 7);
+    let days = diffInDays % 7;
+
+    return `${weeks + " weeks & " + days + " days"}`;
+  }
   onSubmit() {
-    if (!this.projectRegisterForm.valid) {
+    if (!this.projectRegisterForm.valid || this.validation()) {
       this.projectRegisterForm.markAllAsTouched();
       return;
     }

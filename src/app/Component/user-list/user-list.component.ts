@@ -1,7 +1,8 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { RegisterService } from 'src/app/Services/register.service';
 import { ToasterNotificatonService } from 'src/app/Services/toaster.notificaton.service';
+declare var $:any;
 import Swal from 'sweetalert2'
 
 export interface userData {
@@ -19,9 +20,10 @@ export interface userData {
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
-export class UserListComponent implements OnInit, OnDestroy {
+export class UserListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   userName:String
+  searchString: string;
   
 
 
@@ -46,7 +48,11 @@ export class UserListComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    this.searchSubscription = this.search.subscribe((data) => console.log("see the search value", data));
+    this.searchSubscription = this.search.subscribe((data: any) => {
+      this.searchString = data;
+      console.log("see the search value", data)
+    }
+    );
     this.getAllUsers()
   }
 
@@ -95,7 +101,9 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   }
 
-
+  ngAfterViewInit(): void {
+    
+  }
 
   ngOnDestroy() {
     this.searchSubscription.unsubscribe();

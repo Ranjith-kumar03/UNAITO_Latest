@@ -11,7 +11,7 @@ declare var $:any;
   styleUrls: ['./app.component.css'],
 
 })
-export class AppComponent implements OnInit,AfterViewInit, OnDestroy {
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   //isLoggedIn$: Observable<boolean>;
   name: String;
   loggedIn: boolean;
@@ -30,7 +30,6 @@ export class AppComponent implements OnInit,AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     ///JQUERY Code moved to here for Loading with appcomponent for click events not getting failed
     $(function () {
-
       $('[data-toggle="popover"]').popover()
   
       $('.expose').on('click', function () {

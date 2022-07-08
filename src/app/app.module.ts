@@ -59,6 +59,8 @@ import { TokenInterceptor } from './Interceptors/token.interceptor';
 import { ConfirmPasswordComponent } from './Component/confirm-password/confirm-password.component';
 import { ErrorPageComponent } from './Component/error-page/error-page.component';
 import { EditUserComponent } from './Component/edit-user/edit-user.component';
+import { DatePipe } from '@angular/common';
+import { FilterPipe } from './Pipes/filter.pipe';
 
 
 
@@ -82,7 +84,7 @@ import { EditUserComponent } from './Component/edit-user/edit-user.component';
      AddApplicationOverviewDetailsComponent, ServersComponent, StorageComponent, ApplicationLayerComponent, AddApplicationLayerComponent, 
      IntegrationsComponent, AddWebserverComponent, ApllicationServerComponent, DatabaseServerComponent, 
      AddStorageComponent, SecurityComplianceComponent, AddSecurCompiComponent, UserManagementComponent, UserListComponent, 
-     CreateNewUserComponent, CustomerManagementComponent, CustomerListComponent, CreateNewCustomerComponent, InformationValidationComponent, LoaderBusyComponent, ConfirmPasswordComponent, ErrorPageComponent, EditUserComponent, 
+     CreateNewUserComponent, CustomerManagementComponent, CustomerListComponent, CreateNewCustomerComponent, InformationValidationComponent, LoaderBusyComponent, ConfirmPasswordComponent, ErrorPageComponent, EditUserComponent, FilterPipe, 
     
     
     
@@ -98,7 +100,9 @@ import { EditUserComponent } from './Component/edit-user/edit-user.component';
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:APIKEYInterceptor,multi:true},
     {provide:HTTP_INTERCEPTORS, useClass:LoaderInterceptor,multi:true},
-    {provide:HTTP_INTERCEPTORS, useClass:TokenInterceptor,multi:true}],
+    {provide:HTTP_INTERCEPTORS, useClass:TokenInterceptor,multi:true},
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
