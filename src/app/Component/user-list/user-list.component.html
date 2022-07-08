@@ -26,31 +26,19 @@
             <td>
                 <ng-container *ngIf="item.userName===userName; then thenCondition else elseCondition"></ng-container>
                 <ng-template #thenCondition>
-                    <!-- <span class="d-inline-block" tabindex="0" data-toggle="tooltip"
-                        title="{{item.userName}} is the current user">
-                        <button [disabled]="item.userName===userName" style="pointer-events: none;"
-                            class="btn btn-danger  mr-1" type="button" (click)="onDeleteItem($event,item.userName)">
-                            Delete</button>
-                    </span> -->
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="{{item.userName}} is the current user">
-                        <button class="btn btn-danger mr-1" style="pointer-events: none;" type="button" disabled (click)="onDeleteItem($event,item.userName)">Delete</button>
+                     <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="{{item.userName}} is the current user">
+                        <button class="btn btn-danger mr-1" style="pointer-events: none;" type="button" disabled (click)="onDeleteItem($event,item.userName)"
+                        >Delete</button>
                       </span>
+                  
                 </ng-template>
                 <ng-template #elseCondition>
                     <button class="btn btn-danger  mr-1" type="button" (click)="onDeleteItem($event,item.userName)">
                         Delete</button>
                 </ng-template>
-
-
                 <button type="button" class="btn btn-primary" [routerLink]="['/editUser/', item.userName]">Edit</button>
-
-
-            </td>
-
-
-
-
-        </tr>
-       
+              </td>
+            </tr>
+        
     </tbody>
 </table>

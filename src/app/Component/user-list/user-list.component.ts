@@ -68,6 +68,12 @@ export class UserListComponent implements OnInit, AfterViewInit, OnDestroy {
     }, (err) => {
       this._notificationToast.showError(`Users download failed  `, `Download all users Failed`)
     })
+   
+    setTimeout(()=>{
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+    },500);
   }
 
   onDeleteItem(e: Event, userName: String) {
@@ -102,7 +108,7 @@ export class UserListComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    
+   
   }
 
   ngOnDestroy() {
