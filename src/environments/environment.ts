@@ -30,9 +30,13 @@ export const environment = {
 
   //Create New Customers
   API_CREATE_NEWCUSTOMER: 'http://localhost:8080/unaito/v1/customers/create',
+  API_GET_ALL_CUSTOMERS: 'http://localhost:8080/unaito/v1/customers/get-all-customers',
+  API_GET_CUSTOMER_BY_ID: 'http://localhost:8080/unaito/v1/customers/',
 
   //Create New Project
   API_CREATE_NEWPROJECT: 'http://localhost:8080/unaito/v1/projects/create',
+  API_GET_ALL_PROJECTS: 'http://localhost:8080/unaito/v1/projects/get-all-projects',
+  API_GET_PROJECT_BY_ID: 'http://localhost:8080/unaito/v1/projects/'
 };
 
 /*

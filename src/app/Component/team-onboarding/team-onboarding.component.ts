@@ -7,6 +7,7 @@ import generator from "generate-serial-number";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { HttpErrorResponse } from "@angular/common/http";
+import { ProjectService } from "src/app/Services/project.service";
 //var serialNumber = generator.generate(10);
 
 @Component({
@@ -22,7 +23,7 @@ export class TeamOnboardingComponent implements OnInit {
   private subscription: Subscription = new Subscription();
   constructor(
     private fb: FormBuilder,
-    private registerService: RegisterService,
+    private projectService: ProjectService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private _notificationToast: ToasterNotificatonService
@@ -81,7 +82,7 @@ export class TeamOnboardingComponent implements OnInit {
    }
 
     this.subscription.add(
-      this.registerService
+      this.projectService
         .createTeamMember(data, this.projectId)
         .subscribe(
           (data: any) => {

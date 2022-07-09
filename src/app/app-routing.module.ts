@@ -53,7 +53,7 @@ const routes: Routes = [
   { path: "addDrivers/:id", component: ProjectDetailsDriversComponent, canActivate:[AuthGuard] },
   { path: "editDrivers", component: EditDriversComponent ,canActivate:[AuthGuard] },
   { path: "addScope/:id", component: ProjectDetailsScopeComponent ,canActivate:[AuthGuard] },
-  { path: "overview", component: ProjectOverViewComponent ,canActivate:[AuthGuard] },
+  { path: "overview/:id", component: ProjectOverViewComponent ,canActivate:[AuthGuard] },
   { path: "teamonboard/:id", component: TeamOnboardingComponent ,canActivate:[AuthGuard] },
   { path: "assessmentprojectplan", component: AssessmentProjectplanComponent ,canActivate:[AuthGuard]},
   { path: "addAppOverview", component: AddApplicationOverviewComponent ,canActivate:[AuthGuard]},

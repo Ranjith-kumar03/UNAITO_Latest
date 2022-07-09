@@ -19,8 +19,8 @@
 
                 <div class="col-12  mt-4 d-flex justify-content-between">
                     <div class="search">
-                        <input type="text" placeholder="Search" name="" [(ngModel)]="searchInput" >
-                        <button type="button"><img src="../../../assets/Images/UNAITO/Icon/search.svg" (click)="searchFilter()" ></button>
+                        <input type="text" placeholder="Search" name="" [(ngModel)]="searchInput" (input)="searchFilter($event)" >
+                        <button ><img src="../../../assets/Images/UNAITO/Icon/search.svg"  ></button>
                     </div>
                     <div class="icon-div d-flex justify-content-end">
                         <!-- <div class="">

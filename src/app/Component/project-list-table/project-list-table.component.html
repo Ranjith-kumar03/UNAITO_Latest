@@ -7,24 +7,20 @@
         </tr>
     </thead>
     <tbody>
-
-        <tr class="clickable" *ngFor="let item of projectListTable" [routerLink]="['/projectdetailsDashboard/', item.id]">
-            <!-- https://www.positronx.io/build-dynamic-html-table-in-angular-with-ngfor/ -->
+        <ng-container *ngIf="projectListTable.length>0; then thenCondition else elseCondition"></ng-container>
+        <ng-template #thenCondition>
+        <tr class="clickable" *ngFor="let item of projectListTable | filter:searchString" [routerLink]="['/projectdetailsDashboard/', item.projectId]" >
+            <!-- https://www.positronx.io/build-dynamic-html-table-in-angular-with-ngfor/
+            [routerLink]="['/projectdetailsDashboard/', item.id]" -->
             
                 <td>{{item.projectName}}</td>
                 <td>{{item.customerName}}</td>
            
         </tr>
-        <!-- <tr>
-            <td>avantor - cloud readlines Assessment</td>
-            <td>avantor</td>
-
-        </tr>
-        <tr>
-            <td>avantor - cloud readlines Assessment</td>
-            <td>avantor</td>
-
-        </tr> -->
+    </ng-template>
+    <ng-template #elseCondition>
+        No Projects Added For Display
+    </ng-template>
     </tbody>
 </table>
 

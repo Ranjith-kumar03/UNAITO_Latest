@@ -22,12 +22,33 @@ export class APIKEYInterceptor implements HttpInterceptor {
         headers: request.headers.append("API-KEY", "CUSTOMER-API-KEY"),
       });
       return next.handle(API_KEY_Request);
-    } else if (request.url === environment.API_CREATE_NEWPROJECT ) {
+    }else if (request.url === environment.API_GET_ALL_CUSTOMERS) {
+      let API_KEY_Request = request.clone({
+        headers: request.headers.append("API-KEY", "CUSTOMER-API-KEY"),
+      });
+      return next.handle(API_KEY_Request);
+    }else if (request.url === environment.API_GET_CUSTOMER_BY_ID) {
+      let API_KEY_Request = request.clone({
+        headers: request.headers.append("API-KEY", "CUSTOMER-API-KEY"),
+      });
+      return next.handle(API_KEY_Request);
+    }
+     else if (request.url === environment.API_CREATE_NEWPROJECT ) {
       let API_KEY_Request = request.clone({
         headers: request.headers.append("API-KEY", "PROJECT-API-KEY"),
       });
       return next.handle(API_KEY_Request);
-    }  else if (request.url ===  this.projectService.addDriversurl ) {
+    }  else if (request.url === environment.API_GET_ALL_PROJECTS ) {
+      let API_KEY_Request = request.clone({
+        headers: request.headers.append("API-KEY", "PROJECT-API-KEY"),
+      });
+      return next.handle(API_KEY_Request);
+    } else if (request.url === environment.API_GET_PROJECT_BY_ID ) {
+      let API_KEY_Request = request.clone({
+        headers: request.headers.append("API-KEY", "PROJECT-API-KEY"),
+      });
+      return next.handle(API_KEY_Request);
+    }else if (request.url ===  this.projectService.addDriversurl ) {
       let API_KEY_Request = request.clone({
         headers: request.headers.append("API-KEY", "PROJECT-API-KEY"),
       });
@@ -39,11 +60,11 @@ export class APIKEYInterceptor implements HttpInterceptor {
       });
       this.projectService.addScopesUrl=""
       return next.handle(API_KEY_Request);
-    }   else if (request.url ===  this.registerService.addTeamMemberurl ) {
+    }   else if (request.url ===  this.projectService.addTeamMemberurl ) {
       let API_KEY_Request = request.clone({
         headers: request.headers.append("API-KEY", "PROJECT-API-KEY"),
       });
-      this.registerService.addTeamMemberurl=""
+      this.projectService.addTeamMemberurl=""
       return next.handle(API_KEY_Request);
     }
     

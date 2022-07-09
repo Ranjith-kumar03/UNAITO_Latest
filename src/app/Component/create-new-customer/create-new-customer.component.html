@@ -76,18 +76,18 @@
               <div class="form-group">
                 <label for="">Email Address</label>
                 <input type="email" class="form-control spl-width" id="" placeholder="Enter email address"
-                  formControlName="email" (blur)="onBlurMethod()">
-                <div *ngIf="(email.invalid && email.errors?.required )&& 
-                                            (email.dirty || email.touched)" class="alert alert-danger">
+                  formControlName="emailId" (blur)="onBlurMethod()">
+                <div *ngIf="(emailId.invalid && emailId.errors?.required )&& 
+                                            (emailId.dirty || emailId.touched)" class="alert alert-danger">
 
-                  <div *ngIf="email.errors?.required">
+                  <div *ngIf="emailId.errors?.required">
                     Email is required.
                   </div>
 
                 </div>
-                <div *ngIf="(email.invalid && email.errors?.email && showEmailValidatiom )&& 
-                                            (email.dirty || email.touched)" class="alert alert-danger">
-                  <div *ngIf="email.errors?.email">
+                <div *ngIf="(emailId.invalid && emailId.errors?.emailId && showEmailValidatiom )&& 
+                                            (emailId.dirty || emailId.touched)" class="alert alert-danger">
+                  <div *ngIf="emailId.errors?.email">
                     You must enter a valid email.
                   </div>
                 </div>

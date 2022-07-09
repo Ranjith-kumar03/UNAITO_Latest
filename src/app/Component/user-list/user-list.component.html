@@ -6,39 +6,46 @@
             <th>ROLE</th>
             <th>EMAIL</th>
             <th>CONTACT NO</th>
-            <th>LAST UPDATED ON</th>
+            <th>LOCATION</th>
             <th style="text-align:center">ACTION</th>
         </tr>
     </thead>
     <tbody>
-
-        <tr class="clickable" *ngFor="let item of customerListTable | filter:searchString">
-            <!-- https://www.positronx.io/build-dynamic-html-table-in-angular-with-ngfor/ 
+        <ng-container *ngIf="userListTable.length>0; then thenCondition else elseCondition"></ng-container>
+        <ng-template #thenCondition>
+            <tr class="clickable" *ngFor="let item of userListTable | filter:searchString">
+                <!-- https://www.positronx.io/build-dynamic-html-table-in-angular-with-ngfor/ 
             [routerLink]="['/projectdetailsDashboard/', item.id]"-->
 
-            <td>{{item.userName}}</td>
-            <td>{{item.firstName}}</td>
-            <td>{{item.roleName}}</td>
-            <td>{{item.email}}</td>
-            <td>{{item.contactNumber}}</td>
-            <td>{{item.location}}</td>
+                <td>{{item.userName}}</td>
+                <td>{{item.firstName}}</td>
+                <td>{{item.roleName}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.contactNumber}}</td>
+                <td>{{item.location}}</td>
 
-            <td>
-                <ng-container *ngIf="item.userName===userName; then thenCondition else elseCondition"></ng-container>
-                <ng-template #thenCondition>
-                     <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="{{item.userName}} is the current user">
-                        <button class="btn btn-danger mr-1" style="pointer-events: none;" type="button" disabled (click)="onDeleteItem($event,item.userName)"
-                        >Delete</button>
-                      </span>
-                  
-                </ng-template>
-                <ng-template #elseCondition>
-                    <button class="btn btn-danger  mr-1" type="button" (click)="onDeleteItem($event,item.userName)">
-                        Delete</button>
-                </ng-template>
-                <button type="button" class="btn btn-primary" [routerLink]="['/editUser/', item.userName]">Edit</button>
-              </td>
+                <td>
+                    <ng-container *ngIf="item.userName===userName; then thenCondition else elseCondition">
+                    </ng-container>
+                    <ng-template #thenCondition>
+                        <span class="d-inline-block" tabindex="0" data-toggle="tooltip"
+                            title="{{item.userName}} is the current user">
+                            <button class="btn btn-danger mr-1" style="pointer-events: none;" type="button" disabled
+                                (click)="onDeleteItem($event,item.userName)">Delete</button>
+                        </span>
+
+                    </ng-template>
+                    <ng-template #elseCondition>
+                        <button class="btn btn-danger  mr-1" type="button" (click)="onDeleteItem($event,item.userName)">
+                            Delete</button>
+                    </ng-template>
+                    <button type="button" class="btn btn-primary"
+                        [routerLink]="['/editUser/', item.userName]">Edit</button>
+                </td>
             </tr>
-        
+        </ng-template>
+        <ng-template #elseCondition>
+            No Users Added For Display
+        </ng-template>
     </tbody>
 </table>

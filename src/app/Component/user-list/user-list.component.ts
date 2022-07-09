@@ -29,7 +29,7 @@ export class UserListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private searchSubscription: Subscription;
   @Input() search: Observable<void>;
-  customerListTable: userData[] = []
+  userListTable: userData[] = []
   //   customerListTable:userData[]=[
   //     {SL_NO: 1, USERNAME:'Anna Dianne',ROLE:'Consultant',EMAIL:'anna.aianne@acldigital.com',CONTACT_NO:'+91-944567321',LASTUPDATEDON:'12/01/2022, 10:15AM'},
   //     {SL_NO: 2, USERNAME:'Mark Lukas',ROLE:'Reviewer',EMAIL:'mark.lukas@acldigital.com',CONTACT_NO:'+91-9941128743',LASTUPDATEDON:'20/12/2021, 10:15AM'},
@@ -60,9 +60,9 @@ export class UserListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.registerService.getAllUsers().subscribe((data: any) => {
       console.log("see all users", data)
       if (data.responseCode === 200) {
-        this.customerListTable = data.responseObject;
+        this.userListTable = data.responseObject;
       } else {
-        this.customerListTable = [];
+        this.userListTable = [];
         this._notificationToast.showSuccess(`No Users For Display`, `No Users Yet`)
       }
     }, (err) => {

@@ -29,7 +29,7 @@ export class CreateNewCustomerComponent implements OnInit , OnDestroy {
       spocFirstName: ["", [Validators.required]],
       spocLastName: ["", [Validators.required]],
       location: ["", [Validators.required]],
-      email: ["", [Validators.required, Validators.email]],
+      emailId: ["", [Validators.required, Validators.email]],
       contactNumber: ["", [Validators.required]],
     });
   }
@@ -48,8 +48,8 @@ export class CreateNewCustomerComponent implements OnInit , OnDestroy {
   get location() {
     return this.customerRegisterForm.get("location");
   }
-  get email() {
-    return this.customerRegisterForm.get("email");
+  get emailId() {
+    return this.customerRegisterForm.get("emailId");
   }
   get contactNumber() {
     return this.customerRegisterForm.get("contactNumber");
@@ -71,7 +71,7 @@ export class CreateNewCustomerComponent implements OnInit , OnDestroy {
         this.spocFirstName.reset('')
         this.spocLastName.reset('')
         this.location.reset('')
-        this.email.reset('')
+        this.emailId.reset('')
         this.contactNumber.reset('')
        
       

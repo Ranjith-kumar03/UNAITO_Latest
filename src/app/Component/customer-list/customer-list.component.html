@@ -12,29 +12,25 @@
         </tr>
     </thead>
     <tbody>
+        <ng-container *ngIf="customerListTable.length>0; then thenCondition else elseCondition"></ng-container>
+        <ng-template #thenCondition>
+            <tr class="clickable" *ngFor="let item of customerListTable | filter:searchString">
+                <!-- https://www.positronx.io/build-dynamic-html-table-in-angular-with-ngfor/ 
+                [routerLink]="['/projectdetailsDashboard/', item.SL_NO]"
+            -->
 
-        <tr class="clickable" *ngFor="let item of customerListTable" [routerLink]="['/projectdetailsDashboard/', item.SL_NO]">
-            <!-- https://www.positronx.io/build-dynamic-html-table-in-angular-with-ngfor/ -->
-            
-                <td>{{item.SL_NO}}</td>
-                <td>{{item.CUSTOMERNAME}}</td>
-                <td>{{item.LOCATION}}</td>
-                <td>{{item.SPOCNAME}}</td>
-                <td>{{item.EMAIL}}</td>
-                <td>{{item.CONTACT_NO}}</td>
-                <td>{{item.LASTUPDATEDON}}</td>
-           
-        </tr>
-        <!-- <tr>
-            <td>avantor - cloud readlines Assessment</td>
-            <td>avantor</td>
+                <td>{{item.customerId}}</td>
+                <td>{{item.customerName}}</td>
+                <td>{{item.location}}</td>
+                <td>{{item.spocFirstName}}</td>
+                <td>{{item.emailId}}</td>
+                <td>{{item.contactNumber}}</td>
+                <td>{{item.isActive}}</td>
 
-        </tr>
-        <tr>
-            <td>avantor - cloud readlines Assessment</td>
-            <td>avantor</td>
-
-        </tr> -->
+            </tr>
+        </ng-template>
+        <ng-template #elseCondition>
+            No Customers Added For Display
+        </ng-template>
     </tbody>
 </table>
-
